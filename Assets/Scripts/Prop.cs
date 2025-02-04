@@ -1,0 +1,31 @@
+using System;
+using UnityEngine;
+
+public class Prop : MonoBehaviour
+{
+    public BoxCollider propCollider;
+
+    public Vector3 propSize;
+
+    private void Awake()
+    {
+        propCollider = GetComponent<BoxCollider>();
+
+        if (propCollider == null)
+        {
+            propCollider = GetComponentInChildren<BoxCollider>();
+        }
+
+        CalculatePropSize();
+    }
+
+    public void SetPosition(Vector3 pos)
+    {
+        transform.position = pos;
+    }
+
+    private void CalculatePropSize()
+    {
+        propSize = propCollider.size;
+    }
+}
