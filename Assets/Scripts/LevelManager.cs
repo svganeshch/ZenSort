@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
 
     public void GenerateLevel()
     {
+        GameManager.currentGameState = GameState.Active;
+
         numberOfProps = GetNumberOfProps(currentLevel);
         levelProps = GameManager.instance.propManager.GenerateProps(numberOfProps);
         GameManager.instance.shelfManager.StockShelfs(levelProps);

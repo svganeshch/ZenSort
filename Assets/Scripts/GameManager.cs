@@ -4,6 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public static GameState currentGameState;
+
     [HideInInspector] public LevelManager levelManager;
     [HideInInspector] public PropManager propManager;
     [HideInInspector] public ShelfManager shelfManager;

@@ -20,6 +20,11 @@ public class Prop : MonoBehaviour
         CalculatePropSize();
     }
 
+    public void OnPicked()
+    {
+        Debug.Log(gameObject.name + " is picked!!");
+    }
+
     public void SetPosition(Vector3 pos)
     {
         transform.position = pos;
