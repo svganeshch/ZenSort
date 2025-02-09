@@ -5,6 +5,7 @@ public class PropManager : MonoBehaviour
 {
     public GameObject[] propPrefabs;
 
+    [SerializeField]
     private List<Prop> generatedProps = new List<Prop>();
 
     public List<Prop> GenerateProps(int numberOfProps)
@@ -13,9 +14,11 @@ public class PropManager : MonoBehaviour
 
         for (int i = 0; i < propPairs; i++)
         {
+            GameObject propPrefab = propPrefabs[Random.Range(0, propPrefabs.Length)];
+            
             for (int j = 0; j < 3; j++)
             {
-                GameObject propObj = Instantiate(propPrefabs[Random.Range(0, propPrefabs.Length)]);
+                GameObject propObj = Instantiate(propPrefab);
                 Prop prop = propObj.GetComponent<Prop>();
 
                 generatedProps.Add(prop);
