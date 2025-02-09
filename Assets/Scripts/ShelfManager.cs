@@ -15,25 +15,12 @@ public class ShelfManager : MonoBehaviour
         List<Prop> remainingProps = new List<Prop>(origPropList);
         remainingProps.Sort((a, b) => b.propCollider.bounds.size.x.CompareTo(a.propCollider.bounds.size.x));
 
-        foreach (var shelf in shelfGrids)
+        while (remainingProps.Count > 0)
         {
-            List<Prop> placedProps = new List<Prop>();
-
-            foreach (var prop in remainingProps)
+            foreach (var shelf in shelfGrids)
             {
-                if (shelf.SetProp(prop))
-                {
-                    placedProps.Add(prop);
-                }
-            }
-
-            foreach (var prop in placedProps)
-            {
-                remainingProps.Remove(prop);
+                remainingProps = shelf.SetProps(remainingProps);
             }
         }
-
-        origPropList.Clear();
-        origPropList.AddRange(remainingProps);
     }
 }

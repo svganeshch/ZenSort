@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[Serializable]
 public class Prop : MonoBehaviour
 {
     public BoxCollider propCollider;
