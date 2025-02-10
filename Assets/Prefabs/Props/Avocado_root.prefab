@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2775868694341582654}
   - component: {fileID: 4417374589115933422}
+  - component: {fileID: 7634128155769752816}
   m_Layer: 15
   m_Name: Avocado_root
   m_TagString: Untagged
@@ -46,7 +47,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propCollider: {fileID: 0}
+  material: {fileID: 0}
   propSize: {x: 0, y: 0, z: 0}
+--- !u!65 &7634128155769752816
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073238128787726630}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.15904191, y: 0.24796203, z: 0.11041439}
+  m_Center: {x: 0.0071821846, y: 0.12676111, z: 0.0022977926}
 --- !u!1 &7265723717808865684
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +81,6 @@ GameObject:
   - component: {fileID: 6684359871480445898}
   - component: {fileID: 479615204755874397}
   - component: {fileID: 1456089503804113175}
-  - component: {fileID: 691399146215282168}
   m_Layer: 15
   m_Name: Avocado
   m_TagString: Untagged
@@ -134,24 +156,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &691399146215282168
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7265723717808865684}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.15904191, y: 0.24796203, z: 0.11041439}
-  m_Center: {x: 0.0071821846, y: 0.12676111, z: 0.0022977926}

@@ -46,6 +46,8 @@ public class Prop : MonoBehaviour
     public void OnPicked()
     {
         GameManager.instance.slotManager.EnqueueProp(this);
+        transform.localScale = transform.localScale / 2;
+
         Debug.Log(gameObject.name + " is picked!!");
     }
 
