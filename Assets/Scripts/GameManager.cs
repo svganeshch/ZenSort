@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public LevelManager levelManager;
     [HideInInspector] public PropManager propManager;
     [HideInInspector] public ShelfManager shelfManager;
+    [HideInInspector] public SlotManager slotManager;
 
     private void Awake()
     {
@@ -21,5 +22,6 @@ public class GameManager : MonoBehaviour
         propManager = GetComponentInChildren<PropManager>();
 
         shelfManager = FindFirstObjectByType<ShelfManager>();
+        slotManager = FindFirstObjectByType<SlotManager>();
     }
 }

@@ -7,6 +7,7 @@ public class Prop : MonoBehaviour
     private MeshRenderer meshRenderer;
     public BoxCollider propCollider;
 
+    [HideInInspector] public Material material;
     public Vector3 propSize;
 
     private void Awake()
@@ -24,6 +25,7 @@ public class Prop : MonoBehaviour
             propCollider = GetComponentInChildren<BoxCollider>();
         }
 
+        material = meshRenderer.material;
         propSize = propCollider.size;
     }
 
@@ -31,11 +33,11 @@ public class Prop : MonoBehaviour
     {
         if (state)
         {
-            meshRenderer.material.color = Color.white;
+            material.color = Color.white;
         }
         else
         {
-            meshRenderer.material.color = Color.gray;
+            material.color = Color.gray;
 
             Debug.Log("Setting disabled color for : " + gameObject.name);
         }
@@ -43,6 +45,7 @@ public class Prop : MonoBehaviour
 
     public void OnPicked()
     {
+        GameManager.instance.slotManager.EnqueueProp(this);
         Debug.Log(gameObject.name + " is picked!!");
     }
 
