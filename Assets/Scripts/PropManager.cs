@@ -19,6 +19,8 @@ public class PropManager : MonoBehaviour
             for (int j = 0; j < 3; j++)
             {
                 GameObject propObj = Instantiate(propPrefab);
+                propObj.transform.parent = transform;
+
                 Prop prop = propObj.GetComponent<Prop>();
 
                 generatedProps.Add(prop);

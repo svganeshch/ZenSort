@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3261073981092468888}
   - component: {fileID: 8370130032445024527}
   - component: {fileID: 5448018828700879985}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BobaTea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

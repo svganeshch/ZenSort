@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 985828433827772739}
   - component: {fileID: 2623639520679487817}
   - component: {fileID: 3457107896305367885}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Asparagus
   m_TagString: Untagged
   m_Icon: {fileID: 0}

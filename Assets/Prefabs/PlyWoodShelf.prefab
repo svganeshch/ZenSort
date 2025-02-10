@@ -166,7 +166,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shelfPaddingX: 0.1
   shelfPaddingZ: 0.25
-  shelfPropList: []
+  propLayerMask:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!65 &2731101752882293453
 BoxCollider:
   m_ObjectHideFlags: 0

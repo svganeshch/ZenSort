@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 215109509375235428}
   - component: {fileID: 1958979658636680466}
   - component: {fileID: 3502089804258929373}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Bottle_Milk
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2775868694341582654}
   - component: {fileID: 4417374589115933422}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Avocado_root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d397bce08d1d934da8d68e1b638f718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  propCollider: {fileID: 0}
   propSize: {x: 0, y: 0, z: 0}
 --- !u!1 &7265723717808865684
 GameObject:
@@ -58,7 +59,7 @@ GameObject:
   - component: {fileID: 479615204755874397}
   - component: {fileID: 1456089503804113175}
   - component: {fileID: 691399146215282168}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Avocado
   m_TagString: Untagged
   m_Icon: {fileID: 0}

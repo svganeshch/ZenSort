@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3836653304404001291}
   - component: {fileID: 6386207203302942036}
   - component: {fileID: 6634223469172675334}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Brinjal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d397bce08d1d934da8d68e1b638f718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  propCollider: {fileID: 0}
   propSize: {x: 0, y: 0, z: 0}
 --- !u!33 &3836653304404001291
 MeshFilter:
