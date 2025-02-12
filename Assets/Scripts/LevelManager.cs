@@ -6,6 +6,9 @@ public class LevelManager : MonoBehaviour
     public int currentLevel = 1;
 
     public int numberOfProps = 0;
+
+    public List<GameObject> shelfLayouts = new List<GameObject>();
+
     private List<Prop> levelProps = new List<Prop>();
 
     private void Start()
@@ -17,9 +20,13 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.currentGameState = GameState.Active;
 
+        GameObject levelShelfLayoutPrefab = shelfLayouts[Random.Range(0, shelfLayouts.Count)];
+        GameObject levelShelfLayoutObj = Instantiate(levelShelfLayoutPrefab, transform);
+        levelShelfLayoutObj.TryGetComponent<ShelfManager>(out ShelfManager shelfManager);
+
         numberOfProps = GetNumberOfProps(currentLevel);
         levelProps = GameManager.instance.propManager.GenerateProps(numberOfProps);
-        GameManager.instance.shelfManager.StockShelfs(levelProps);
+        shelfManager.StockShelfs(levelProps);
     }
 
     int GetNumberOfProps(int levelNumber)

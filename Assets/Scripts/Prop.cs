@@ -54,8 +54,6 @@ public class Prop : MonoBehaviour
         GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
         transform.localScale = transform.localScale / 2;
 
-        transform.DOScale(transform.localScale / 2, 0.75f);
-
         Debug.Log(gameObject.name + " is picked!!");
     }
 

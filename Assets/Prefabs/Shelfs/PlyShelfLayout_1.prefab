@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4898516661954229930}
-  - component: {fileID: 772469978295496618}
   m_Layer: 0
   m_Name: Shelfs
   m_TagString: Untagged
@@ -35,18 +34,6 @@ Transform:
   - {fileID: 7983101174965135738}
   m_Father: {fileID: 733290815257401073}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &772469978295496618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249790294718591741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e9dd20fb2c221a4a9f1a24594c33339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6314567415584872806
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,6 +43,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 733290815257401073}
+  - component: {fileID: 2519372254281655798}
   m_Layer: 0
   m_Name: PlyShelfLayout_1
   m_TagString: Untagged
@@ -81,6 +69,18 @@ Transform:
   - {fileID: 2206660320224128525}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2519372254281655798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6314567415584872806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9dd20fb2c221a4a9f1a24594c33339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &476022800961238748
 PrefabInstance:
   m_ObjectHideFlags: 0

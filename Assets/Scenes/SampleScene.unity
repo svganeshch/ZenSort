@@ -212,7 +212,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   propManager: {fileID: 0}
-  shelfManager: {fileID: 0}
   slotManager: {fileID: 0}
 --- !u!4 &133631275
 Transform:
@@ -1182,6 +1181,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 10
   numberOfProps: 0
+  shelfLayouts:
+  - {fileID: 6314567415584872806, guid: 772a337b74113d148956bcaecc5034b1, type: 3}
+  - {fileID: 8854164531245395537, guid: 47f58e01ed4bbfa4ca47b1f66a74aa12, type: 3}
+  - {fileID: 2396108906617537578, guid: c82f3ccefcaf7ef41abf45c6a2f301c5, type: 3}
+  - {fileID: 582242195427113944, guid: 9733c4aae56e7d642a504e4d3cdae0a8, type: 3}
+  - {fileID: 4775139885479963374, guid: 441f5404980f3db418328087924837ed, type: 3}
+  - {fileID: 3861178967700156173, guid: cd8270951c4c1fc4b9931340c48c149d, type: 3}
 --- !u!4 &1587940363
 Transform:
   m_ObjectHideFlags: 0
