@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShelfGrid : MonoBehaviour
@@ -55,17 +56,13 @@ public class ShelfGrid : MonoBehaviour
                 currentShelfPosZ = propDepth + (shelfPaddingZ - currentLayer) * 0.1f;
 
                 Vector3 propPos = new Vector3(currentShelfPosX + (propWidth / 2), propY, currentShelfPosZ);
-                prop.SetPosition(propPos);
-
-                currentShelfPosX += propWidth + shelfPaddingX;
 
                 currentPlacedProps.Add(prop);
                 allProps.Remove(prop);
 
-                if (currentLayer > 0)
-                {
-                    prop.SetPropState(false);
-                }
+                SetProp(prop, propPos);
+
+                currentShelfPosX += propWidth + shelfPaddingX;
             }
         }
 
@@ -82,6 +79,7 @@ public class ShelfGrid : MonoBehaviour
     public List<Prop> TryFitInGaps(List<Prop> propsToFit)
     {
         var currentLayerProps = shelfPropList[currentLayer];
+        var remainingProps = new List<Prop>(propsToFit);
 
         for (int i = 0; i < currentLayerProps.Count - 1; i++)
         {
@@ -89,26 +87,23 @@ public class ShelfGrid : MonoBehaviour
             float gapEnd = currentLayerProps[i + 1].transform.position.x - (currentLayerProps[i + 1].propSize.x / 2);
             float availableSpace = gapEnd - gapStart;
 
-            for (int j = 0; j < propsToFit.Count; j++)
+            for (int j = 0; j < remainingProps.Count; j++)
             {
-                Prop prop = propsToFit[j];
+                Prop prop = remainingProps[j];
 
                 if (prop.propSize.x <= availableSpace)
                 {
                     float propY = shelfY + (prop.propSize.y / 2) - prop.propCollider.center.y;
                     float propZ = currentShelfPosZ;
-                    float propX = gapStart + (availableSpace / 2);
+                    float propX = gapStart + (prop.propSize.x / 2);
 
                     Vector3 propPos = new Vector3(propX, propY, propZ);
-                    prop.SetPosition(propPos);
 
                     shelfPropList[currentLayer].Add(prop);
-                    propsToFit.RemoveAt(j);
+                    propsToFit.Remove(prop);
+                    remainingProps.RemoveAt(j);
 
-                    if (currentLayer > 0)
-                    {
-                        prop.SetPropState(false);
-                    }
+                    SetProp(prop, propPos);
 
                     break;
                 }
@@ -118,9 +113,20 @@ public class ShelfGrid : MonoBehaviour
         return propsToFit;
     }
 
-    public void UpdatePropsState()
+    private void SetProp(Prop prop, Vector3 propPos)
     {
-        for (int i = shelfPropList.Count - 1; i >= 1; i--)
+        prop.shelfGrid = this;
+        prop.propLayer = currentLayer;
+        prop.SetPosition(propPos);
+
+        if (currentLayer > 0)
+        {
+            prop.SetPropState(false);
+        }
+    }
+    public void UpdatePropsState(int propLayer)
+    {
+        for (int i = propLayer; i < shelfPropList.Count; i++)
         {
             var propList = shelfPropList[i];
 
@@ -130,22 +136,13 @@ public class ShelfGrid : MonoBehaviour
                 Vector3 propCenter = prop.propCollider.bounds.center;
 
                 Vector3 propFrontPos = propCenter + prop.transform.forward * (propSize.z / 2);
-
                 Vector3 overlapBoxSize = new Vector3(propSize.x, propSize.y, 0.05f);
 
                 Collider[] colliders = Physics.OverlapBox(propFrontPos, overlapBoxSize / 2, prop.transform.rotation, propLayerMask);
 
-                Collider col = colliders[0];
-                if (col != null)
-                {
-                    col.gameObject.TryGetComponent<Prop>(out Prop propCol);
+                bool isBlocked = colliders.Any(c => c != prop.propCollider);
 
-                    if (propCol != null)
-                    {
-                        propCol.SetPropState(false);
-                        Debug.Log($"Prop {prop.name} overlaps with {col.name}");
-                    }
-                }
+                prop.SetPropState(!isBlocked);
             }
         }
     }

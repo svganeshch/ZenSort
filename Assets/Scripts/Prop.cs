@@ -5,10 +5,13 @@ using UnityEngine;
 public class Prop : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
-    public BoxCollider propCollider;
 
-    [HideInInspector] public Material material;
+    public BoxCollider propCollider;
+    public Material material;
     public Vector3 propSize;
+
+    public int propLayer = 0;
+    public ShelfGrid shelfGrid;
 
     private void Awake()
     {
@@ -45,10 +48,15 @@ public class Prop : MonoBehaviour
 
     public void OnPicked()
     {
-        GameManager.instance.slotManager.EnqueueProp(this);
+        GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
         transform.localScale = transform.localScale / 2;
 
         Debug.Log(gameObject.name + " is picked!!");
+    }
+
+    private void OnPropQueueComplete()
+    {
+        shelfGrid.UpdatePropsState(propLayer + 1);
     }
 
     public void SetPosition(Vector3 pos)
