@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ using UnityEngine;
 public class Prop : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
+
+    public Vector3 propPos;
 
     public BoxCollider propCollider;
     public Material material;
@@ -56,11 +59,14 @@ public class Prop : MonoBehaviour
 
     private void OnPropQueueComplete()
     {
-        shelfGrid.UpdatePropsState(propLayer + 1);
+        shelfGrid.UpdatePropsState(this);
     }
 
     public void SetPosition(Vector3 pos)
     {
-        transform.position = pos;
+        propPos = pos;
+        //transform.position = pos;
+
+        transform.DOMove(pos, 0.5f).SetEase(Ease.InQuad);
     }
 }
