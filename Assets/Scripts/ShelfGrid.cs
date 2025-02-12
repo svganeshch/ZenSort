@@ -185,6 +185,8 @@ public class ShelfGrid : MonoBehaviour
             {
                 Gizmos.color = Color.blue;
 
+                if (prop == null) continue;
+
                 Vector3 propSize = prop.propCollider.size;
                 Vector3 propCenter = prop.propCollider.bounds.center;
 
