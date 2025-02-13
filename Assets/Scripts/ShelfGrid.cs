@@ -8,7 +8,7 @@ public class ShelfGrid : MonoBehaviour
     BoxCollider shelfCollider;
 
     public float shelfPaddingX = 0.1f;
-    public float shelfPaddingZ = -0.35f;
+    private float shelfPaddingZ = 0.15f;
 
     public LayerMask propLayerMask;
 
@@ -31,7 +31,7 @@ public class ShelfGrid : MonoBehaviour
         shelfRight = shelfCollider.bounds.max.x;
 
         shelfY = shelfCollider.bounds.max.y;
-        shelfZ = shelfCollider.bounds.center.z;
+        shelfZ = shelfCollider.bounds.size.z;
 
         currentShelfPosX = shelfLeft;
         currentShelfPosZ = shelfZ;
@@ -49,11 +49,11 @@ public class ShelfGrid : MonoBehaviour
         {
             float propWidth = prop.propSize.x;
             float propY = shelfY + (prop.propSize.y / 2) - prop.propCollider.center.y;
-            float propDepth = shelfZ + (prop.propSize.z / 2);
+            float propDepth = shelfZ;
 
             if (currentShelfPosX + propWidth <= shelfRight)
             {
-                currentShelfPosZ = propDepth + (shelfPaddingZ - currentLayer) * 0.1f;
+                currentShelfPosZ = shelfZ - (currentLayer * shelfPaddingZ);
 
                 Vector3 propPos = new Vector3(currentShelfPosX + (propWidth / 2), propY, currentShelfPosZ);
 
@@ -158,7 +158,7 @@ public class ShelfGrid : MonoBehaviour
                 else if (pickedProp !=  null)
                 {
                     shelfPropList[i].Remove(prop);
-                    shelfPropList[pickedProp.propLayer].Add(prop);
+                    shelfPropList[i - 1].Add(prop);
 
                     prop.SetPropState(true);
                     ShiftPropTween(prop, pickedProp.propPos);
