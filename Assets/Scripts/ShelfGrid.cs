@@ -117,17 +117,19 @@ public class ShelfGrid : MonoBehaviour
     {
         prop.shelfGrid = this;
         prop.propLayer = currentLayer;
-        prop.SetPosition(propPos);
 
-        if (currentLayer > 0)
-        {
-            prop.SetPropState(false);
-        }
+        Tween setPosTween = prop.SetPositionTween(propPos);
+        setPosTween.OnComplete(() => UpdatePropsState());
     }
 
-    public void UpdatePropsState(Prop pickedProp)
+    public void UpdatePropsState(Prop pickedProp = null)
     {
-        int propLayer = pickedProp.propLayer + 1;
+        int propLayer = 0;
+
+        if (pickedProp != null)
+        {
+            propLayer = pickedProp.propLayer + 1;
+        }
 
         for (int i = propLayer; i < shelfPropList.Count; i++)
         {
@@ -153,13 +155,17 @@ public class ShelfGrid : MonoBehaviour
                 {
                     prop.SetPropState(false);
                 }
-                else
+                else if (pickedProp !=  null)
                 {
                     shelfPropList[i].Remove(prop);
                     shelfPropList[pickedProp.propLayer].Add(prop);
 
                     prop.SetPropState(true);
                     ShiftPropTween(prop, pickedProp.propPos);
+                }
+                else
+                {
+                    prop.SetPropState(true);
                 }
             }
         }
@@ -169,15 +175,15 @@ public class ShelfGrid : MonoBehaviour
     {
         shiftPos = new Vector3(prop.transform.position.x, prop.transform.position.y, shiftPos.z);
 
-        prop.transform.DOMove(shiftPos, 0.5f).SetEase(Ease.InQuad)
-            .OnComplete(() => prop.SetPosition(shiftPos));
+        prop.transform.DOMove(shiftPos, 0.25f).SetEase(Ease.InQuad)
+            .OnComplete(() => prop.SetPositionTween(shiftPos));
     }
 
     void OnDrawGizmos()
     {
         if (!Application.isPlaying) return;
 
-        for (int i = 1; i < shelfPropList.Count; i++)
+        for (int i = 0; i < shelfPropList.Count; i++)
         {
             var currentLayerPropList = shelfPropList[i];
 

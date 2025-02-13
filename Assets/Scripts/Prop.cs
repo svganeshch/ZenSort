@@ -16,6 +16,8 @@ public class Prop : MonoBehaviour
     public int propLayer = 0;
     public ShelfGrid shelfGrid;
 
+    private bool propState = false;
+
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -47,10 +49,14 @@ public class Prop : MonoBehaviour
 
             Debug.Log("Setting disabled color for : " + gameObject.name);
         }
+
+        propState = state;
     }
 
     public void OnPicked()
     {
+        if (!propState) return;
+
         GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
         transform.localScale = transform.localScale / 2;
 
@@ -62,11 +68,13 @@ public class Prop : MonoBehaviour
         shelfGrid.UpdatePropsState(this);
     }
 
-    public void SetPosition(Vector3 pos)
+    public Tween SetPositionTween(Vector3 pos)
     {
         propPos = pos;
         //transform.position = pos;
 
-        transform.DOMove(pos, 0.5f).SetEase(Ease.InQuad);
+        Tween moveTween = transform.DOMove(pos, 0.5f).SetEase(Ease.InQuad);
+
+        return moveTween;
     }
 }

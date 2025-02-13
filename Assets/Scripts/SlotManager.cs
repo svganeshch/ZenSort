@@ -191,7 +191,9 @@ public class SlotManager : MonoBehaviour
     {
         foreach (int matchingIndex in matchingSlotIndexs)
         {
-            Destroy(slots[matchingIndex].slotProp.gameObject);
+            //Destroy(slots[matchingIndex].slotProp.gameObject);
+
+            slots[matchingIndex].slotProp.gameObject.SetActive(false);
             slots[matchingIndex].slotProp = null;
 
             //slots[matchingIndex].slotVFX.Play();
