@@ -120,6 +120,9 @@ public class ShelfGrid : MonoBehaviour
 
         Tween setPosTween = prop.SetPositionTween(propPos);
         setPosTween.OnComplete(() => UpdatePropsState());
+
+        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, Vector3.up);
+        prop.transform.rotation = targetRotation;
     }
 
     public void UpdatePropsState(Prop pickedProp = null)
