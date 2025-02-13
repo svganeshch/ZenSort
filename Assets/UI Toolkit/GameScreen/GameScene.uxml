@@ -1,0 +1,31 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/GameScreen/StyleSheet.uss?fileID=7433441132597879392&amp;guid=af09a474bc204ef4aab1b8c4b710531c&amp;type=3#StyleSheet" />
+    <engine:VisualElement name="Header_Container" style="flex-grow: 1; flex-direction: row; align-items: flex-start; justify-content: flex-start; align-self: auto; align-content: auto;">
+        <engine:Button text="Next" name="NextButton" style="height: 100px; width: 100px; visibility: visible;" />
+        <engine:VisualElement name="Level_Title_Container" style="flex-grow: 1; align-items: auto; align-content: auto; flex-direction: row; align-self: auto; justify-content: flex-start;">
+            <engine:Label text="Level" name="LevelLabel" style="font-size: 72px; color: rgb(255, 255, 255);" />
+            <engine:Label text="00" name="level" style="font-size: 72px; color: rgb(255, 255, 255);" />
+        </engine:VisualElement>
+        <engine:VisualElement name="FPS_Container" style="flex-grow: 1; align-items: auto; align-content: auto; flex-direction: row; align-self: auto; justify-content: flex-end;">
+            <engine:Label text="FPS" name="FpsLabel" style="font-size: 72px; color: rgb(255, 255, 255);" />
+            <engine:Label text="00" name="fps_counter" style="font-size: 72px; color: rgb(255, 255, 255);" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:VisualElement name="Boosters_Container" style="flex-direction: row; flex-shrink: 1; align-items: center; justify-content: space-evenly; align-self: auto; align-content: auto; bottom: 50px; position: relative;">
+        <engine:Button name="UndoButton" class="booster-button">
+            <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Btn-Circle-GreenSmall.png?fileID=2800000&amp;guid=cdf77fe3a8800ec4a82202c62191461d&amp;type=3#Btn-Circle-GreenSmall&quot;); width: auto; height: auto; align-items: auto; justify-content: flex-start; align-self: auto; align-content: auto; background-size: 100% 100%; -unity-background-image-tint-color: rgb(255, 255, 255); rotate: 0; flex-wrap: nowrap; flex-direction: column-reverse;">
+                <engine:VisualElement name="Image" style="flex-grow: 1; flex-shrink: 0; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Icon-GameUndo.png?fileID=2800000&amp;guid=22991004ba0370f43af508a8166cea2e&amp;type=3#Icon-GameUndo&quot;); width: 150px; align-self: center; background-size: 80% 80%;" />
+            </engine:VisualElement>
+        </engine:Button>
+        <engine:Button name="MagnetButton" class="booster-button" style="flex-direction: column-reverse; flex-grow: 0;">
+            <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Btn-Circle-GreenSmall.png?fileID=2800000&amp;guid=cdf77fe3a8800ec4a82202c62191461d&amp;type=3#Btn-Circle-GreenSmall&quot;); width: auto; height: auto; align-items: auto; justify-content: flex-start; align-self: auto; align-content: auto; background-size: 100% 100%; flex-shrink: 0;">
+                <engine:VisualElement name="Image" style="flex-grow: 1; flex-shrink: 0; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Icon-Magnet.png?fileID=2800000&amp;guid=3686945eec5774440b1ae10e4365c8c5&amp;type=3#Icon-Magnet&quot;); width: 150px; align-self: center; background-size: 90% 90%;" />
+            </engine:VisualElement>
+        </engine:Button>
+        <engine:Button name="ShuffleButton" class="booster-button">
+            <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Btn-Circle-GreenSmall.png?fileID=2800000&amp;guid=cdf77fe3a8800ec4a82202c62191461d&amp;type=3#Btn-Circle-GreenSmall&quot;); width: auto; height: auto; align-items: auto; justify-content: flex-start; align-self: auto; align-content: auto; background-size: 100% 100%;">
+                <engine:VisualElement name="Image" style="flex-grow: 1; flex-shrink: 0; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Icon-GameShuffle.png?fileID=2800000&amp;guid=61c7033d3e4e82f40972e4564e8014d3&amp;type=3#Icon-GameShuffle&quot;); width: 150px; align-self: center; background-size: 80% 80%;" />
+            </engine:VisualElement>
+        </engine:Button>
+    </engine:VisualElement>
+</engine:UXML>
