@@ -9,6 +9,7 @@ public class ShelfGrid : MonoBehaviour
 
     public float shelfPaddingX = 0.1f;
     private float shelfPaddingZ = 0.15f;
+    private float propOverlapBoxDepth = 0.2f;
 
     public LayerMask propLayerMask;
 
@@ -21,6 +22,7 @@ public class ShelfGrid : MonoBehaviour
 
     int currentLayer = 0;
 
+    private List<Prop> propsMovedInPreviousPick = new List<Prop>();
     public List<List<Prop>> shelfPropList = new List<List<Prop>>();
 
     private void Awake()
@@ -127,6 +129,8 @@ public class ShelfGrid : MonoBehaviour
 
     public void UpdatePropsState(Prop pickedProp = null)
     {
+        propsMovedInPreviousPick.Clear();
+
         int propLayer = 0;
 
         if (pickedProp != null)
@@ -145,7 +149,17 @@ public class ShelfGrid : MonoBehaviour
                 Vector3 propSize = prop.propCollider.bounds.size;
                 Vector3 propCenter = prop.propCollider.bounds.center;
 
-                Vector3 overlapBoxSize = new Vector3(propSize.x, propSize.y, 0.5f);
+                //Physics.Raycast(prop.transform.position, prop.transform.forward, out RaycastHit hitInfo, propLayerMask);
+
+                //if (hitInfo.collider != null)
+                //{
+                //    var distance = Vector3.Distance(prop.transform.position, hitInfo.collider.transform.position);
+                //    propOverlapBoxDepth = distance;
+
+                //    Debug.Log("Distance to forward prop : " +  distance);
+                //}
+
+                Vector3 overlapBoxSize = new Vector3(propSize.x, propSize.y, propOverlapBoxDepth);
 
                 Vector3 frontOffset = prop.transform.forward * (propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
                 Vector3 overlapBoxPos = propCenter + frontOffset;
@@ -158,13 +172,13 @@ public class ShelfGrid : MonoBehaviour
                 {
                     prop.SetPropState(false);
                 }
-                else if (pickedProp !=  null)
+                else if (pickedProp != null)
                 {
                     shelfPropList[i].Remove(prop);
                     shelfPropList[i - 1].Add(prop);
 
                     prop.SetPropState(true);
-                    ShiftPropTween(prop, pickedProp.propPos);
+                    ShiftPropTween(prop, pickedProp.origPropPos);
                 }
                 else
                 {
@@ -176,10 +190,24 @@ public class ShelfGrid : MonoBehaviour
 
     private void ShiftPropTween(Prop prop, Vector3 shiftPos)
     {
-        shiftPos = new Vector3(prop.transform.position.x, prop.transform.position.y, shiftPos.z);
+        propsMovedInPreviousPick.Add(prop);
 
-        prop.transform.DOMove(shiftPos, 0.25f).SetEase(Ease.InQuad)
-            .OnComplete(() => prop.SetPositionTween(shiftPos));
+        shiftPos = new Vector3(prop.transform.position.x, prop.transform.position.y, prop.transform.position.z + shelfPaddingZ);
+
+        prop.transform.DOMove(shiftPos, 0.25f).SetEase(Ease.InQuad);
+    }
+
+    public void OnPropUndo(Prop prop)
+    {
+        shelfPropList[prop.propLayer].Add(prop);
+
+        foreach (var previousProp in propsMovedInPreviousPick)
+        {
+           Tween moveTween = previousProp.SetPositionTween(previousProp.origPropPos);
+            moveTween.OnComplete(() => UpdatePropsState());
+        }
+
+        propsMovedInPreviousPick.Clear();
     }
 
     void OnDrawGizmos()
@@ -199,7 +227,7 @@ public class ShelfGrid : MonoBehaviour
                 Vector3 propSize = prop.propCollider.size;
                 Vector3 propCenter = prop.propCollider.bounds.center;
 
-                Vector3 overlapBoxSize = new Vector3(propSize.x, propSize.y, 0.5f);
+                Vector3 overlapBoxSize = new Vector3(propSize.x, propSize.y, propOverlapBoxDepth);
 
                 Vector3 frontOffset = prop.transform.forward * (propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
                 Vector3 overlapBoxPos = propCenter + frontOffset;

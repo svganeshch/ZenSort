@@ -7,7 +7,8 @@ public class Prop : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
 
-    public Vector3 propPos;
+    public Vector3 origPropPos;
+    public Vector3 origPropScale;
 
     public BoxCollider propCollider;
     public Material material;
@@ -35,6 +36,8 @@ public class Prop : MonoBehaviour
 
         material = meshRenderer.material;
         propSize = propCollider.size;
+
+        origPropScale = transform.localScale;
     }
 
     public void SetPropState(bool state)
@@ -57,6 +60,8 @@ public class Prop : MonoBehaviour
     {
         if (!propState) return;
 
+        BoosterManager.previousPickedProp = this;
+
         GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
         transform.localScale = transform.localScale / 2;
 
@@ -68,9 +73,22 @@ public class Prop : MonoBehaviour
         shelfGrid.UpdatePropsState(this);
     }
 
+    public void PropUndo()
+    {
+        transform.parent = null;
+        //transform.SetPositionAndRotation(origPropPos, Quaternion.identity);
+        Tween moveTween = SetPositionTween(origPropPos);
+        transform.rotation = Quaternion.identity;
+        transform.localScale = origPropScale;
+
+        GameManager.instance.slotManager.ResetSlot(this);
+        
+        moveTween.OnComplete(() => shelfGrid.OnPropUndo(this));
+    }
+
     public Tween SetPositionTween(Vector3 pos)
     {
-        propPos = pos;
+        origPropPos = pos;
         //transform.position = pos;
 
         Tween moveTween = transform.DOMove(pos, 0.5f).SetEase(Ease.InQuad);
