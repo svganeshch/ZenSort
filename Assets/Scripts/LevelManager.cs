@@ -49,6 +49,13 @@ public class LevelManager : MonoBehaviour
         GenerateLevel();
     }
 
+    public IEnumerator ShuffleLevel()
+    {
+        yield return StartCoroutine(ClearLevel());
+
+        GenerateLevel();
+    }
+
     public IEnumerator ClearLevel()
     {
         DOTween.KillAll();

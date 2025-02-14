@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ShelfManager : MonoBehaviour
 {
-    ShelfGrid[] shelfGrids;
+    public ShelfGrid[] shelfGrids;
 
     private void Awake()
     {
