@@ -23,4 +23,24 @@ public class ShelfManager : MonoBehaviour
             }
         }
     }
+
+    public bool ClearGrids()
+    {
+        foreach (var shelfGrid in shelfGrids)
+        {
+            var shelfPropsList = new List<List<Prop>>(shelfGrid.shelfPropList);
+
+            foreach (var shelfLayers in shelfPropsList)
+            {
+                foreach (var prop in shelfLayers)
+                {
+                    Destroy(prop.gameObject);
+                }
+            }
+
+            shelfGrid.shelfPropList.Clear();
+        }
+
+        return true;
+    }
 }

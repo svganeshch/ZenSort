@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,14 +9,11 @@ public class LevelManager : MonoBehaviour
 
     public int numberOfProps = 0;
 
+    public ShelfManager shelfManager;
+
     public List<GameObject> shelfLayouts = new List<GameObject>();
 
     private List<Prop> levelProps = new List<Prop>();
-
-    private void Start()
-    {
-        GenerateLevel();
-    }
 
     public void GenerateLevel()
     {
@@ -22,7 +21,7 @@ public class LevelManager : MonoBehaviour
 
         GameObject levelShelfLayoutPrefab = shelfLayouts[Random.Range(0, shelfLayouts.Count)];
         GameObject levelShelfLayoutObj = Instantiate(levelShelfLayoutPrefab, transform);
-        levelShelfLayoutObj.TryGetComponent<ShelfManager>(out ShelfManager shelfManager);
+        levelShelfLayoutObj.TryGetComponent<ShelfManager>(out shelfManager);
 
         numberOfProps = GetNumberOfProps(currentLevel);
         levelProps = GameManager.instance.propManager.GenerateProps(numberOfProps);
@@ -42,5 +41,24 @@ public class LevelManager : MonoBehaviour
         }
 
         return calculatedProps;
+    }
+
+    public void GenerateNextLevel()
+    {
+        currentLevel++;
+        GenerateLevel();
+    }
+
+    public IEnumerator ClearLevel()
+    {
+        DOTween.KillAll();
+
+        bool shelfGridsCleared = shelfManager.ClearGrids();
+        bool slotsCleared = GameManager.instance.slotManager.ClearAllSlots();
+
+        Destroy(shelfManager.gameObject);
+        levelProps.Clear();
+
+        yield return new WaitUntil(() => shelfGridsCleared && slotsCleared);
     }
 }
