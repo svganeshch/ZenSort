@@ -212,7 +212,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
   propManager: {fileID: 0}
-  shelfManager: {fileID: 0}
   slotManager: {fileID: 0}
 --- !u!4 &133631275
 Transform:

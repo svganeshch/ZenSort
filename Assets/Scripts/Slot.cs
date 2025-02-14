@@ -13,9 +13,13 @@ public class Slot : MonoBehaviour
     private Prop prop;
     public Prop slotProp { get => prop; set => prop = value; }
 
+    private BoxCollider slotBoxCollider;
+
     private void Awake()
     {
         slotVFX = GetComponentInChildren<ParticleSystem>();
+
+        slotBoxCollider = GetComponent<BoxCollider>();
     }
 
     public Tween SetSlotPositionTween(Prop prop, bool isShift = false, Action OnCompleteCallback = null)
@@ -31,7 +35,11 @@ public class Slot : MonoBehaviour
 
         prop.transform.parent = transform;
 
-        Tween moveTween = prop.transform.DOMove(transform.position, transistionSpeed)
+        float propY = (slotBoxCollider.bounds.max.y + (prop.propSize.y / 2) - prop.propCollider.center.y) * 0.5f;
+
+        Vector3 targetPosition = new Vector3(transform.position.x, propY, transform.position.z);
+
+        Tween moveTween = prop.transform.DOMove(targetPosition, transistionSpeed)
                                 .SetEase(Ease.InQuad)
                                 .OnComplete(() => OnCompleteCallback?.Invoke());
 
