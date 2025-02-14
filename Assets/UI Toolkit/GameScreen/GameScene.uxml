@@ -11,7 +11,7 @@
             <engine:Label text="00" name="fps_counter" style="font-size: 72px; color: rgb(255, 255, 255);" />
         </engine:VisualElement>
     </engine:VisualElement>
-    <engine:VisualElement name="Boosters_Container" style="flex-direction: row; flex-shrink: 1; align-items: center; justify-content: space-evenly; align-self: auto; align-content: auto; bottom: 50px; position: relative;">
+    <engine:VisualElement name="Boosters_Container" style="flex-direction: row; flex-shrink: 1; align-items: center; justify-content: space-evenly; align-self: auto; align-content: auto; bottom: 10px; position: relative;">
         <engine:Button name="UndoButton" class="booster-button">
             <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Btn-Circle-GreenSmall.png?fileID=2800000&amp;guid=cdf77fe3a8800ec4a82202c62191461d&amp;type=3#Btn-Circle-GreenSmall&quot;); width: auto; height: auto; align-items: auto; justify-content: flex-start; align-self: auto; align-content: auto; background-size: 100% 100%; -unity-background-image-tint-color: rgb(255, 255, 255); rotate: 0; flex-wrap: nowrap; flex-direction: column-reverse;">
                 <engine:VisualElement name="Image" style="flex-grow: 1; flex-shrink: 0; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Icon-GameUndo.png?fileID=2800000&amp;guid=22991004ba0370f43af508a8166cea2e&amp;type=3#Icon-GameUndo&quot;); width: 150px; align-self: center; background-size: 80% 80%;" />
