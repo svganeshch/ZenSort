@@ -1,0 +1,3282 @@
+; FBX 7.7.0 project file
+; ----------------------------------------------------
+
+FBXHeaderExtension:  {
+	FBXHeaderVersion: 1004
+	FBXVersion: 7700
+	CreationTimeStamp:  {
+		Version: 1000
+		Year: 2025
+		Month: 2
+		Day: 16
+		Hour: 0
+		Minute: 19
+		Second: 53
+		Millisecond: 155
+	}
+	Creator: "FBX SDK/FBX Plugins version 2020.3.2"
+	OtherFlags:  {
+		TCDefinition: 127
+	}
+	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
+		Type: "UserData"
+		Version: 100
+		MetaData:  {
+			Version: 100
+			Title: "Created by FBX Exporter from Unity Technologies"
+			Subject: ""
+			Author: "Unity Technologies"
+			Keywords: "Nodes Meshes Materials Textures Cameras Lights Skins Animation"
+			Revision: "1.0"
+			Comment: ""
+		}
+		Properties70:  {
+			P: "DocumentUrl", "KString", "Url", "", "E:\Asset Extractor\Zen Sort\ExportedProject - Copy\Assets\FBX Exports\Compartments\jk7rxm1q_layout_plusminus_shape_c11.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "E:\Asset Extractor\Zen Sort\ExportedProject - Copy\Assets\FBX Exports\Compartments\jk7rxm1q_layout_plusminus_shape_c11.fbx"
+			P: "Original", "Compound", "", ""
+			P: "Original|ApplicationVendor", "KString", "", "", ""
+			P: "Original|ApplicationName", "KString", "", "", "Unity FBX Exporter"
+			P: "Original|ApplicationVersion", "KString", "", "", "4.2.1"
+			P: "Original|DateTime_GMT", "DateTime", "", "", ""
+			P: "Original|FileName", "KString", "", "", ""
+			P: "LastSaved", "Compound", "", ""
+			P: "LastSaved|ApplicationVendor", "KString", "", "", ""
+			P: "LastSaved|ApplicationName", "KString", "", "", "Unity FBX Exporter"
+			P: "LastSaved|ApplicationVersion", "KString", "", "", "4.2.1"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", ""
+		}
+	}
+}
+GlobalSettings:  {
+	Version: 1000
+	Properties70:  {
+		P: "UpAxis", "int", "Integer", "",1
+		P: "UpAxisSign", "int", "Integer", "",1
+		P: "FrontAxis", "int", "Integer", "",2
+		P: "FrontAxisSign", "int", "Integer", "",1
+		P: "CoordAxis", "int", "Integer", "",0
+		P: "CoordAxisSign", "int", "Integer", "",1
+		P: "OriginalUpAxis", "int", "Integer", "",-1
+		P: "OriginalUpAxisSign", "int", "Integer", "",1
+		P: "UnitScaleFactor", "double", "Number", "",1
+		P: "OriginalUnitScaleFactor", "double", "Number", "",1
+		P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
+		P: "DefaultCamera", "KString", "", "", "Producer Perspective"
+		P: "TimeMode", "enum", "", "",0
+		P: "TimeProtocol", "enum", "", "",2
+		P: "SnapOnFrameMode", "enum", "", "",0
+		P: "TimeSpanStart", "KTime", "Time", "",0
+		P: "TimeSpanStop", "KTime", "Time", "",46186158000
+		P: "CustomFrameRate", "double", "Number", "",-1
+		P: "TimeMarker", "Compound", "", ""
+		P: "CurrentTimeMarker", "int", "Integer", "",-1
+	}
+}
+
+; Documents Description
+;------------------------------------------------------------------
+
+Documents:  {
+	Count: 1
+	Document: 1501983039376, "Scene", "Scene" {
+		Properties70:  {
+			P: "SourceObject", "object", "", ""
+			P: "ActiveAnimStackName", "KString", "", "", ""
+		}
+		RootNode: 0
+	}
+}
+
+; Document References
+;------------------------------------------------------------------
+
+References:  {
+}
+
+; Object definitions
+;------------------------------------------------------------------
+
+Definitions:  {
+	Version: 100
+	Count: 141
+	ObjectType: "GlobalSettings" {
+		Count: 1
+	}
+	ObjectType: "Model" {
+		Count: 131
+		PropertyTemplate: "FbxNode" {
+			Properties70:  {
+				P: "QuaternionInterpolate", "enum", "", "",0
+				P: "RotationOffset", "Vector3D", "Vector", "",0,0,0
+				P: "RotationPivot", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingOffset", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingPivot", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationActive", "bool", "", "",0
+				P: "TranslationMin", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationMax", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationMinX", "bool", "", "",0
+				P: "TranslationMinY", "bool", "", "",0
+				P: "TranslationMinZ", "bool", "", "",0
+				P: "TranslationMaxX", "bool", "", "",0
+				P: "TranslationMaxY", "bool", "", "",0
+				P: "TranslationMaxZ", "bool", "", "",0
+				P: "RotationOrder", "enum", "", "",0
+				P: "RotationSpaceForLimitOnly", "bool", "", "",0
+				P: "RotationStiffnessX", "double", "Number", "",0
+				P: "RotationStiffnessY", "double", "Number", "",0
+				P: "RotationStiffnessZ", "double", "Number", "",0
+				P: "AxisLen", "double", "Number", "",10
+				P: "PreRotation", "Vector3D", "Vector", "",0,0,0
+				P: "PostRotation", "Vector3D", "Vector", "",0,0,0
+				P: "RotationActive", "bool", "", "",0
+				P: "RotationMin", "Vector3D", "Vector", "",0,0,0
+				P: "RotationMax", "Vector3D", "Vector", "",0,0,0
+				P: "RotationMinX", "bool", "", "",0
+				P: "RotationMinY", "bool", "", "",0
+				P: "RotationMinZ", "bool", "", "",0
+				P: "RotationMaxX", "bool", "", "",0
+				P: "RotationMaxY", "bool", "", "",0
+				P: "RotationMaxZ", "bool", "", "",0
+				P: "InheritType", "enum", "", "",0
+				P: "ScalingActive", "bool", "", "",0
+				P: "ScalingMin", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingMax", "Vector3D", "Vector", "",1,1,1
+				P: "ScalingMinX", "bool", "", "",0
+				P: "ScalingMinY", "bool", "", "",0
+				P: "ScalingMinZ", "bool", "", "",0
+				P: "ScalingMaxX", "bool", "", "",0
+				P: "ScalingMaxY", "bool", "", "",0
+				P: "ScalingMaxZ", "bool", "", "",0
+				P: "GeometricTranslation", "Vector3D", "Vector", "",0,0,0
+				P: "GeometricRotation", "Vector3D", "Vector", "",0,0,0
+				P: "GeometricScaling", "Vector3D", "Vector", "",1,1,1
+				P: "MinDampRangeX", "double", "Number", "",0
+				P: "MinDampRangeY", "double", "Number", "",0
+				P: "MinDampRangeZ", "double", "Number", "",0
+				P: "MaxDampRangeX", "double", "Number", "",0
+				P: "MaxDampRangeY", "double", "Number", "",0
+				P: "MaxDampRangeZ", "double", "Number", "",0
+				P: "MinDampStrengthX", "double", "Number", "",0
+				P: "MinDampStrengthY", "double", "Number", "",0
+				P: "MinDampStrengthZ", "double", "Number", "",0
+				P: "MaxDampStrengthX", "double", "Number", "",0
+				P: "MaxDampStrengthY", "double", "Number", "",0
+				P: "MaxDampStrengthZ", "double", "Number", "",0
+				P: "PreferedAngleX", "double", "Number", "",0
+				P: "PreferedAngleY", "double", "Number", "",0
+				P: "PreferedAngleZ", "double", "Number", "",0
+				P: "LookAtProperty", "object", "", ""
+				P: "UpVectorProperty", "object", "", ""
+				P: "Show", "bool", "", "",1
+				P: "NegativePercentShapeSupport", "bool", "", "",1
+				P: "DefaultAttributeIndex", "int", "Integer", "",-1
+				P: "Freeze", "bool", "", "",0
+				P: "LODBox", "bool", "", "",0
+				P: "Lcl Translation", "Lcl Translation", "", "A",0,0,0
+				P: "Lcl Rotation", "Lcl Rotation", "", "A",0,0,0
+				P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1
+				P: "Visibility", "Visibility", "", "A",1
+				P: "Visibility Inheritance", "Visibility Inheritance", "", "",1
+			}
+		}
+	}
+	ObjectType: "Geometry" {
+		Count: 6
+		PropertyTemplate: "FbxMesh" {
+			Properties70:  {
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "BBoxMin", "Vector3D", "Vector", "",0,0,0
+				P: "BBoxMax", "Vector3D", "Vector", "",0,0,0
+				P: "Primary Visibility", "bool", "", "",1
+				P: "Casts Shadows", "bool", "", "",1
+				P: "Receive Shadows", "bool", "", "",1
+			}
+		}
+	}
+	ObjectType: "Material" {
+		Count: 1
+		PropertyTemplate: "FbxSurfaceLambert" {
+			Properties70:  {
+				P: "ShadingModel", "KString", "", "", "Lambert"
+				P: "MultiLayer", "bool", "", "",0
+				P: "EmissiveColor", "Color", "", "A",0,0,0
+				P: "EmissiveFactor", "Number", "", "A",1
+				P: "AmbientColor", "Color", "", "A",0.2,0.2,0.2
+				P: "AmbientFactor", "Number", "", "A",1
+				P: "DiffuseColor", "Color", "", "A",0.8,0.8,0.8
+				P: "DiffuseFactor", "Number", "", "A",1
+				P: "Bump", "Vector3D", "Vector", "",0,0,0
+				P: "NormalMap", "Vector3D", "Vector", "",0,0,0
+				P: "BumpFactor", "double", "Number", "",1
+				P: "TransparentColor", "Color", "", "A",0,0,0
+				P: "TransparencyFactor", "Number", "", "A",0
+				P: "DisplacementColor", "ColorRGB", "Color", "",0,0,0
+				P: "DisplacementFactor", "double", "Number", "",1
+				P: "VectorDisplacementColor", "ColorRGB", "Color", "",0,0,0
+				P: "VectorDisplacementFactor", "double", "Number", "",1
+			}
+		}
+	}
+	ObjectType: "Texture" {
+		Count: 1
+		PropertyTemplate: "FbxFileTexture" {
+			Properties70:  {
+				P: "TextureTypeUse", "enum", "", "",0
+				P: "Texture alpha", "Number", "", "A",1
+				P: "CurrentMappingType", "enum", "", "",0
+				P: "WrapModeU", "enum", "", "",0
+				P: "WrapModeV", "enum", "", "",0
+				P: "UVSwap", "bool", "", "",0
+				P: "PremultiplyAlpha", "bool", "", "",1
+				P: "Translation", "Vector", "", "A",0,0,0
+				P: "Rotation", "Vector", "", "A",0,0,0
+				P: "Scaling", "Vector", "", "A",1,1,1
+				P: "TextureRotationPivot", "Vector3D", "Vector", "",0,0,0
+				P: "TextureScalingPivot", "Vector3D", "Vector", "",0,0,0
+				P: "CurrentTextureBlendMode", "enum", "", "",1
+				P: "UVSet", "KString", "", "", "default"
+				P: "UseMaterial", "bool", "", "",0
+				P: "UseMipMap", "bool", "", "",0
+			}
+		}
+	}
+	ObjectType: "Video" {
+		Count: 1
+		PropertyTemplate: "FbxVideo" {
+			Properties70:  {
+				P: "Path", "KString", "XRefUrl", "", ""
+				P: "RelPath", "KString", "XRefUrl", "", ""
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "ClipIn", "KTime", "Time", "",0
+				P: "ClipOut", "KTime", "Time", "",0
+				P: "Offset", "KTime", "Time", "",0
+				P: "PlaySpeed", "double", "Number", "",0
+				P: "FreeRunning", "bool", "", "",0
+				P: "Loop", "bool", "", "",0
+				P: "Mute", "bool", "", "",0
+				P: "AccessMode", "enum", "", "",0
+				P: "ImageSequence", "bool", "", "",0
+				P: "ImageSequenceOffset", "int", "Integer", "",0
+				P: "FrameRate", "double", "Number", "",0
+				P: "LastFrame", "int", "Integer", "",0
+				P: "Width", "int", "Integer", "",0
+				P: "Height", "int", "Integer", "",0
+				P: "StartFrame", "int", "Integer", "",0
+				P: "StopFrame", "int", "Integer", "",0
+				P: "InterlaceMode", "enum", "", "",0
+			}
+		}
+	}
+}
+
+; Object properties
+;------------------------------------------------------------------
+
+Objects:  {
+	Geometry: 1501974399744, "Geometry::Scene", "Mesh" {
+		Vertices: *24 {
+			a: 7.99724832177162,-80.0008475780487,-3.13776098191738,7.99928605556488,0.00920867896638811,-3.13776098191738,-7.99928605556488,0.00920867896638811,-3.13776098191738,-7.99724832177162,-80.0008475780487,-3.13776098191738,7.99724832177162,-80.0008475780487,0,-7.99724832177162,-80.0008475780487,0,-8.00156369805336,0.00920867896638811,0,8.00156369805336,0.00920867896638811,0
+		} 
+		PolygonVertexIndex: *18 {
+			a: 0,2,-2,0,3,-3,4,3,-1,4,5,-4,5,7,-7,5,4,-8
+		} 
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 102
+			Name: "Normals"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "Direct"
+			Normals: *54 {
+				a: -0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,-1,0,-0,-1,0,-0,-1,0,-0,-1,0,-0,-1,0,-0,-1,0,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1
+			} 
+			NormalsW: *18 {
+				a: 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+			} 
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVSet0"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "IndexToDirect"
+			UV: *24 {
+				a: 0.321044921875,1,0.321044921875,0,0.0094146728515625,0,0.0094146728515625,1,0.98291015625,0.198974609375,0.98291015625,0.07952880859375,0.68896484375,0.07952880859375,0.68896484375,0.198974609375,0.347900390625,0,0.347900390625,1,0.65283203125,1,0.65283203125,0
+			} 
+			UVIndex: *18 {
+				a: 0,2,1,0,3,2,4,6,5,4,7,6,8,10,9,8,11,10
+			} 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: "Material"
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+		}
+	}
+	Geometry: 1501974407808, "Geometry::Scene", "Mesh" {
+		Vertices: *24 {
+			a: -0.00173664084286429,0.00537109372089617,3.13776098191738,0.00737190202926286,-80.003833770752,3.13776098191738,-3.01295202225447,-80.003833770752,3.13776098191738,-3.02206054329872,0.00537104933755472,3.13776098191738,-3.01295202225447,-80.0055265426636,5.9604643443123e-08,-3.02032399922609,4.43749037515317e-08,5.9604643443123e-08,0.00737190202926286,-80.0055265426636,0,-0,0,0
+		} 
+		PolygonVertexIndex: *24 {
+			a: 0,2,-2,0,3,-3,3,4,-3,3,5,-5,6,2,-5,6,1,-3,6,5,-8,6,4,-6
+		} 
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 102
+			Name: "Normals"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "Direct"
+			Normals: *72 {
+				a: -0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-1,-0.000102996826171875,-0.000276565551757812,-1,-0.000102996826171875,-0.000276565551757812,-1,-0.000102996826171875,-0.000276565551757812,-1,-0.000102996826171875,-0.000276565551757812,-1,-0.000102996826171875,-0.000276565551757812,-1,-0.000102996826171875,-0.000276565551757812,-0,-1,0.000540256500244141,-0,-1,0.000540256500244141,-0,-1,0.000540256500244141,-0,-1,0.000540256500244141,-0,-1,0.000540256500244141,-0,-1,0.000540256500244141,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1
+			} 
+			NormalsW: *24 {
+				a: 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+			} 
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVSet0"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "IndexToDirect"
+			UV: *32 {
+				a: 0.6865234375,1,0.6865234375,0,0.6982421875,0,0.6982421875,1,0.352783203125,1,0.352783203125,0.455322265625,0.344970703125,0.455322265625,0.344970703125,1,0.68896484375,0.07952880859375,0.68359375,0.07952880859375,0.68359375,0.198974609375,0.68896484375,0.198974609375,0.0094146728515625,0,0.0094146728515625,0,0.0094146728515625,0,0.0094146728515625,0
+			} 
+			UVIndex: *24 {
+				a: 0,2,1,0,3,2,4,6,5,4,7,6,8,10,9,8,11,10,12,14,13,12,15,14
+			} 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: "Material"
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+		}
+	}
+	Geometry: 1501974400192, "Geometry::Scene", "Mesh" {
+		Vertices: *24 {
+			a: 0.00173664084286429,0.00537109372089617,3.13776098191738,3.02637778222561,0.00537104933755472,3.13776098191738,3.01726926118135,-80.003833770752,3.13776098191738,-0.00737190202926286,-80.003833770752,3.13776098191738,-0.00737190202926286,-80.0055265426636,0,3.01726926118135,-80.0055265426636,5.9604643443123e-08,3.02464123815298,4.43749037515317e-08,5.9604643443123e-08,-0,0,0
+		} 
+		PolygonVertexIndex: *24 {
+			a: 0,2,-2,0,3,-3,4,2,-4,4,5,-3,5,1,-3,5,6,-2,4,6,-6,4,7,-7
+		} 
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 102
+			Name: "Normals"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "Direct"
+			Normals: *72 {
+				a: -0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,-1,0.000539779663085938,-0,-1,0.000539779663085938,-0,-1,0.000539779663085938,-0,-1,0.000539779663085938,-0,-1,0.000539779663085938,-0,-1,0.000539779663085938,1,-0.000102996826171875,-0.000276565551757812,1,-0.000102996826171875,-0.000276565551757812,1,-0.000102996826171875,-0.000276565551757812,1,-0.000102996826171875,-0.000276565551757812,1,-0.000102996826171875,-0.000276565551757812,1,-0.000102996826171875,-0.000276565551757812,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1
+			} 
+			NormalsW: *24 {
+				a: 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+			} 
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVSet0"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "IndexToDirect"
+			UV: *32 {
+				a: 0.97900390625,1,0.99072265625,1,0.99072265625,2.12192535400391e-05,0.97900390625,2.12192535400391e-05,0.98291015625,0.07952880859375,0.98291015625,0.198974609375,0.98876953125,0.198974609375,0.98876953125,0.07952880859375,0.65576171875,0.455322265625,0.64697265625,0.455322265625,0.64697265625,1,0.65576171875,1,0.0094146728515625,0,0.0094146728515625,0,0.0094146728515625,0,0.0094146728515625,0
+			} 
+			UVIndex: *24 {
+				a: 0,2,1,0,3,2,4,6,5,4,7,6,8,10,9,8,11,10,12,14,13,12,15,14
+			} 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: "Material"
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+		}
+	}
+	Geometry: 1501974411840, "Geometry::Scene", "Mesh" {
+		Vertices: *24 {
+			a: 7.99724832177162,-80.0008475780487,-3.13776098191738,7.99928605556488,0.00920867896638811,-3.13776098191738,-7.99928605556488,0.00920867896638811,-3.13776098191738,-7.99724832177162,-80.0008475780487,-3.13776098191738,-7.99724832177162,-80.0008475780487,0,-8.00156369805336,0.00920867896638811,0,8.00156369805336,0.00920867896638811,0,7.99724832177162,-80.0008475780487,0
+		} 
+		PolygonVertexIndex: *18 {
+			a: 0,2,-2,0,3,-3,4,6,-6,4,7,-7,5,1,-3,5,6,-2
+		} 
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 102
+			Name: "Normals"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "Direct"
+			Normals: *54 {
+				a: -0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,1,0,-0,1,0,-0,1,0,-0,1,0,-0,1,0,-0,1,0
+			} 
+			NormalsW: *18 {
+				a: 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+			} 
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVSet0"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "IndexToDirect"
+			UV: *24 {
+				a: 0.321044921875,1,0.321044921875,0,0.0094146728515625,0,0.0094146728515625,1,0.0094146728515625,0,0.0094146728515625,1,0.321044921875,1,0.321044921875,0,0.64697265625,1,0.64697265625,0.88037109375,0.352783203125,0.88037109375,0.352783203125,1
+			} 
+			UVIndex: *18 {
+				a: 0,2,1,0,3,2,4,6,5,4,7,6,8,10,9,8,11,10
+			} 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: "Material"
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+		}
+	}
+	Geometry: 1501974408256, "Geometry::Scene", "Mesh" {
+		Vertices: *24 {
+			a: 0.00737190202926286,-80.0055265426636,-2.38418573772492e-07,1.1641531922485e-10,0,-2.38418573772492e-07,-3.02032399922609,0,-2.38418573772492e-07,-3.01295202225447,-80.0055265426636,-2.38418573772492e-07,-0.00173664084286429,0.00537109372089617,43.9999997615814,0.00737190202926286,-80.003833770752,43.9999997615814,-3.01295202225447,-80.003833770752,43.9999997615814,-3.02206054329872,0.00537109372089617,43.9999997615814
+		} 
+		PolygonVertexIndex: *30 {
+			a: 0,2,-2,0,3,-3,4,6,-6,4,7,-7,6,0,-6,6,3,-1,7,3,-7,7,2,-4,1,5,-1,1,4,-6
+		} 
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 102
+			Name: "Normals"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "Direct"
+			Normals: *90 {
+				a: -0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,-1,3.85642051696777e-05,-0,-1,3.85642051696777e-05,-0,-1,3.85642051696777e-05,-0,-1,3.85642051696777e-05,-0,-1,3.85642051696777e-05,-0,-1,3.85642051696777e-05,-1,-0.000102996826171875,-1.97291374206543e-05,-1,-0.000102996826171875,-1.97291374206543e-05,-1,-0.000102996826171875,-1.97291374206543e-05,-1,-0.000102996826171875,-1.97291374206543e-05,-1,-0.000102996826171875,-1.97291374206543e-05,-1,-0.000102996826171875,-1.97291374206543e-05,1,0.000102996826171875,1.97291374206543e-05,1,0.000102996826171875,1.97291374206543e-05,1,0.000102996826171875,1.97291374206543e-05,1,0.000102996826171875,1.97291374206543e-05,1,0.000102996826171875,1.97291374206543e-05,1,0.000102996826171875,1.97291374206543e-05
+			} 
+			NormalsW: *30 {
+				a: 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+			} 
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVSet0"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "IndexToDirect"
+			UV: *40 {
+				a: 0.0094146728515625,0,0.0094146728515625,0,0.0094146728515625,0,0.0094146728515625,0,0.7646484375,0.65771484375,0.91259765625,0.65771484375,0.91259765625,0.525390625,0.7646484375,0.525390625,0.72119140625,0.06634521484375,0.72119140625,0.198974609375,0.94580078125,0.198974609375,0.94580078125,0.06634521484375,0.64697265625,1,0.64697265625,0.455322265625,0.352783203125,0.455322265625,0.352783203125,1,0.64697265625,1,0.64697265625,0.455322265625,0.352783203125,0.455322265625,0.352783203125,1
+			} 
+			UVIndex: *30 {
+				a: 0,2,1,0,3,2,4,6,5,4,7,6,8,10,9,8,11,10,12,14,13,12,15,14,16,18,17,16,19,18
+			} 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: "Material"
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+		}
+	}
+	Geometry: 1501974406016, "Geometry::Scene", "Mesh" {
+		Vertices: *24 {
+			a: -0.00203847885131836,-80.0100564956665,-2.38418573772492e-07,3.02260089665651,-80.0109028816223,-2.38418573772492e-07,3.02997268736362,-0.00537109372089617,-2.38418573772492e-07,-9.53674295089968e-07,0,-2.38418573772492e-07,0.00227689743041992,0,43.9999997615814,3.03170941770077,0,43.9999997615814,3.02260089665651,-80.0092041492462,43.9999997615814,-0.00203847885131836,-80.0100564956665,43.9999997615814
+		} 
+		PolygonVertexIndex: *30 {
+			a: 0,2,-2,0,3,-3,4,6,-6,4,7,-7,6,0,-2,6,7,-1,5,1,-3,5,6,-2,3,7,-5,3,0,-8
+		} 
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 102
+			Name: "Normals"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "Direct"
+			Normals: *90 {
+				a: -0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,-1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,0,1,-0,-1,1.93119049072266e-05,-0,-1,1.93119049072266e-05,-0,-1,1.93119049072266e-05,-0,-1,1.93119049072266e-05,-0,-1,1.93119049072266e-05,-0,-1,1.93119049072266e-05,1,-0.000102996826171875,-1.97291374206543e-05,1,-0.000102996826171875,-1.97291374206543e-05,1,-0.000102996826171875,-1.97291374206543e-05,1,-0.000102996826171875,-1.97291374206543e-05,1,-0.000102996826171875,-1.97291374206543e-05,1,-0.000102996826171875,-1.97291374206543e-05,-1,3.96966934204102e-05,2.58684158325195e-05,-1,3.96966934204102e-05,2.58684158325195e-05,-1,3.96966934204102e-05,2.58684158325195e-05,-1,3.96966934204102e-05,2.58684158325195e-05,-1,3.96966934204102e-05,2.58684158325195e-05,-1,3.96966934204102e-05,2.58684158325195e-05
+			} 
+			NormalsW: *30 {
+				a: 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+			} 
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "UVSet0"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "IndexToDirect"
+			UV: *40 {
+				a: 0.0094146728515625,0,0.0094146728515625,0,0.0094146728515625,0,0.0094146728515625,0,0.7646484375,0.525390625,0.7646484375,0.65771484375,0.91259765625,0.65771484375,0.91259765625,0.525390625,0.72119140625,0.198974609375,0.94580078125,0.198974609375,0.94580078125,0.06634521484375,0.72119140625,0.06634521484375,0.352783203125,1,0.64697265625,1,0.64697265625,0.455322265625,0.352783203125,0.455322265625,0.352783203125,1,0.64697265625,1,0.64697265625,0.455322265625,0.352783203125,0.455322265625
+			} 
+			UVIndex: *30 {
+				a: 0,2,1,0,3,2,4,6,5,4,7,6,8,10,9,8,11,10,12,14,13,12,15,14,16,18,17,16,19,18
+			} 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: "Material"
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+		}
+	}
+	Model: 1489359527552, "Model::layout_plusminus_shape_c11", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1490278604848, "Model::TTLevelCamera", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,79.0000021457672,792.000007629395
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",5.00000286102295,-180,-2.55416313912817e-14
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977389104, "Model::cm", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977399104, "Model::Compartment", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",50.4719197750092,-67.2369003295898,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977391104, "Model::Meshes", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977397104, "Model::GridMeshes", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977401104, "Model::Shelf-BM-00", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977395104, "Model::Panels", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977387104, "Model::Shelf-CL-00", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977403104, "Model::Shelf-CR-00", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977405104, "Model::Shelf-Back-00", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,45.2999979257584,5.00000007450581
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,0.563700020313263,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977393104, "Model::Shelf-Back-00 (1)", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-0,0,-180
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",6,0.537000000476837,2
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977421104, "Model::TopPanel", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,48.0499982833862,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977409104, "Model::Shelf-CL-00 (1)", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977407104, "Model::Shelf-CR-00 (1)", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977423104, "Model::Shelf-TM-00", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977425104, "Model::Shelf-CL-01", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977411104, "Model::Shelf-CR-01", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977415104, "Model::ObjectContainer", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,60.0000023841858
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977427104, "Model::Compartment 1", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",50.4719197750092,41.1932170391083,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977413104, "Model::Meshes 1", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977429104, "Model::GridMeshes 1", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977431104, "Model::Shelf-BM-00 1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977417104, "Model::Panels 1", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977419104, "Model::Shelf-CL-00 1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977443104, "Model::Shelf-CR-00 1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977433104, "Model::Shelf-Back-00 1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,45.2999979257584,5.00000007450581
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,0.563700020313263,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977435104, "Model::Shelf-Back-00 (1) 1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-0,0,-180
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",6,0.537000000476837,2
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977437104, "Model::TopPanel 1", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,48.0499982833862,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501977439104, "Model::Shelf-CL-00 (1) 1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977447104, "Model::Shelf-CR-00 (1) 1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977441104, "Model::Shelf-TM-00 1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977445104, "Model::Shelf-CL-01 1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501977449104, "Model::Shelf-CR-01 1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986723808, "Model::ObjectContainer 1", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,60.0000023841858
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986731808, "Model::Compartment 2", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,-67.2369003295898,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986729808, "Model::Meshes 2", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986727808, "Model::GridMeshes 2", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986725808, "Model::Shelf-BM-00 2", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986717808, "Model::Panels 2", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986733808, "Model::Shelf-CL-00 2", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986719808, "Model::Shelf-CR-00 2", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986735808, "Model::Shelf-Back-00 2", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,45.2999979257584,5.00000007450581
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,0.563700020313263,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986721808, "Model::Shelf-Back-00 (1) 2", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-0,0,-180
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",6,0.537000000476837,2
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986747808, "Model::TopPanel 2", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,48.0499982833862,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986745808, "Model::Shelf-CL-00 (1) 2", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986737808, "Model::Shelf-CR-00 (1) 2", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986753808, "Model::Shelf-TM-00 2", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986749808, "Model::Shelf-CL-01 2", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986751808, "Model::Shelf-CR-01 2", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986739808, "Model::ObjectContainer 2", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,60.0000023841858
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986755808, "Model::Compartment 3", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,-5.08561953902245,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986741808, "Model::Meshes 3", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986757808, "Model::GridMeshes 3", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986743808, "Model::Shelf-BM-00 3", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986767808, "Model::Panels 3", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986771808, "Model::Shelf-CL-00 3", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986773808, "Model::Shelf-CR-00 3", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986769808, "Model::Shelf-Back-00 3", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,45.2999979257584,5.00000007450581
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,0.563700020313263,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986759808, "Model::Shelf-Back-00 (1) 3", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-0,0,-180
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",6,0.537000000476837,2
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986765808, "Model::TopPanel 3", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,48.0499982833862,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986775808, "Model::Shelf-CL-00 (1) 3", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986761808, "Model::Shelf-CR-00 (1) 3", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986777808, "Model::Shelf-TM-00 3", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986763808, "Model::Shelf-CL-01 3", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986783808, "Model::Shelf-CR-01 3", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986787808, "Model::ObjectContainer 3", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,60.0000023841858
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986779808, "Model::Compartment 4", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,41.1932170391083,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986795808, "Model::Meshes 4", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986793808, "Model::GridMeshes 4", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986785808, "Model::Shelf-BM-00 4", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986789808, "Model::Panels 4", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986791808, "Model::Shelf-CL-00 4", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986781808, "Model::Shelf-CR-00 4", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986811808, "Model::Shelf-Back-00 4", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,45.2999979257584,5.00000007450581
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,0.563700020313263,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986803808, "Model::Shelf-Back-00 (1) 4", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-0,0,-180
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",6,0.537000000476837,2
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986799808, "Model::TopPanel 4", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,48.0499982833862,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986801808, "Model::Shelf-CL-00 (1) 4", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986797808, "Model::Shelf-CR-00 (1) 4", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986807808, "Model::Shelf-TM-00 4", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986819808, "Model::Shelf-CL-01 4", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986805808, "Model::Shelf-CR-01 4", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986821808, "Model::ObjectContainer 4", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,60.0000023841858
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986809808, "Model::Compartment 5", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,87.4720573425293,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986825808, "Model::Meshes 5", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986823808, "Model::GridMeshes 5", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986827808, "Model::Shelf-BM-00 5", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986813808, "Model::Panels 5", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986829808, "Model::Shelf-CL-00 5", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986815808, "Model::Shelf-CR-00 5", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986831808, "Model::Shelf-Back-00 5", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,45.2999979257584,5.00000007450581
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,0.563700020313263,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986817808, "Model::Shelf-Back-00 (1) 5", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-0,0,-180
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",6,0.537000000476837,2
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986835808, "Model::TopPanel 5", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,48.0499982833862,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986841808, "Model::Shelf-CL-00 (1) 5", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986833808, "Model::Shelf-CR-00 (1) 5", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986837808, "Model::Shelf-TM-00 5", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986843808, "Model::Shelf-CL-01 5", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986839808, "Model::Shelf-CR-01 5", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986845808, "Model::ObjectContainer 5", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,60.0000023841858
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986017088, "Model::Compartment 6", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-50.4719197750092,-67.2369003295898,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986019088, "Model::Meshes 6", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986005088, "Model::GridMeshes 6", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986021088, "Model::Shelf-BM-00 6", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986007088, "Model::Panels 6", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986011088, "Model::Shelf-CL-00 6", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986015088, "Model::Shelf-CR-00 6", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986023088, "Model::Shelf-Back-00 6", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,45.2999979257584,5.00000007450581
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,0.563700020313263,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986013088, "Model::Shelf-Back-00 (1) 6", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-0,0,-180
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",6,0.537000000476837,2
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986009088, "Model::TopPanel 6", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,48.0499982833862,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986029088, "Model::Shelf-CL-00 (1) 6", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986027088, "Model::Shelf-CR-00 (1) 6", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986035088, "Model::Shelf-TM-00 6", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986033088, "Model::Shelf-CL-01 6", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986037088, "Model::Shelf-CR-01 6", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986025088, "Model::ObjectContainer 6", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,60.0000023841858
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986041088, "Model::Compartment 7", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-50.4719197750092,41.1932170391083,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986031088, "Model::Meshes 7", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986047088, "Model::GridMeshes 7", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986039088, "Model::Shelf-BM-00 7", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986053088, "Model::Panels 7", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986049088, "Model::Shelf-CL-00 7", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986051088, "Model::Shelf-CR-00 7", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-1.25000001862645,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986043088, "Model::Shelf-Back-00 7", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,45.2999979257584,5.00000007450581
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,0.563700020313263,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986055088, "Model::Shelf-Back-00 (1) 7", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-0,0,-180
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",6,0.537000000476837,2
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986045088, "Model::TopPanel 7", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,48.0499982833862,0
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Model: 1501986065088, "Model::Shelf-CL-00 (1) 7", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986067088, "Model::Shelf-CR-00 (1) 7", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,-3.13999988138676,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986059088, "Model::Shelf-TM-00 7", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,0,-0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",3,1,1
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986071088, "Model::Shelf-CL-01 7", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986057088, "Model::Shelf-CR-01 7", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",23.9999994635582,1.89999993890524,0
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-89.980224609375,0,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1.00800001621246
+		}
+		Shading: W
+		Culling: "CullingOff"
+	}
+	Model: 1501986061088, "Model::ObjectContainer 7", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "RotationOrder", "enum", "", "",4
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,1.89999993890524,60.0000023841858
+		}
+		Shading: Y
+		Culling: "CullingOff"
+	}
+	Material: 1501985860928, "Material::Mat-Shelf-00", "" {
+		Version: 102
+		ShadingModel: "lambert"
+		MultiLayer: 0
+		Properties70:  {
+			P: "EmissiveColor", "Color", "", "A",0.518867909908295,0.518867909908295,0.518867909908295
+			P: "AmbientColor", "Color", "", "A",0,0,0
+			P: "DiffuseColor", "Color", "", "A",1,1,1
+			P: "Emissive", "Vector3D", "Vector", "",0.518867909908295,0.518867909908295,0.518867909908295
+			P: "Ambient", "Vector3D", "Vector", "",0,0,0
+			P: "Diffuse", "Vector3D", "Vector", "",1,1,1
+			P: "Opacity", "double", "Number", "",1
+		}
+	}
+	Video: 1501956938384, "Video::DiffuseColor_Texture", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "E:\Asset Extractor\Zen Sort\ExportedProject - Copy\Assets\Texture2D\Tex-ShelfWood.png"
+			P: "RelPath", "KString", "XRefUrl", "", "..\..\Texture2D\Tex-ShelfWood.png"
+		}
+		UseMipMap: 0
+		Filename: "E:\Asset Extractor\Zen Sort\ExportedProject - Copy\Assets\Texture2D\Tex-ShelfWood.png"
+		RelativeFilename: "..\..\Texture2D\Tex-ShelfWood.png"
+	}
+	Texture: 1501956933104, "Texture::DiffuseColor_Texture", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::DiffuseColor_Texture"
+		Media: "Video::DiffuseColor_Texture"
+		FileName: "E:\Asset Extractor\Zen Sort\ExportedProject - Copy\Assets\Texture2D\Tex-ShelfWood.png"
+		RelativeFilename: "..\..\Texture2D\Tex-ShelfWood.png"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+}
+
+; Object connections
+;------------------------------------------------------------------
+
+Connections:  {
+	
+	;Model::layout_plusminus_shape_c11, Model::RootNode
+	C: "OO",1489359527552,0
+	
+	;Model::TTLevelCamera, Model::layout_plusminus_shape_c11
+	C: "OO",1490278604848,1489359527552
+	
+	;Model::Compartment, Model::layout_plusminus_shape_c11
+	C: "OO",1501977399104,1489359527552
+	
+	;Model::Compartment 1, Model::layout_plusminus_shape_c11
+	C: "OO",1501977427104,1489359527552
+	
+	;Model::Compartment 2, Model::layout_plusminus_shape_c11
+	C: "OO",1501986731808,1489359527552
+	
+	;Model::Compartment 3, Model::layout_plusminus_shape_c11
+	C: "OO",1501986755808,1489359527552
+	
+	;Model::Compartment 4, Model::layout_plusminus_shape_c11
+	C: "OO",1501986779808,1489359527552
+	
+	;Model::Compartment 5, Model::layout_plusminus_shape_c11
+	C: "OO",1501986809808,1489359527552
+	
+	;Model::Compartment 6, Model::layout_plusminus_shape_c11
+	C: "OO",1501986017088,1489359527552
+	
+	;Model::Compartment 7, Model::layout_plusminus_shape_c11
+	C: "OO",1501986041088,1489359527552
+	
+	;Model::cm, Model::TTLevelCamera
+	C: "OO",1501977389104,1490278604848
+	
+	;Model::Meshes, Model::Compartment
+	C: "OO",1501977391104,1501977399104
+	
+	;Model::ObjectContainer, Model::Compartment
+	C: "OO",1501977415104,1501977399104
+	
+	;Model::GridMeshes, Model::Meshes
+	C: "OO",1501977397104,1501977391104
+	
+	;Model::Panels, Model::Meshes
+	C: "OO",1501977395104,1501977391104
+	
+	;Model::Shelf-BM-00, Model::GridMeshes
+	C: "OO",1501977401104,1501977397104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-BM-00
+	C: "OO",1501985860928,1501977401104
+	
+	;Geometry::Scene, Model::Shelf-BM-00
+	C: "OO",1501974399744,1501977401104
+	
+	;Model::Shelf-CL-00, Model::Panels
+	C: "OO",1501977387104,1501977395104
+	
+	;Model::Shelf-CR-00, Model::Panels
+	C: "OO",1501977403104,1501977395104
+	
+	;Model::Shelf-Back-00, Model::Panels
+	C: "OO",1501977405104,1501977395104
+	
+	;Model::Shelf-Back-00 (1), Model::Panels
+	C: "OO",1501977393104,1501977395104
+	
+	;Model::TopPanel, Model::Panels
+	C: "OO",1501977421104,1501977395104
+	
+	;Model::Shelf-CL-01, Model::Panels
+	C: "OO",1501977425104,1501977395104
+	
+	;Model::Shelf-CR-01, Model::Panels
+	C: "OO",1501977411104,1501977395104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00
+	C: "OO",1501985860928,1501977387104
+	
+	;Geometry::Scene, Model::Shelf-CL-00
+	C: "OO",1501974407808,1501977387104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00
+	C: "OO",1501985860928,1501977403104
+	
+	;Geometry::Scene, Model::Shelf-CR-00
+	C: "OO",1501974400192,1501977403104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00
+	C: "OO",1501985860928,1501977405104
+	
+	;Geometry::Scene, Model::Shelf-Back-00
+	C: "OO",1501974411840,1501977405104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 (1)
+	C: "OO",1501985860928,1501977393104
+	
+	;Geometry::Scene, Model::Shelf-Back-00 (1)
+	C: "OO",1501974411840,1501977393104
+	
+	;Model::Shelf-CL-00 (1), Model::TopPanel
+	C: "OO",1501977409104,1501977421104
+	
+	;Model::Shelf-CR-00 (1), Model::TopPanel
+	C: "OO",1501977407104,1501977421104
+	
+	;Model::Shelf-TM-00, Model::TopPanel
+	C: "OO",1501977423104,1501977421104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 (1)
+	C: "OO",1501985860928,1501977409104
+	
+	;Geometry::Scene, Model::Shelf-CL-00 (1)
+	C: "OO",1501974407808,1501977409104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 (1)
+	C: "OO",1501985860928,1501977407104
+	
+	;Geometry::Scene, Model::Shelf-CR-00 (1)
+	C: "OO",1501974400192,1501977407104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-TM-00
+	C: "OO",1501985860928,1501977423104
+	
+	;Geometry::Scene, Model::Shelf-TM-00
+	C: "OO",1501974399744,1501977423104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-01
+	C: "OO",1501985860928,1501977425104
+	
+	;Geometry::Scene, Model::Shelf-CL-01
+	C: "OO",1501974408256,1501977425104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-01
+	C: "OO",1501985860928,1501977411104
+	
+	;Geometry::Scene, Model::Shelf-CR-01
+	C: "OO",1501974406016,1501977411104
+	
+	;Model::Meshes 1, Model::Compartment 1
+	C: "OO",1501977413104,1501977427104
+	
+	;Model::ObjectContainer 1, Model::Compartment 1
+	C: "OO",1501986723808,1501977427104
+	
+	;Model::GridMeshes 1, Model::Meshes 1
+	C: "OO",1501977429104,1501977413104
+	
+	;Model::Panels 1, Model::Meshes 1
+	C: "OO",1501977417104,1501977413104
+	
+	;Model::Shelf-BM-00 1, Model::GridMeshes 1
+	C: "OO",1501977431104,1501977429104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-BM-00 1
+	C: "OO",1501985860928,1501977431104
+	
+	;Geometry::Scene, Model::Shelf-BM-00 1
+	C: "OO",1501974399744,1501977431104
+	
+	;Model::Shelf-CL-00 1, Model::Panels 1
+	C: "OO",1501977419104,1501977417104
+	
+	;Model::Shelf-CR-00 1, Model::Panels 1
+	C: "OO",1501977443104,1501977417104
+	
+	;Model::Shelf-Back-00 1, Model::Panels 1
+	C: "OO",1501977433104,1501977417104
+	
+	;Model::Shelf-Back-00 (1) 1, Model::Panels 1
+	C: "OO",1501977435104,1501977417104
+	
+	;Model::TopPanel 1, Model::Panels 1
+	C: "OO",1501977437104,1501977417104
+	
+	;Model::Shelf-CL-01 1, Model::Panels 1
+	C: "OO",1501977445104,1501977417104
+	
+	;Model::Shelf-CR-01 1, Model::Panels 1
+	C: "OO",1501977449104,1501977417104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 1
+	C: "OO",1501985860928,1501977419104
+	
+	;Geometry::Scene, Model::Shelf-CL-00 1
+	C: "OO",1501974407808,1501977419104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 1
+	C: "OO",1501985860928,1501977443104
+	
+	;Geometry::Scene, Model::Shelf-CR-00 1
+	C: "OO",1501974400192,1501977443104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 1
+	C: "OO",1501985860928,1501977433104
+	
+	;Geometry::Scene, Model::Shelf-Back-00 1
+	C: "OO",1501974411840,1501977433104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 (1) 1
+	C: "OO",1501985860928,1501977435104
+	
+	;Geometry::Scene, Model::Shelf-Back-00 (1) 1
+	C: "OO",1501974411840,1501977435104
+	
+	;Model::Shelf-CL-00 (1) 1, Model::TopPanel 1
+	C: "OO",1501977439104,1501977437104
+	
+	;Model::Shelf-CR-00 (1) 1, Model::TopPanel 1
+	C: "OO",1501977447104,1501977437104
+	
+	;Model::Shelf-TM-00 1, Model::TopPanel 1
+	C: "OO",1501977441104,1501977437104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 (1) 1
+	C: "OO",1501985860928,1501977439104
+	
+	;Geometry::Scene, Model::Shelf-CL-00 (1) 1
+	C: "OO",1501974407808,1501977439104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 (1) 1
+	C: "OO",1501985860928,1501977447104
+	
+	;Geometry::Scene, Model::Shelf-CR-00 (1) 1
+	C: "OO",1501974400192,1501977447104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-TM-00 1
+	C: "OO",1501985860928,1501977441104
+	
+	;Geometry::Scene, Model::Shelf-TM-00 1
+	C: "OO",1501974399744,1501977441104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-01 1
+	C: "OO",1501985860928,1501977445104
+	
+	;Geometry::Scene, Model::Shelf-CL-01 1
+	C: "OO",1501974408256,1501977445104
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-01 1
+	C: "OO",1501985860928,1501977449104
+	
+	;Geometry::Scene, Model::Shelf-CR-01 1
+	C: "OO",1501974406016,1501977449104
+	
+	;Model::Meshes 2, Model::Compartment 2
+	C: "OO",1501986729808,1501986731808
+	
+	;Model::ObjectContainer 2, Model::Compartment 2
+	C: "OO",1501986739808,1501986731808
+	
+	;Model::GridMeshes 2, Model::Meshes 2
+	C: "OO",1501986727808,1501986729808
+	
+	;Model::Panels 2, Model::Meshes 2
+	C: "OO",1501986717808,1501986729808
+	
+	;Model::Shelf-BM-00 2, Model::GridMeshes 2
+	C: "OO",1501986725808,1501986727808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-BM-00 2
+	C: "OO",1501985860928,1501986725808
+	
+	;Geometry::Scene, Model::Shelf-BM-00 2
+	C: "OO",1501974399744,1501986725808
+	
+	;Model::Shelf-CL-00 2, Model::Panels 2
+	C: "OO",1501986733808,1501986717808
+	
+	;Model::Shelf-CR-00 2, Model::Panels 2
+	C: "OO",1501986719808,1501986717808
+	
+	;Model::Shelf-Back-00 2, Model::Panels 2
+	C: "OO",1501986735808,1501986717808
+	
+	;Model::Shelf-Back-00 (1) 2, Model::Panels 2
+	C: "OO",1501986721808,1501986717808
+	
+	;Model::TopPanel 2, Model::Panels 2
+	C: "OO",1501986747808,1501986717808
+	
+	;Model::Shelf-CL-01 2, Model::Panels 2
+	C: "OO",1501986749808,1501986717808
+	
+	;Model::Shelf-CR-01 2, Model::Panels 2
+	C: "OO",1501986751808,1501986717808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 2
+	C: "OO",1501985860928,1501986733808
+	
+	;Geometry::Scene, Model::Shelf-CL-00 2
+	C: "OO",1501974407808,1501986733808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 2
+	C: "OO",1501985860928,1501986719808
+	
+	;Geometry::Scene, Model::Shelf-CR-00 2
+	C: "OO",1501974400192,1501986719808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 2
+	C: "OO",1501985860928,1501986735808
+	
+	;Geometry::Scene, Model::Shelf-Back-00 2
+	C: "OO",1501974411840,1501986735808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 (1) 2
+	C: "OO",1501985860928,1501986721808
+	
+	;Geometry::Scene, Model::Shelf-Back-00 (1) 2
+	C: "OO",1501974411840,1501986721808
+	
+	;Model::Shelf-CL-00 (1) 2, Model::TopPanel 2
+	C: "OO",1501986745808,1501986747808
+	
+	;Model::Shelf-CR-00 (1) 2, Model::TopPanel 2
+	C: "OO",1501986737808,1501986747808
+	
+	;Model::Shelf-TM-00 2, Model::TopPanel 2
+	C: "OO",1501986753808,1501986747808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 (1) 2
+	C: "OO",1501985860928,1501986745808
+	
+	;Geometry::Scene, Model::Shelf-CL-00 (1) 2
+	C: "OO",1501974407808,1501986745808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 (1) 2
+	C: "OO",1501985860928,1501986737808
+	
+	;Geometry::Scene, Model::Shelf-CR-00 (1) 2
+	C: "OO",1501974400192,1501986737808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-TM-00 2
+	C: "OO",1501985860928,1501986753808
+	
+	;Geometry::Scene, Model::Shelf-TM-00 2
+	C: "OO",1501974399744,1501986753808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-01 2
+	C: "OO",1501985860928,1501986749808
+	
+	;Geometry::Scene, Model::Shelf-CL-01 2
+	C: "OO",1501974408256,1501986749808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-01 2
+	C: "OO",1501985860928,1501986751808
+	
+	;Geometry::Scene, Model::Shelf-CR-01 2
+	C: "OO",1501974406016,1501986751808
+	
+	;Model::Meshes 3, Model::Compartment 3
+	C: "OO",1501986741808,1501986755808
+	
+	;Model::ObjectContainer 3, Model::Compartment 3
+	C: "OO",1501986787808,1501986755808
+	
+	;Model::GridMeshes 3, Model::Meshes 3
+	C: "OO",1501986757808,1501986741808
+	
+	;Model::Panels 3, Model::Meshes 3
+	C: "OO",1501986767808,1501986741808
+	
+	;Model::Shelf-BM-00 3, Model::GridMeshes 3
+	C: "OO",1501986743808,1501986757808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-BM-00 3
+	C: "OO",1501985860928,1501986743808
+	
+	;Geometry::Scene, Model::Shelf-BM-00 3
+	C: "OO",1501974399744,1501986743808
+	
+	;Model::Shelf-CL-00 3, Model::Panels 3
+	C: "OO",1501986771808,1501986767808
+	
+	;Model::Shelf-CR-00 3, Model::Panels 3
+	C: "OO",1501986773808,1501986767808
+	
+	;Model::Shelf-Back-00 3, Model::Panels 3
+	C: "OO",1501986769808,1501986767808
+	
+	;Model::Shelf-Back-00 (1) 3, Model::Panels 3
+	C: "OO",1501986759808,1501986767808
+	
+	;Model::TopPanel 3, Model::Panels 3
+	C: "OO",1501986765808,1501986767808
+	
+	;Model::Shelf-CL-01 3, Model::Panels 3
+	C: "OO",1501986763808,1501986767808
+	
+	;Model::Shelf-CR-01 3, Model::Panels 3
+	C: "OO",1501986783808,1501986767808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 3
+	C: "OO",1501985860928,1501986771808
+	
+	;Geometry::Scene, Model::Shelf-CL-00 3
+	C: "OO",1501974407808,1501986771808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 3
+	C: "OO",1501985860928,1501986773808
+	
+	;Geometry::Scene, Model::Shelf-CR-00 3
+	C: "OO",1501974400192,1501986773808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 3
+	C: "OO",1501985860928,1501986769808
+	
+	;Geometry::Scene, Model::Shelf-Back-00 3
+	C: "OO",1501974411840,1501986769808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 (1) 3
+	C: "OO",1501985860928,1501986759808
+	
+	;Geometry::Scene, Model::Shelf-Back-00 (1) 3
+	C: "OO",1501974411840,1501986759808
+	
+	;Model::Shelf-CL-00 (1) 3, Model::TopPanel 3
+	C: "OO",1501986775808,1501986765808
+	
+	;Model::Shelf-CR-00 (1) 3, Model::TopPanel 3
+	C: "OO",1501986761808,1501986765808
+	
+	;Model::Shelf-TM-00 3, Model::TopPanel 3
+	C: "OO",1501986777808,1501986765808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 (1) 3
+	C: "OO",1501985860928,1501986775808
+	
+	;Geometry::Scene, Model::Shelf-CL-00 (1) 3
+	C: "OO",1501974407808,1501986775808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 (1) 3
+	C: "OO",1501985860928,1501986761808
+	
+	;Geometry::Scene, Model::Shelf-CR-00 (1) 3
+	C: "OO",1501974400192,1501986761808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-TM-00 3
+	C: "OO",1501985860928,1501986777808
+	
+	;Geometry::Scene, Model::Shelf-TM-00 3
+	C: "OO",1501974399744,1501986777808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-01 3
+	C: "OO",1501985860928,1501986763808
+	
+	;Geometry::Scene, Model::Shelf-CL-01 3
+	C: "OO",1501974408256,1501986763808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-01 3
+	C: "OO",1501985860928,1501986783808
+	
+	;Geometry::Scene, Model::Shelf-CR-01 3
+	C: "OO",1501974406016,1501986783808
+	
+	;Model::Meshes 4, Model::Compartment 4
+	C: "OO",1501986795808,1501986779808
+	
+	;Model::ObjectContainer 4, Model::Compartment 4
+	C: "OO",1501986821808,1501986779808
+	
+	;Model::GridMeshes 4, Model::Meshes 4
+	C: "OO",1501986793808,1501986795808
+	
+	;Model::Panels 4, Model::Meshes 4
+	C: "OO",1501986789808,1501986795808
+	
+	;Model::Shelf-BM-00 4, Model::GridMeshes 4
+	C: "OO",1501986785808,1501986793808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-BM-00 4
+	C: "OO",1501985860928,1501986785808
+	
+	;Geometry::Scene, Model::Shelf-BM-00 4
+	C: "OO",1501974399744,1501986785808
+	
+	;Model::Shelf-CL-00 4, Model::Panels 4
+	C: "OO",1501986791808,1501986789808
+	
+	;Model::Shelf-CR-00 4, Model::Panels 4
+	C: "OO",1501986781808,1501986789808
+	
+	;Model::Shelf-Back-00 4, Model::Panels 4
+	C: "OO",1501986811808,1501986789808
+	
+	;Model::Shelf-Back-00 (1) 4, Model::Panels 4
+	C: "OO",1501986803808,1501986789808
+	
+	;Model::TopPanel 4, Model::Panels 4
+	C: "OO",1501986799808,1501986789808
+	
+	;Model::Shelf-CL-01 4, Model::Panels 4
+	C: "OO",1501986819808,1501986789808
+	
+	;Model::Shelf-CR-01 4, Model::Panels 4
+	C: "OO",1501986805808,1501986789808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 4
+	C: "OO",1501985860928,1501986791808
+	
+	;Geometry::Scene, Model::Shelf-CL-00 4
+	C: "OO",1501974407808,1501986791808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 4
+	C: "OO",1501985860928,1501986781808
+	
+	;Geometry::Scene, Model::Shelf-CR-00 4
+	C: "OO",1501974400192,1501986781808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 4
+	C: "OO",1501985860928,1501986811808
+	
+	;Geometry::Scene, Model::Shelf-Back-00 4
+	C: "OO",1501974411840,1501986811808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 (1) 4
+	C: "OO",1501985860928,1501986803808
+	
+	;Geometry::Scene, Model::Shelf-Back-00 (1) 4
+	C: "OO",1501974411840,1501986803808
+	
+	;Model::Shelf-CL-00 (1) 4, Model::TopPanel 4
+	C: "OO",1501986801808,1501986799808
+	
+	;Model::Shelf-CR-00 (1) 4, Model::TopPanel 4
+	C: "OO",1501986797808,1501986799808
+	
+	;Model::Shelf-TM-00 4, Model::TopPanel 4
+	C: "OO",1501986807808,1501986799808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 (1) 4
+	C: "OO",1501985860928,1501986801808
+	
+	;Geometry::Scene, Model::Shelf-CL-00 (1) 4
+	C: "OO",1501974407808,1501986801808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 (1) 4
+	C: "OO",1501985860928,1501986797808
+	
+	;Geometry::Scene, Model::Shelf-CR-00 (1) 4
+	C: "OO",1501974400192,1501986797808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-TM-00 4
+	C: "OO",1501985860928,1501986807808
+	
+	;Geometry::Scene, Model::Shelf-TM-00 4
+	C: "OO",1501974399744,1501986807808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-01 4
+	C: "OO",1501985860928,1501986819808
+	
+	;Geometry::Scene, Model::Shelf-CL-01 4
+	C: "OO",1501974408256,1501986819808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-01 4
+	C: "OO",1501985860928,1501986805808
+	
+	;Geometry::Scene, Model::Shelf-CR-01 4
+	C: "OO",1501974406016,1501986805808
+	
+	;Model::Meshes 5, Model::Compartment 5
+	C: "OO",1501986825808,1501986809808
+	
+	;Model::ObjectContainer 5, Model::Compartment 5
+	C: "OO",1501986845808,1501986809808
+	
+	;Model::GridMeshes 5, Model::Meshes 5
+	C: "OO",1501986823808,1501986825808
+	
+	;Model::Panels 5, Model::Meshes 5
+	C: "OO",1501986813808,1501986825808
+	
+	;Model::Shelf-BM-00 5, Model::GridMeshes 5
+	C: "OO",1501986827808,1501986823808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-BM-00 5
+	C: "OO",1501985860928,1501986827808
+	
+	;Geometry::Scene, Model::Shelf-BM-00 5
+	C: "OO",1501974399744,1501986827808
+	
+	;Model::Shelf-CL-00 5, Model::Panels 5
+	C: "OO",1501986829808,1501986813808
+	
+	;Model::Shelf-CR-00 5, Model::Panels 5
+	C: "OO",1501986815808,1501986813808
+	
+	;Model::Shelf-Back-00 5, Model::Panels 5
+	C: "OO",1501986831808,1501986813808
+	
+	;Model::Shelf-Back-00 (1) 5, Model::Panels 5
+	C: "OO",1501986817808,1501986813808
+	
+	;Model::TopPanel 5, Model::Panels 5
+	C: "OO",1501986835808,1501986813808
+	
+	;Model::Shelf-CL-01 5, Model::Panels 5
+	C: "OO",1501986843808,1501986813808
+	
+	;Model::Shelf-CR-01 5, Model::Panels 5
+	C: "OO",1501986839808,1501986813808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 5
+	C: "OO",1501985860928,1501986829808
+	
+	;Geometry::Scene, Model::Shelf-CL-00 5
+	C: "OO",1501974407808,1501986829808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 5
+	C: "OO",1501985860928,1501986815808
+	
+	;Geometry::Scene, Model::Shelf-CR-00 5
+	C: "OO",1501974400192,1501986815808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 5
+	C: "OO",1501985860928,1501986831808
+	
+	;Geometry::Scene, Model::Shelf-Back-00 5
+	C: "OO",1501974411840,1501986831808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 (1) 5
+	C: "OO",1501985860928,1501986817808
+	
+	;Geometry::Scene, Model::Shelf-Back-00 (1) 5
+	C: "OO",1501974411840,1501986817808
+	
+	;Model::Shelf-CL-00 (1) 5, Model::TopPanel 5
+	C: "OO",1501986841808,1501986835808
+	
+	;Model::Shelf-CR-00 (1) 5, Model::TopPanel 5
+	C: "OO",1501986833808,1501986835808
+	
+	;Model::Shelf-TM-00 5, Model::TopPanel 5
+	C: "OO",1501986837808,1501986835808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 (1) 5
+	C: "OO",1501985860928,1501986841808
+	
+	;Geometry::Scene, Model::Shelf-CL-00 (1) 5
+	C: "OO",1501974407808,1501986841808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 (1) 5
+	C: "OO",1501985860928,1501986833808
+	
+	;Geometry::Scene, Model::Shelf-CR-00 (1) 5
+	C: "OO",1501974400192,1501986833808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-TM-00 5
+	C: "OO",1501985860928,1501986837808
+	
+	;Geometry::Scene, Model::Shelf-TM-00 5
+	C: "OO",1501974399744,1501986837808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-01 5
+	C: "OO",1501985860928,1501986843808
+	
+	;Geometry::Scene, Model::Shelf-CL-01 5
+	C: "OO",1501974408256,1501986843808
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-01 5
+	C: "OO",1501985860928,1501986839808
+	
+	;Geometry::Scene, Model::Shelf-CR-01 5
+	C: "OO",1501974406016,1501986839808
+	
+	;Model::Meshes 6, Model::Compartment 6
+	C: "OO",1501986019088,1501986017088
+	
+	;Model::ObjectContainer 6, Model::Compartment 6
+	C: "OO",1501986025088,1501986017088
+	
+	;Model::GridMeshes 6, Model::Meshes 6
+	C: "OO",1501986005088,1501986019088
+	
+	;Model::Panels 6, Model::Meshes 6
+	C: "OO",1501986007088,1501986019088
+	
+	;Model::Shelf-BM-00 6, Model::GridMeshes 6
+	C: "OO",1501986021088,1501986005088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-BM-00 6
+	C: "OO",1501985860928,1501986021088
+	
+	;Geometry::Scene, Model::Shelf-BM-00 6
+	C: "OO",1501974399744,1501986021088
+	
+	;Model::Shelf-CL-00 6, Model::Panels 6
+	C: "OO",1501986011088,1501986007088
+	
+	;Model::Shelf-CR-00 6, Model::Panels 6
+	C: "OO",1501986015088,1501986007088
+	
+	;Model::Shelf-Back-00 6, Model::Panels 6
+	C: "OO",1501986023088,1501986007088
+	
+	;Model::Shelf-Back-00 (1) 6, Model::Panels 6
+	C: "OO",1501986013088,1501986007088
+	
+	;Model::TopPanel 6, Model::Panels 6
+	C: "OO",1501986009088,1501986007088
+	
+	;Model::Shelf-CL-01 6, Model::Panels 6
+	C: "OO",1501986033088,1501986007088
+	
+	;Model::Shelf-CR-01 6, Model::Panels 6
+	C: "OO",1501986037088,1501986007088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 6
+	C: "OO",1501985860928,1501986011088
+	
+	;Geometry::Scene, Model::Shelf-CL-00 6
+	C: "OO",1501974407808,1501986011088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 6
+	C: "OO",1501985860928,1501986015088
+	
+	;Geometry::Scene, Model::Shelf-CR-00 6
+	C: "OO",1501974400192,1501986015088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 6
+	C: "OO",1501985860928,1501986023088
+	
+	;Geometry::Scene, Model::Shelf-Back-00 6
+	C: "OO",1501974411840,1501986023088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 (1) 6
+	C: "OO",1501985860928,1501986013088
+	
+	;Geometry::Scene, Model::Shelf-Back-00 (1) 6
+	C: "OO",1501974411840,1501986013088
+	
+	;Model::Shelf-CL-00 (1) 6, Model::TopPanel 6
+	C: "OO",1501986029088,1501986009088
+	
+	;Model::Shelf-CR-00 (1) 6, Model::TopPanel 6
+	C: "OO",1501986027088,1501986009088
+	
+	;Model::Shelf-TM-00 6, Model::TopPanel 6
+	C: "OO",1501986035088,1501986009088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 (1) 6
+	C: "OO",1501985860928,1501986029088
+	
+	;Geometry::Scene, Model::Shelf-CL-00 (1) 6
+	C: "OO",1501974407808,1501986029088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 (1) 6
+	C: "OO",1501985860928,1501986027088
+	
+	;Geometry::Scene, Model::Shelf-CR-00 (1) 6
+	C: "OO",1501974400192,1501986027088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-TM-00 6
+	C: "OO",1501985860928,1501986035088
+	
+	;Geometry::Scene, Model::Shelf-TM-00 6
+	C: "OO",1501974399744,1501986035088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-01 6
+	C: "OO",1501985860928,1501986033088
+	
+	;Geometry::Scene, Model::Shelf-CL-01 6
+	C: "OO",1501974408256,1501986033088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-01 6
+	C: "OO",1501985860928,1501986037088
+	
+	;Geometry::Scene, Model::Shelf-CR-01 6
+	C: "OO",1501974406016,1501986037088
+	
+	;Model::Meshes 7, Model::Compartment 7
+	C: "OO",1501986031088,1501986041088
+	
+	;Model::ObjectContainer 7, Model::Compartment 7
+	C: "OO",1501986061088,1501986041088
+	
+	;Model::GridMeshes 7, Model::Meshes 7
+	C: "OO",1501986047088,1501986031088
+	
+	;Model::Panels 7, Model::Meshes 7
+	C: "OO",1501986053088,1501986031088
+	
+	;Model::Shelf-BM-00 7, Model::GridMeshes 7
+	C: "OO",1501986039088,1501986047088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-BM-00 7
+	C: "OO",1501985860928,1501986039088
+	
+	;Geometry::Scene, Model::Shelf-BM-00 7
+	C: "OO",1501974399744,1501986039088
+	
+	;Model::Shelf-CL-00 7, Model::Panels 7
+	C: "OO",1501986049088,1501986053088
+	
+	;Model::Shelf-CR-00 7, Model::Panels 7
+	C: "OO",1501986051088,1501986053088
+	
+	;Model::Shelf-Back-00 7, Model::Panels 7
+	C: "OO",1501986043088,1501986053088
+	
+	;Model::Shelf-Back-00 (1) 7, Model::Panels 7
+	C: "OO",1501986055088,1501986053088
+	
+	;Model::TopPanel 7, Model::Panels 7
+	C: "OO",1501986045088,1501986053088
+	
+	;Model::Shelf-CL-01 7, Model::Panels 7
+	C: "OO",1501986071088,1501986053088
+	
+	;Model::Shelf-CR-01 7, Model::Panels 7
+	C: "OO",1501986057088,1501986053088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 7
+	C: "OO",1501985860928,1501986049088
+	
+	;Geometry::Scene, Model::Shelf-CL-00 7
+	C: "OO",1501974407808,1501986049088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 7
+	C: "OO",1501985860928,1501986051088
+	
+	;Geometry::Scene, Model::Shelf-CR-00 7
+	C: "OO",1501974400192,1501986051088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 7
+	C: "OO",1501985860928,1501986043088
+	
+	;Geometry::Scene, Model::Shelf-Back-00 7
+	C: "OO",1501974411840,1501986043088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-Back-00 (1) 7
+	C: "OO",1501985860928,1501986055088
+	
+	;Geometry::Scene, Model::Shelf-Back-00 (1) 7
+	C: "OO",1501974411840,1501986055088
+	
+	;Model::Shelf-CL-00 (1) 7, Model::TopPanel 7
+	C: "OO",1501986065088,1501986045088
+	
+	;Model::Shelf-CR-00 (1) 7, Model::TopPanel 7
+	C: "OO",1501986067088,1501986045088
+	
+	;Model::Shelf-TM-00 7, Model::TopPanel 7
+	C: "OO",1501986059088,1501986045088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-00 (1) 7
+	C: "OO",1501985860928,1501986065088
+	
+	;Geometry::Scene, Model::Shelf-CL-00 (1) 7
+	C: "OO",1501974407808,1501986065088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-00 (1) 7
+	C: "OO",1501985860928,1501986067088
+	
+	;Geometry::Scene, Model::Shelf-CR-00 (1) 7
+	C: "OO",1501974400192,1501986067088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-TM-00 7
+	C: "OO",1501985860928,1501986059088
+	
+	;Geometry::Scene, Model::Shelf-TM-00 7
+	C: "OO",1501974399744,1501986059088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CL-01 7
+	C: "OO",1501985860928,1501986071088
+	
+	;Geometry::Scene, Model::Shelf-CL-01 7
+	C: "OO",1501974408256,1501986071088
+	
+	;Material::Mat-Shelf-00, Model::Shelf-CR-01 7
+	C: "OO",1501985860928,1501986057088
+	
+	;Geometry::Scene, Model::Shelf-CR-01 7
+	C: "OO",1501974406016,1501986057088
+	
+	;Texture::DiffuseColor_Texture, Material::Mat-Shelf-00
+	C: "OO",1501956933104,1501985860928
+	
+	;Texture::DiffuseColor_Texture, Material::Mat-Shelf-00
+	C: "OP",1501956933104,1501985860928, "EmissiveColor"
+	
+	;Texture::DiffuseColor_Texture, Material::Mat-Shelf-00
+	C: "OP",1501956933104,1501985860928, "DiffuseColor"
+	
+	;Video::DiffuseColor_Texture, Texture::DiffuseColor_Texture
+	C: "OO",1501956938384,1501956933104
+}
+;Takes section
+;----------------------------------------------------
+
+Takes:  {
+	Current: ""
+}

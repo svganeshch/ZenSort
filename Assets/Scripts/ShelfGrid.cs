@@ -9,9 +9,7 @@ public class ShelfGrid : MonoBehaviour
 
     public float shelfPaddingX = 0.1f;
     private float shelfPaddingZ = 0.15f;
-    private float propOverlapBoxDepth = 0.2f;
-
-    public LayerMask propLayerMask;
+    private float propOverlapBoxDepth = 0.25f;
 
     float shelfLeft;
     float shelfRight;
@@ -123,8 +121,8 @@ public class ShelfGrid : MonoBehaviour
         Tween setPosTween = prop.SetPositionTween(propPos);
         setPosTween.OnComplete(() => UpdatePropsState());
 
-        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, Vector3.up);
-        prop.transform.rotation = targetRotation;
+        //Quaternion targetRotation = Quaternion.LookRotation(transform.forward, Vector3.up);
+        //prop.transform.rotation = targetRotation;
     }
 
     public void UpdatePropsState(Prop pickedProp = null)
@@ -164,7 +162,7 @@ public class ShelfGrid : MonoBehaviour
                 Vector3 frontOffset = prop.transform.forward * (propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
                 Vector3 overlapBoxPos = propCenter + frontOffset;
 
-                Collider[] colliders = Physics.OverlapBox(overlapBoxPos, overlapBoxSize / 2, prop.transform.rotation, propLayerMask);
+                Collider[] colliders = Physics.OverlapBox(overlapBoxPos, overlapBoxSize / 2, prop.transform.rotation, WorldLayerMaskManager.instance.propLayerMask);
 
                 bool isBlocked = colliders.Any(c => c != prop.propCollider);
 

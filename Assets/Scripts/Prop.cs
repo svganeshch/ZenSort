@@ -48,7 +48,9 @@ public class Prop : MonoBehaviour
         }
         else
         {
-            material.color = Color.gray;
+            ColorUtility.TryParseHtmlString("#4B4B4B", out Color disabledColor);
+
+            material.color = disabledColor;
 
             Debug.Log("Setting disabled color for : " + gameObject.name);
         }

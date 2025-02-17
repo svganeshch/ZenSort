@@ -16,6 +16,7 @@ public class SlotManager : MonoBehaviour
 
     private Sequence shiftSequence;
     private Sequence rearrangeSequence;
+    private Sequence matchingSequence;
 
     private Queue<Func<IEnumerator>> propQueue = new Queue<Func<IEnumerator>>();
     private bool isProcessingQueue = false;
@@ -81,9 +82,9 @@ public class SlotManager : MonoBehaviour
 
             if (willCauseMatch)
             {
-                //BoosterManager.Instance.previousTile = null;
+                BoosterManager.previousPickedProp = null;
 
-                yield return new WaitUntil(() => HandleMatchingSlotGroupsCallback());
+                HandleMatchingSlotGroupsCallback();
                 yield return StartCoroutine(RearrangeSlots());
             }
         }
@@ -187,23 +188,64 @@ public class SlotManager : MonoBehaviour
         yield return rearrangeSequence.WaitForCompletion();
     }
 
-    private bool HandleMatchingSlotGroupsCallback()
+    //private bool HandleMatchingSlotGroupsCallback()
+    //{
+    //    foreach (int matchingIndex in matchingSlotIndexs)
+    //    {
+    //        //Destroy(slots[matchingIndex].slotProp.gameObject);
+
+    //        slots[matchingIndex].slotProp.gameObject.SetActive(false);
+    //        slots[matchingIndex].slotProp = null;
+
+    //        slots[matchingIndex].slotVFX.Play();
+    //    }
+
+    //    //SFXManager.Instance.PlayPropsMatchedSound();
+
+    //    matchingSlotIndexs.Clear();
+
+    //    return true;
+    //}
+
+    private void HandleMatchingSlotGroupsCallback()
     {
-        foreach (int matchingIndex in matchingSlotIndexs)
-        {
-            //Destroy(slots[matchingIndex].slotProp.gameObject);
+        matchingSequence = DOTween.Sequence();
 
-            slots[matchingIndex].slotProp.gameObject.SetActive(false);
-            slots[matchingIndex].slotProp = null;
+        int middleIndex = matchingSlotIndexs[1];
+        int topIndex = matchingSlotIndexs[0];
+        int bottomIndex = matchingSlotIndexs[2];
 
-            //slots[matchingIndex].slotVFX.Play();
-        }
+        Transform middleTransform = slots[middleIndex].slotProp.transform;
+        Transform topTransform = slots[topIndex].slotProp.transform;
+        Transform bottomTransform = slots[bottomIndex].slotProp.transform;
 
-        //SFXManager.Instance.PlayPropsMatchedSound();
+        Vector3 middlePosition = middleTransform.position;
+        Vector3 middleTarget = middlePosition + Vector3.up * 0.25f;
+        Vector3 topTarget = middlePosition + Vector3.up * 0.2f;
+        Vector3 bottomTarget = middlePosition + Vector3.up * 0.2f;
 
+        Tween middleTween = middleTransform.DOMove(middleTarget, 0.3f).SetEase(Ease.OutQuad);
+        Tween topTween = topTransform.DOMove(topTarget, 0.3f).SetEase(Ease.OutQuad)
+            .OnComplete(() => topTransform.DOMove(middleTarget, 0.2f).SetEase(Ease.InQuad));
+
+        Tween bottomTween = bottomTransform.DOMove(bottomTarget, 0.3f).SetEase(Ease.OutQuad)
+            .OnComplete(() => bottomTransform.DOMove(middleTarget, 0.2f).SetEase(Ease.InQuad).OnComplete(() =>
+            {
+                topTransform.gameObject.SetActive(false);
+                bottomTransform.gameObject.SetActive(false);
+                middleTransform.gameObject.SetActive(false);
+
+                slots[middleIndex].slotVFX.Play();
+            }));
+
+        matchingSequence.Append(middleTween);
+        matchingSequence.Append(topTween);
+        matchingSequence.Append(bottomTween);
+
+        slots[topIndex].slotProp = null;
+        slots[bottomIndex].slotProp = null;
+        slots[middleIndex].slotProp = null;
         matchingSlotIndexs.Clear();
-
-        return true;
     }
 
     public void EnableExtraSlot()
