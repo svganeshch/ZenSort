@@ -5,6 +5,8 @@ public class ShelfManager : MonoBehaviour
 {
     public ShelfGrid[] shelfGrids;
 
+    List<Prop> remainingProps;
+
     private void Awake()
     {
         shelfGrids = GetComponentsInChildren<ShelfGrid>();
@@ -12,7 +14,7 @@ public class ShelfManager : MonoBehaviour
 
     public void StockShelfs(List<Prop> origPropList)
     {
-        List<Prop> remainingProps = new List<Prop>(origPropList);
+        remainingProps = new List<Prop>(origPropList);
         remainingProps.Sort((a, b) => b.propCollider.bounds.size.x.CompareTo(a.propCollider.bounds.size.x));
 
         while (remainingProps.Count > 0)
@@ -34,12 +36,16 @@ public class ShelfManager : MonoBehaviour
             {
                 foreach (var prop in shelfLayers)
                 {
+                    if (prop == null) continue;
+
                     Destroy(prop.gameObject);
                 }
             }
 
             shelfGrid.shelfPropList.Clear();
         }
+
+        remainingProps.Clear();
 
         return true;
     }

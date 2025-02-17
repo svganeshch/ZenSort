@@ -13,8 +13,6 @@ public class LevelManager : MonoBehaviour
 
     public List<GameObject> shelfLayouts = new List<GameObject>();
 
-    private List<Prop> levelProps = new List<Prop>();
-
     public void GenerateLevel()
     {
         GameManager.currentGameState = GameState.Active;
@@ -24,6 +22,8 @@ public class LevelManager : MonoBehaviour
         levelShelfLayoutObj.TryGetComponent<ShelfManager>(out shelfManager);
 
         numberOfProps = GetNumberOfProps(currentLevel);
+
+        List<Prop> levelProps = new List<Prop>();
         levelProps = GameManager.instance.propManager.GenerateProps(numberOfProps);
         shelfManager.StockShelfs(levelProps);
     }
@@ -64,7 +64,6 @@ public class LevelManager : MonoBehaviour
         bool slotsCleared = GameManager.instance.slotManager.ClearAllSlots();
 
         Destroy(shelfManager.gameObject);
-        levelProps.Clear();
 
         yield return new WaitUntil(() => shelfGridsCleared && slotsCleared);
     }

@@ -10,6 +10,8 @@ public class PropManager : MonoBehaviour
 
     public List<Prop> GenerateProps(int numberOfProps)
     {
+        generatedProps.Clear();
+
         int propPairs = numberOfProps / 3;
 
         for (int i = 0; i < propPairs; i++)
