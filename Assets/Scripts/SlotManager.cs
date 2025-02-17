@@ -224,16 +224,16 @@ public class SlotManager : MonoBehaviour
         Vector3 topTarget = middlePosition + Vector3.up * 0.2f;
         Vector3 bottomTarget = middlePosition + Vector3.up * 0.2f;
 
-        Tween middleTween = middleTransform.DOMove(middleTarget, 0.3f).SetEase(Ease.OutQuad);
-        Tween topTween = topTransform.DOMove(topTarget, 0.3f).SetEase(Ease.OutQuad)
-            .OnComplete(() => topTransform.DOMove(middleTarget, 0.2f).SetEase(Ease.InQuad));
+        Tween middleTween = middleTransform.DOMove(middleTarget, 0.2f).SetEase(Ease.OutQuad);
+        Tween topTween = topTransform.DOMove(topTarget, 0.2f).SetEase(Ease.OutQuad)
+            .OnComplete(() => topTransform.DOMove(middleTarget, 0.15f).SetEase(Ease.InQuad));
 
-        Tween bottomTween = bottomTransform.DOMove(bottomTarget, 0.3f).SetEase(Ease.OutQuad)
-            .OnComplete(() => bottomTransform.DOMove(middleTarget, 0.2f).SetEase(Ease.InQuad).OnComplete(() =>
+        Tween bottomTween = bottomTransform.DOMove(bottomTarget, 0.2f).SetEase(Ease.OutQuad)
+            .OnComplete(() => bottomTransform.DOMove(middleTarget, 0.15f).SetEase(Ease.InQuad).OnComplete(() =>
             {
-                topTransform.gameObject.SetActive(false);
-                bottomTransform.gameObject.SetActive(false);
-                middleTransform.gameObject.SetActive(false);
+                Destroy(topTransform.gameObject);
+                Destroy(bottomTransform.gameObject);
+                Destroy(middleTransform.gameObject);
 
                 slots[middleIndex].slotVFX.Play();
             }));

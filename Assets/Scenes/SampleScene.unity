@@ -257,8 +257,8 @@ Transform:
   m_GameObject: {fileID: 147685750}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.5}
-  m_LocalScale: {x: 0.15, y: 1, z: 0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 3.334}
+  m_LocalScale: {x: 0.282555, y: 1, z: 0.48295}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1463896021}
@@ -448,7 +448,7 @@ Camera:
     height: 1
   near clip plane: 0.5
   far clip plane: 1000
-  field of view: 30
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -877,8 +877,8 @@ Transform:
   m_GameObject: {fileID: 1215507593}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.125}
-  m_LocalScale: {x: 1.45, y: 1.45, z: 1.45}
+  m_LocalPosition: {x: 0, y: 0, z: 1.815}
+  m_LocalScale: {x: 1.9999999, y: 1.9999999, z: 1.9999999}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 401871784540030116}
@@ -929,8 +929,8 @@ Transform:
   m_GameObject: {fileID: 1327075296}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 1, z: 0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0.3}
+  m_LocalScale: {x: 0.27249, y: 1, z: 0.36035}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1392523643}
@@ -1262,8 +1262,8 @@ Transform:
   m_GameObject: {fileID: 1481281748}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.059, z: 0.01}
-  m_LocalScale: {x: 1.0122164, y: 0.11612, z: 0.011845313}
+  m_LocalPosition: {x: 0, y: 0.13, z: 0.31}
+  m_LocalScale: {x: 1.0122164, y: 0.11612, z: 0.025151223}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1086976895}
@@ -1372,11 +1372,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4367d994ca0bc24c94cbd052eb9214a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 20
+  currentLevel: 10
   numberOfProps: 0
   shelfManager: {fileID: 0}
   shelfLayouts:
+  - {fileID: 4230818751278912655, guid: 3862db51a4153554ea65cf51c6fa5f28, type: 3}
   - {fileID: 8646548589110749293, guid: 08b362f3e5530874b8c044f36919cc96, type: 3}
+  - {fileID: 2192301635853526569, guid: 9f855d67da8865f4a928c4c61ed5dd79, type: 3}
   - {fileID: 8550255694024326335, guid: a8f199e780ca83d4b9f2138d6a03d949, type: 3}
 --- !u!4 &1587940363
 Transform:
@@ -1497,9 +1499,22 @@ MonoBehaviour:
   - {fileID: 8795251572153622784, guid: 64c5d3f4fad8f3d4385ab44a69895d26, type: 3}
   - {fileID: 6183536680358741203, guid: 90119b1b6531bba479d3791bc7a56c9d, type: 3}
   - {fileID: 2757922312999737483, guid: d54beb12e71b77f40be8c8b819f235aa, type: 3}
+  - {fileID: 5454404496152698580, guid: f24c4f1f41c908c4780ce2bc6c7cc7f9, type: 3}
   - {fileID: 6461188815279269973, guid: 70a3d44fc3e19dc4e8c8dfad8774b07e, type: 3}
   - {fileID: 5710862411760161934, guid: 464e41268cf76f34fb07153861166391, type: 3}
+  - {fileID: 266976075315974032, guid: 0565c3184d3d1cf4bb4ba1bf6745370b, type: 3}
+  - {fileID: 6463059415841312524, guid: e8f9237e1a8388f49968e3351aeb3483, type: 3}
+  - {fileID: 961533264485225410, guid: 542bbdc38cd7c7f4e996751dafd491af, type: 3}
+  - {fileID: 7882630269409306703, guid: 0537ddcdb31c34f45bd5a1945a6d1f21, type: 3}
+  - {fileID: 1920359648969426179, guid: dca1e23395d883d4b8202c554a9781a2, type: 3}
+  - {fileID: 3325697738271965271, guid: 20c04d95008d9f049be95b427ecce426, type: 3}
+  - {fileID: 3319373533943428044, guid: 342f57da13c595a4883335c030aa6da8, type: 3}
+  - {fileID: 7661182203531513675, guid: 43be2333fe653f6478c72fee7c62f8ff, type: 3}
+  - {fileID: 29214562860588555, guid: 46af58c88c0035141869504adef04f1e, type: 3}
+  - {fileID: 7825974555337856293, guid: 981e439497e96db4ab33b8b8a59ba6d9, type: 3}
   - {fileID: 4216243579799568041, guid: 7669f3a6633c2d44ea50cbc9f2a585bf, type: 3}
+  - {fileID: 2183969193189890988, guid: 98a0ea2f4616cd24fa84d2989ff2b460, type: 3}
+  - {fileID: 5020291947883434130, guid: 6f5858baaf539bf4bb4138830d5d0d5e, type: 3}
   generatedProps: []
 --- !u!4 &1841267764
 Transform:

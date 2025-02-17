@@ -35,7 +35,7 @@ public class Prop : MonoBehaviour
         }
 
         material = meshRenderer.material;
-        propSize = propCollider.size;
+        propSize = Vector3.Scale(propCollider.size, transform.localScale);
 
         origPropScale = transform.localScale;
     }
