@@ -236,6 +236,7 @@ public class SlotManager : MonoBehaviour
                 Destroy(middleTransform.gameObject);
 
                 slots[middleIndex].slotVFX.Play();
+                SFXManager.instance.PlayPropMatchedSound();
             }));
 
         matchingSequence.Append(middleTween);

@@ -67,6 +67,8 @@ public class Prop : MonoBehaviour
         GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
         transform.localScale = transform.localScale / 2;
 
+        SFXManager.instance.PlayPropPickedSound();
+
         Debug.Log(gameObject.name + " is picked!!");
     }
 
