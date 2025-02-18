@@ -93,7 +93,7 @@ public class Prop : MonoBehaviour
         origPropPos = pos;
         //transform.position = pos;
 
-        Tween moveTween = transform.DOMove(pos, 0.5f).SetEase(Ease.InQuad);
+        Tween moveTween = transform.DOMove(pos, 0.15f).SetEase(Ease.InQuad);
 
         return moveTween;
     }
