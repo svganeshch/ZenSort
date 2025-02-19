@@ -1,16 +1,27 @@
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static UIManager instance;
+
+    public UIDocument levelDoneScreen;
+
+    public UnityEvent OnLevelDone;
+
+    private void Awake()
     {
-        
+        instance = this;
+
+        OnLevelDone = new UnityEvent();
+
+        OnLevelDone.AddListener(ShowLevelDoneScreen);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ShowLevelDoneScreen()
     {
-        
+        GameManager.currentGameState = GameState.Paused;
+        levelDoneScreen.rootVisualElement.style.visibility = Visibility.Visible;
     }
 }

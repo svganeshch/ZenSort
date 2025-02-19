@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BoosterManager : MonoBehaviour
@@ -75,9 +76,13 @@ public class BoosterManager : MonoBehaviour
 
         foreach (var shelfGrid in shelfGrids)
         {
-            foreach (var shelfLayer in shelfGrid.shelfPropList)
+            var shelfLayersList = new List<List<Prop>>(shelfGrid.shelfPropList);
+
+            foreach (var shelfLayer in shelfLayersList)
             {
-                foreach (var prop in shelfLayer)
+                var shelfLayerProps = new List<Prop>(shelfLayer);
+
+                foreach (var prop in shelfLayerProps)
                 {
                     if (count == propsToPull)
                     {

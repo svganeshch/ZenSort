@@ -1,6 +1,9 @@
 using DG.Tweening;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public class Prop : MonoBehaviour
@@ -18,6 +21,12 @@ public class Prop : MonoBehaviour
     public ShelfGrid shelfGrid;
 
     private bool propState = false;
+    private bool isPicked = false;
+
+    private int listenerCount = 0;
+    public List<Prop> listeners = new List<Prop>();
+
+    public UnityEvent OnMoveEvent = new();
 
     private void Awake()
     {
@@ -52,7 +61,7 @@ public class Prop : MonoBehaviour
 
             material.color = disabledColor;
 
-            Debug.Log("Setting disabled color for : " + gameObject.name);
+           // Debug.Log("Setting disabled color for : " + gameObject.name);
         }
 
         propState = state;
@@ -60,26 +69,36 @@ public class Prop : MonoBehaviour
 
     public void OnPicked()
     {
-        if (!propState) return;
+        if (!propState || isPicked) return;
 
+        isPicked = true;
         BoosterManager.previousPickedProp = this;
 
         GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
         transform.localScale = transform.localScale / 2;
 
+        shelfGrid.shelfPropList[propLayer].Remove(this);
+
         SFXManager.instance.PlayPropPickedSound();
+
+        if (GameManager.instance.levelManager.shelfManager.IsLevelDone())
+        {
+            UIManager.instance.OnLevelDone.Invoke();
+        }
 
         Debug.Log(gameObject.name + " is picked!!");
     }
 
     private void OnPropQueueComplete()
     {
-        shelfGrid.UpdatePropsState(this);
+        shelfGrid.UpdateShelf(this);
     }
 
     public void PropUndo()
     {
+        isPicked = false;
         transform.parent = null;
+
         //transform.SetPositionAndRotation(origPropPos, Quaternion.identity);
         Tween moveTween = SetPositionTween(origPropPos);
         transform.rotation = Quaternion.identity;
@@ -98,5 +117,39 @@ public class Prop : MonoBehaviour
         Tween moveTween = transform.DOMove(pos, 0.15f).SetEase(Ease.InQuad);
 
         return moveTween;
+    }
+
+    public void AddListener()
+    {
+        Vector3 propCenter = propCollider.bounds.center;
+
+        Vector3 overlapBoxSize = new Vector3(propSize.x * 0.75f, propSize.y, 0.5f);
+        Vector3 frontOffset = transform.forward * (propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
+        Vector3 overlapBoxPos = propCenter + frontOffset;
+
+        Collider[] colliders = Physics.OverlapBox(overlapBoxPos, overlapBoxSize / 2, transform.rotation, WorldLayerMaskManager.instance.propLayerMask);
+
+        foreach (var propCollider in colliders)
+        {
+            if (propCollider.gameObject == gameObject) continue;
+
+            if (propCollider.TryGetComponent<Prop>(out Prop otherProp) && otherProp.propLayer == propLayer - 1)
+            {
+                listenerCount += 1;
+
+                List<Prop> moveProp = new();
+                moveProp.Add(otherProp);
+
+                otherProp.OnMoveEvent.AddListener(() => 
+                {
+                    listenerCount--;
+
+                    if (listenerCount >= 1) return;
+                    shelfGrid.UpdateShelf(otherProp);
+                });
+
+                listeners.Add(otherProp);
+            }
+        }
     }
 }

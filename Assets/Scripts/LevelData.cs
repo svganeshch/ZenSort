@@ -5,5 +5,5 @@ public class LevelData : ScriptableObject
 {
     public int seed = 0;
 
-    public GameObject[] props;
+    public GameObject compartmentPrefab;
 }

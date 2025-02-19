@@ -13,11 +13,22 @@ public class LevelManager : MonoBehaviour
 
     public List<GameObject> shelfLayouts = new List<GameObject>();
 
+    GameObject levelShelfLayoutPrefab;
+
     public void GenerateLevel()
     {
         GameManager.currentGameState = GameState.Active;
 
-        GameObject levelShelfLayoutPrefab = shelfLayouts[Random.Range(0, shelfLayouts.Count)];
+        LevelData existingLevelData = Resources.Load<LevelData>(currentLevel.ToString());
+        if (existingLevelData != null)
+        {
+            levelShelfLayoutPrefab = existingLevelData.compartmentPrefab;
+        }
+        else
+        {
+            Debug.LogError($"Level data not found for level {currentLevel}!!");
+        }
+
         GameObject levelShelfLayoutObj = Instantiate(levelShelfLayoutPrefab, transform);
         levelShelfLayoutObj.TryGetComponent<ShelfManager>(out shelfManager);
 

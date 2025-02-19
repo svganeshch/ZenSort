@@ -26,6 +26,33 @@ public class ShelfManager : MonoBehaviour
         }
     }
 
+    public bool IsLevelDone()
+    {
+        if (GetPropCount() <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public int GetPropCount()
+    {
+        int propCount = 0;
+
+        foreach (var shelfGrid in shelfGrids)
+        {
+            foreach (var shelfLayer in shelfGrid.shelfPropList)
+            {
+                propCount += shelfLayer.Count;
+            }
+        }
+
+        return propCount;
+    }
+
     public bool ClearGrids()
     {
         foreach (var shelfGrid in shelfGrids)

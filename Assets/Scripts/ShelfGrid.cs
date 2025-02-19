@@ -7,9 +7,11 @@ public class ShelfGrid : MonoBehaviour
 {
     BoxCollider shelfCollider;
 
-    public float shelfPaddingX = 0.1f;
-    private float shelfPaddingZ = 0.15f;
-    private float propOverlapBoxDepth = 0.25f;
+    private float shelfPaddingX = 0.05f;
+    private float shelfPaddingZ = 0.25f;
+    private float propOverlapBoxDepth = 0.5f;
+
+    float maxDepth = 0;
 
     float shelfLeft;
     float shelfRight;
@@ -19,6 +21,8 @@ public class ShelfGrid : MonoBehaviour
     float currentShelfPosZ;
 
     int currentLayer = 0;
+
+    private List<KeyValuePair<Vector3, Prop>> propsToPlace = new List<KeyValuePair<Vector3, Prop>>();
 
     private List<Prop> propsMovedInPreviousPick = new List<Prop>();
     public List<List<Prop>> shelfPropList = new List<List<Prop>>();
@@ -45,6 +49,8 @@ public class ShelfGrid : MonoBehaviour
         currentShelfPosX = shelfLeft;
         currentShelfPosZ = shelfZ;
 
+        propsToPlace.Clear();
+
         foreach (Prop prop in currentPropList)
         {
             float propWidth = prop.propSize.x;
@@ -60,7 +66,8 @@ public class ShelfGrid : MonoBehaviour
                 currentPlacedProps.Add(prop);
                 allProps.Remove(prop);
 
-                SetProp(prop, propPos);
+                //SetProp(prop, propPos);
+                propsToPlace.Add(new KeyValuePair<Vector3, Prop>(propPos, prop));
 
                 currentShelfPosX += propWidth + shelfPaddingX;
             }
@@ -70,6 +77,8 @@ public class ShelfGrid : MonoBehaviour
 
         currentPropList = allProps;
         currentPropList = TryFitInGaps(currentPropList);
+
+        SetPropsTween();
 
         currentLayer++;
 
@@ -103,7 +112,8 @@ public class ShelfGrid : MonoBehaviour
                     propsToFit.Remove(prop);
                     remainingProps.RemoveAt(j);
 
-                    SetProp(prop, propPos);
+                    propsToPlace.Add(new KeyValuePair<Vector3, Prop>(propPos, prop));
+                    //SetProp(prop, propPos);
 
                     break;
                 }
@@ -113,25 +123,60 @@ public class ShelfGrid : MonoBehaviour
         return propsToFit;
     }
 
-    private void SetProp(Prop prop, Vector3 propPos)
+    private void SetPropsTween()
     {
-        prop.shelfGrid = this;
-        prop.propLayer = currentLayer;
+        foreach (var propValPair in propsToPlace)
+        {
+            Prop prop = propValPair.Value;
+            Vector3 propPos = propValPair.Key;
 
-        Tween setPosTween = prop.SetPositionTween(propPos);
-        setPosTween.OnComplete(() => UpdatePropsState());
+            prop.shelfGrid = this;
+            prop.propLayer = currentLayer;
 
-        //Quaternion targetRotation = Quaternion.LookRotation(transform.forward, Vector3.up);
-        //prop.transform.rotation = targetRotation;
+            prop.origPropPos = propPos;
+            prop.transform.position = propPos;
+
+            Tween setPosTween = prop.SetPositionTween(propPos);
+            setPosTween.OnComplete(() => {
+                UpdatePropsState();
+
+                prop.AddListener();
+            });
+        }
+
+        if (shelfPropList[0].Count > 0)
+            maxDepth = shelfPropList[0][0].origPropPos.z;
     }
 
-    public void UpdatePropsState(Prop pickedProp = null)
+    public void UpdatePropsState()
     {
         propsMovedInPreviousPick.Clear();
 
-        int startLayer = pickedProp != null ? pickedProp.propLayer + 1 : 0;
+        for (int i = 0; i < shelfPropList.Count; i++)
+        {
+            var propList = new List<Prop>(shelfPropList[i]);
 
+            foreach (var prop in propList)
+            {
+                if (prop == null) continue;
+
+                if (IsPropBlocked(prop))
+                {
+                    prop.SetPropState(false);
+                }
+                else
+                {
+                    prop.SetPropState(true);
+                }
+            }
+        }
+    }
+
+    public void UpdateShelf(Prop pickedProp)
+    {
         List<Prop> propsToMove = new List<Prop>();
+
+        int startLayer = pickedProp != null ? pickedProp.propLayer + 1 : 0;
 
         for (int i = startLayer; i < shelfPropList.Count; i++)
         {
@@ -141,31 +186,38 @@ public class ShelfGrid : MonoBehaviour
             {
                 if (prop == null) continue;
 
-                //Vector3 propSize = prop.propCollider.bounds.size;
-                Vector3 propCenter = prop.propCollider.bounds.center;
-
-                Vector3 overlapBoxSize = new Vector3(prop.propSize.x, prop.propSize.y, propOverlapBoxDepth);
-                Vector3 frontOffset = prop.transform.forward * (prop.propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
-                Vector3 overlapBoxPos = propCenter + frontOffset;
-
-                Collider[] colliders = Physics.OverlapBox(overlapBoxPos, overlapBoxSize / 2, prop.transform.rotation, WorldLayerMaskManager.instance.propLayerMask);
-                bool isBlocked = colliders.Any(c => c != prop.propCollider);
-
-                if (isBlocked)
-                {
-                    prop.SetPropState(false);
-                }
-                else if (pickedProp != null)
+                if (!IsPropBlocked(prop))
                 {
                     shelfPropList[i].Remove(prop);
                     shelfPropList[i - 1].Add(prop);
-                    prop.SetPropState(true);
+                    prop.propLayer = i - 1;
+
+                    //prop.SetPropState(true);
                     propsToMove.Add(prop);
                 }
-                else
-                {
-                    prop.SetPropState(true);
-                }
+                //else
+                //{
+                //    Ray ray = new Ray(prop.transform.position, prop.transform.forward);
+                    
+                //    if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, WorldLayerMaskManager.instance.propLayerMask))
+                //    {
+                //        Prop hitProp = hit.collider.GetComponent<Prop>();
+
+                //        if (hitProp != null && hitProp != prop)
+                //        {
+                //            Vector3 distanceToProp = hitProp.transform.position - prop.transform.position;
+
+                //            if (distanceToProp.z >= shelfPaddingZ)
+                //            {
+                //                shelfPropList[i].Remove(prop);
+                //                shelfPropList[i - 1].Add(prop);
+
+                //                //prop.SetPropState(true);
+                //                propsToMove.Add(prop);
+                //            }
+                //        }
+                //    }
+                //}
             }
         }
 
@@ -173,14 +225,16 @@ public class ShelfGrid : MonoBehaviour
         MovePropsForward(propsToMove);
     }
 
-    private void MovePropsForward(List<Prop> movedProps)
+    public void MovePropsForward(List<Prop> movedProps)
     {
         List<Prop> nextPropsToMove = new List<Prop>();
 
         foreach (var movedProp in movedProps)
         {
+            if (movedProp.transform.position.z >= maxDepth) continue;
+
             Vector3 shiftPos = movedProp.transform.position;
-            shiftPos.z += shelfPaddingZ;
+            shiftPos.z += maxDepth - shelfPaddingZ;
 
             propsMovedInPreviousPick.Add(movedProp);
 
@@ -192,6 +246,10 @@ public class ShelfGrid : MonoBehaviour
                 {
                     nextPropsToMove.AddRange(shelfPropList[nextLayer]);
                 }
+
+                UpdatePropsState();
+
+                //movedProp.OnMoveEvent.Invoke();
             });
         }
 
@@ -200,6 +258,21 @@ public class ShelfGrid : MonoBehaviour
         {
             MovePropsForward(nextPropsToMove);
         }
+    }
+
+    private bool IsPropBlocked(Prop prop)
+    {
+        //Vector3 propSize = prop.propCollider.bounds.size;
+        Vector3 propCenter = prop.propCollider.bounds.center;
+
+        Vector3 overlapBoxSize = new Vector3(prop.propSize.x * 0.75f, prop.propSize.y, propOverlapBoxDepth);
+        Vector3 frontOffset = prop.transform.forward * (prop.propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
+        Vector3 overlapBoxPos = propCenter + frontOffset;
+
+        Collider[] colliders = Physics.OverlapBox(overlapBoxPos, overlapBoxSize / 2, prop.transform.rotation, WorldLayerMaskManager.instance.propLayerMask);
+        bool isBlocked = colliders.Any(c => c != prop.propCollider);
+
+        return isBlocked;
     }
 
 
@@ -219,7 +292,7 @@ public class ShelfGrid : MonoBehaviour
         foreach (var previousProp in propsMovedInPreviousPick)
         {
            Tween moveTween = previousProp.SetPositionTween(previousProp.origPropPos);
-            moveTween.OnComplete(() => UpdatePropsState());
+            moveTween.OnComplete(() => UpdateShelf(prop));
         }
 
         propsMovedInPreviousPick.Clear();
@@ -242,7 +315,7 @@ public class ShelfGrid : MonoBehaviour
                 //Vector3 propSize = prop.propCollider.size;
                 Vector3 propCenter = prop.propCollider.bounds.center;
 
-                Vector3 overlapBoxSize = new Vector3(prop.propSize.x, prop.propSize.y, propOverlapBoxDepth);
+                Vector3 overlapBoxSize = new Vector3(prop.propSize.x * 0.75f, prop.propSize.y, propOverlapBoxDepth);
 
                 Vector3 frontOffset = prop.transform.forward * (prop.propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
                 Vector3 overlapBoxPos = propCenter + frontOffset;
