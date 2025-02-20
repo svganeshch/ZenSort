@@ -11,8 +11,6 @@ public class LevelManager : MonoBehaviour
 
     public ShelfManager shelfManager;
 
-    public List<GameObject> shelfLayouts = new List<GameObject>();
-
     GameObject levelShelfLayoutPrefab;
 
     public void GenerateLevel()

@@ -9,8 +9,8 @@ public class ShelfGrid : MonoBehaviour
     BoxCollider shelfCollider;
 
     private float shelfPaddingX = 0.05f;
-    private float shelfPaddingZ = 0.35f;
-    private float propOverlapBoxDepth = 0.5f;
+    private float shelfPaddingZ = 0.45f;
+    private float propOverlapBoxDepth = 0.35f;
 
     private float propOverlapBoxReduction = 0.75f;
 
@@ -136,7 +136,6 @@ public class ShelfGrid : MonoBehaviour
             prop.shelfGrid = this;
             prop.propLayer = currentLayer;
 
-            prop.origPropPos = propPos;
             prop.transform.position = propPos;
 
             Tween setPosTween = prop.SetPositionTween(propPos);
@@ -156,14 +155,7 @@ public class ShelfGrid : MonoBehaviour
             {
                 if (prop == null) continue;
 
-                if (IsPropBlocked(prop))
-                {
-                    prop.SetPropState(false);
-                }
-                else
-                {
-                    prop.SetPropState(true);
-                }
+                prop.SetPropState(!IsPropBlocked(prop));
             }
         }
     }
@@ -208,6 +200,8 @@ public class ShelfGrid : MonoBehaviour
             Vector3 shiftPos = propToMove.transform.position;
             shiftPos.z = Mathf.Min(shelfZ, shiftPos.z + shelfPaddingZ);
 
+            propToMove.previousPos = propToMove.transform.position;
+
             propsMovedInPreviousPick.Add(propToMove);
 
             Tween moveFwdTween = propToMove.transform.DOMove(shiftPos, 0.1f).SetEase(Ease.InQuad);
@@ -251,7 +245,7 @@ public class ShelfGrid : MonoBehaviour
 
         foreach (var previousProp in propsMovedInPreviousPick)
         {
-            Tween moveTween = previousProp.SetPositionTween(previousProp.origPropPos);
+            Tween moveTween = previousProp.SetPositionTween(previousProp.previousPos);
             moveTween.OnComplete(() =>
             {
                 shelfPropList[previousProp.propLayer].Remove(previousProp);

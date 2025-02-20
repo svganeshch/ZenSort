@@ -10,8 +10,9 @@ public class Prop : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
 
-    public Vector3 origPropPos;
     public Vector3 origPropScale;
+
+    public Vector3 previousPos;
 
     public BoxCollider propCollider;
     public Material material;
@@ -66,6 +67,8 @@ public class Prop : MonoBehaviour
     {
         if (!propState || isPicked) return;
 
+        previousPos = transform.position;
+
         isPicked = true;
         BoosterManager.previousPickedProp = this;
 
@@ -95,7 +98,7 @@ public class Prop : MonoBehaviour
         transform.parent = null;
 
         //transform.SetPositionAndRotation(origPropPos, Quaternion.identity);
-        Tween moveTween = SetPositionTween(origPropPos);
+        Tween moveTween = SetPositionTween(previousPos);
         transform.rotation = Quaternion.identity;
         transform.localScale = origPropScale;
 
@@ -106,7 +109,7 @@ public class Prop : MonoBehaviour
 
     public Tween SetPositionTween(Vector3 pos)
     {
-        origPropPos = pos;
+        previousPos = pos;
         //transform.position = pos;
 
         Tween moveTween = transform.DOMove(pos, 0.15f).SetEase(Ease.InQuad);

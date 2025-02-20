@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
-    private float moveSpeed = 0.25f;
-    private float shiftSpeed = 0.15f;
+    private float moveSpeed = 0.15f;
+    private float shiftSpeed = 0.1f;
 
     public ParticleSystem slotVFX;
 
