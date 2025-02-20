@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,9 +10,7 @@ public class ShelfGrid : MonoBehaviour
 
     private float shelfPaddingX = 0.05f;
     private float shelfPaddingZ = 0.25f;
-    private float propOverlapBoxDepth = 0.5f;
-
-    float maxDepth = 0;
+    private float propOverlapBoxDepth = 0.25f;
 
     float shelfLeft;
     float shelfRight;
@@ -35,7 +34,7 @@ public class ShelfGrid : MonoBehaviour
         shelfRight = shelfCollider.bounds.max.x;
 
         shelfY = shelfCollider.bounds.max.y;
-        shelfZ = shelfCollider.bounds.size.z;
+        shelfZ = shelfCollider.bounds.max.z;
 
         currentShelfPosX = shelfLeft;
         currentShelfPosZ = shelfZ;
@@ -55,11 +54,11 @@ public class ShelfGrid : MonoBehaviour
         {
             float propWidth = prop.propSize.x;
             float propY = shelfY + (prop.propCollider.size.y / 2) - prop.propCollider.center.y;
-            float propDepth = shelfZ;
+            float propDepth = prop.propCollider.size.z;
 
             if (currentShelfPosX + propWidth <= shelfRight)
             {
-                currentShelfPosZ = shelfZ - (currentLayer * shelfPaddingZ);
+                currentShelfPosZ = shelfZ - (currentLayer * shelfPaddingZ) - (propDepth / 2);
 
                 Vector3 propPos = new Vector3(currentShelfPosX + (propWidth / 2), propY, currentShelfPosZ);
 
@@ -139,13 +138,8 @@ public class ShelfGrid : MonoBehaviour
             Tween setPosTween = prop.SetPositionTween(propPos);
             setPosTween.OnComplete(() => {
                 UpdatePropsState();
-
-                prop.AddListener();
             });
         }
-
-        if (shelfPropList[0].Count > 0)
-            maxDepth = shelfPropList[0][0].origPropPos.z;
     }
 
     public void UpdatePropsState()
@@ -172,15 +166,14 @@ public class ShelfGrid : MonoBehaviour
         }
     }
 
-    public void UpdateShelf(Prop pickedProp)
+    public IEnumerator UpdateShelf(Prop pickedProp)
     {
-        List<Prop> propsToMove = new List<Prop>();
-
         int startLayer = pickedProp != null ? pickedProp.propLayer + 1 : 0;
 
         for (int i = startLayer; i < shelfPropList.Count; i++)
         {
             var propList = new List<Prop>(shelfPropList[i]);
+            List<Prop> layerPropsToMove = new List<Prop>();
 
             foreach (var prop in propList)
             {
@@ -192,72 +185,35 @@ public class ShelfGrid : MonoBehaviour
                     shelfPropList[i - 1].Add(prop);
                     prop.propLayer = i - 1;
 
-                    //prop.SetPropState(true);
-                    propsToMove.Add(prop);
+                    layerPropsToMove.Add(prop);
                 }
-                //else
-                //{
-                //    Ray ray = new Ray(prop.transform.position, prop.transform.forward);
-                    
-                //    if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, WorldLayerMaskManager.instance.propLayerMask))
-                //    {
-                //        Prop hitProp = hit.collider.GetComponent<Prop>();
-
-                //        if (hitProp != null && hitProp != prop)
-                //        {
-                //            Vector3 distanceToProp = hitProp.transform.position - prop.transform.position;
-
-                //            if (distanceToProp.z >= shelfPaddingZ)
-                //            {
-                //                shelfPropList[i].Remove(prop);
-                //                shelfPropList[i - 1].Add(prop);
-
-                //                //prop.SetPropState(true);
-                //                propsToMove.Add(prop);
-                //            }
-                //        }
-                //    }
-                //}
             }
-        }
 
-        // Move all affected props forward
-        MovePropsForward(propsToMove);
+            yield return StartCoroutine(MovePropForward(layerPropsToMove));
+        }
     }
 
-    public void MovePropsForward(List<Prop> movedProps)
+    public IEnumerator MovePropForward(List<Prop> propsToMove)
     {
-        List<Prop> nextPropsToMove = new List<Prop>();
+        Sequence moveFwdSeq = DOTween.Sequence();
 
-        foreach (var movedProp in movedProps)
+        foreach (var propToMove in propsToMove)
         {
-            if (movedProp.transform.position.z >= maxDepth) continue;
+            if (propToMove.transform.position.z >= shelfZ) continue;
 
-            Vector3 shiftPos = movedProp.transform.position;
-            shiftPos.z += maxDepth - shelfPaddingZ;
+            Vector3 shiftPos = propToMove.transform.position;
+            shiftPos.z = Mathf.Min(shelfZ, shiftPos.z + shelfPaddingZ);
 
-            propsMovedInPreviousPick.Add(movedProp);
+            propsMovedInPreviousPick.Add(propToMove);
 
-            movedProp.transform.DOMove(shiftPos, 0.25f).SetEase(Ease.InQuad).OnComplete(() =>
-            {
-                // Check if there's another layer behind that should also move
-                int nextLayer = movedProp.propLayer + 1;
-                if (nextLayer < shelfPropList.Count)
-                {
-                    nextPropsToMove.AddRange(shelfPropList[nextLayer]);
-                }
+            Tween moveFwdTween = propToMove.transform.DOMove(shiftPos, 0.1f).SetEase(Ease.InQuad);
 
-                UpdatePropsState();
-
-                //movedProp.OnMoveEvent.Invoke();
-            });
+            moveFwdSeq.Join(moveFwdTween);
         }
 
-        // Recursively move next layers
-        if (nextPropsToMove.Count > 0)
-        {
-            MovePropsForward(nextPropsToMove);
-        }
+        yield return moveFwdSeq.WaitForCompletion();
+
+        UpdatePropsState();
     }
 
     private bool IsPropBlocked(Prop prop)
@@ -291,8 +247,11 @@ public class ShelfGrid : MonoBehaviour
 
         foreach (var previousProp in propsMovedInPreviousPick)
         {
-           Tween moveTween = previousProp.SetPositionTween(previousProp.origPropPos);
-            moveTween.OnComplete(() => UpdateShelf(prop));
+            Tween moveTween = previousProp.SetPositionTween(previousProp.origPropPos);
+            moveTween.OnComplete(() =>
+            {
+                StartCoroutine(UpdateShelf(prop));
+            });
         }
 
         propsMovedInPreviousPick.Clear();

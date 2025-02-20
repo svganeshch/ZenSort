@@ -23,11 +23,6 @@ public class Prop : MonoBehaviour
     private bool propState = false;
     private bool isPicked = false;
 
-    private int listenerCount = 0;
-    public List<Prop> listeners = new List<Prop>();
-
-    public UnityEvent OnMoveEvent = new();
-
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -75,7 +70,7 @@ public class Prop : MonoBehaviour
         BoosterManager.previousPickedProp = this;
 
         GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
-        transform.localScale = transform.localScale / 2;
+        transform.localScale = transform.localScale / 1.25f;
 
         shelfGrid.shelfPropList[propLayer].Remove(this);
 
@@ -91,7 +86,7 @@ public class Prop : MonoBehaviour
 
     private void OnPropQueueComplete()
     {
-        shelfGrid.UpdateShelf(this);
+        StartCoroutine(shelfGrid.UpdateShelf(this));
     }
 
     public void PropUndo()
@@ -117,39 +112,5 @@ public class Prop : MonoBehaviour
         Tween moveTween = transform.DOMove(pos, 0.15f).SetEase(Ease.InQuad);
 
         return moveTween;
-    }
-
-    public void AddListener()
-    {
-        Vector3 propCenter = propCollider.bounds.center;
-
-        Vector3 overlapBoxSize = new Vector3(propSize.x * 0.75f, propSize.y, 0.5f);
-        Vector3 frontOffset = transform.forward * (propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
-        Vector3 overlapBoxPos = propCenter + frontOffset;
-
-        Collider[] colliders = Physics.OverlapBox(overlapBoxPos, overlapBoxSize / 2, transform.rotation, WorldLayerMaskManager.instance.propLayerMask);
-
-        foreach (var propCollider in colliders)
-        {
-            if (propCollider.gameObject == gameObject) continue;
-
-            if (propCollider.TryGetComponent<Prop>(out Prop otherProp) && otherProp.propLayer == propLayer - 1)
-            {
-                listenerCount += 1;
-
-                List<Prop> moveProp = new();
-                moveProp.Add(otherProp);
-
-                otherProp.OnMoveEvent.AddListener(() => 
-                {
-                    listenerCount--;
-
-                    if (listenerCount >= 1) return;
-                    shelfGrid.UpdateShelf(otherProp);
-                });
-
-                listeners.Add(otherProp);
-            }
-        }
     }
 }
