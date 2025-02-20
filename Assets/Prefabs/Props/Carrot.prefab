@@ -107,8 +107,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.08022915, y: 0.18636906, z: 0.07738891}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.08908543, y: 0.191417, z: 0.07738891}
+  m_Center: {x: 0.0007246565, y: -0.000020287931, z: 0}
 --- !u!114 &6042560351381904062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,8 +123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origPropPos: {x: 0, y: 0, z: 0}
   origPropScale: {x: 0, y: 0, z: 0}
+  previousPos: {x: 0, y: 0, z: 0}
   propCollider: {fileID: 0}
   material: {fileID: 0}
   propSize: {x: 0, y: 0, z: 0}
   propLayer: 0
   shelfGrid: {fileID: 0}
+  propState: 0
