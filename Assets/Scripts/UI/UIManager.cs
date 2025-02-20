@@ -12,12 +12,16 @@ public class UIManager : MonoBehaviour
     public UnityEvent OnLevelDone;
     public UnityEvent OnGameOver;
 
+    public UnityEvent<int> OnLevelChange;
+
     private void Awake()
     {
         instance = this;
 
         OnLevelDone = new UnityEvent();
         OnGameOver = new UnityEvent();
+
+        OnLevelChange = new UnityEvent<int>();
 
         OnLevelDone.AddListener(ShowLevelDoneScreen);
         OnGameOver.AddListener(ShowGameOverScreen);

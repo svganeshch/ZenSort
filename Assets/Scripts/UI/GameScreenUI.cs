@@ -7,6 +7,7 @@ public class GameScreenUI : MonoBehaviour
     private UIDocument document;
 
     private Label fpsCounter;
+    private Label level;
 
     private Button nextButton;
 
@@ -31,12 +32,20 @@ public class GameScreenUI : MonoBehaviour
 
         shuffleButton = document.rootVisualElement.Q<Button>("ShuffleButton");
         shuffleButton.RegisterCallback<ClickEvent>(OnShuffleButtonClick);
-    }
 
+        level = document.rootVisualElement.Q("level") as Label;
+
+        UIManager.instance.OnLevelChange.AddListener(SetLevelText);
+    }
 
     private void Update()
     {
         fpsCounter.text = FPSCounter.Instance.smoothFps.ToString("F2");
+    }
+
+    public void SetLevelText(int levelNum)
+    {
+        level.text = levelNum.ToString();
     }
 
     private void OnNextButtonClick(ClickEvent clickEvent)

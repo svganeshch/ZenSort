@@ -1,14 +1,14 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/GameScreen/StyleSheet.uss?fileID=7433441132597879392&amp;guid=af09a474bc204ef4aab1b8c4b710531c&amp;type=3#StyleSheet" />
     <engine:VisualElement name="Header_Container" style="flex-grow: 1; flex-direction: row; align-items: flex-start; justify-content: flex-start; align-self: auto; align-content: auto;">
-        <engine:Button text="Next" name="NextButton" style="height: 100px; width: 100px; visibility: visible;" />
+        <engine:Button text="Next" name="NextButton" style="height: 100px; width: 100px; visibility: visible; font-size: 40px;" />
         <engine:VisualElement name="Level_Title_Container" style="flex-grow: 1; align-items: auto; align-content: auto; flex-direction: row; align-self: auto; justify-content: flex-start;">
-            <engine:Label text="Level" name="LevelLabel" style="font-size: 72px; color: rgb(255, 255, 255);" />
-            <engine:Label text="00" name="level" style="font-size: 72px; color: rgb(255, 255, 255);" />
+            <engine:Label text="Level" name="LevelLabel" style="font-size: 72px; color: rgb(0, 0, 0);" />
+            <engine:Label text="00" name="level" style="font-size: 72px; color: rgb(0, 0, 0);" />
         </engine:VisualElement>
         <engine:VisualElement name="FPS_Container" style="flex-grow: 1; align-items: auto; align-content: auto; flex-direction: row; align-self: auto; justify-content: flex-end;">
-            <engine:Label text="FPS" name="FpsLabel" style="font-size: 72px; color: rgb(255, 255, 255);" />
-            <engine:Label text="00" name="fps_counter" style="font-size: 72px; color: rgb(255, 255, 255);" />
+            <engine:Label text="FPS" name="FpsLabel" style="font-size: 72px; color: rgb(0, 0, 0);" />
+            <engine:Label text="00" name="fps_counter" style="font-size: 72px; color: rgb(0, 0, 0);" />
         </engine:VisualElement>
     </engine:VisualElement>
     <engine:VisualElement name="Boosters_Container" style="flex-direction: row; flex-shrink: 1; align-items: center; justify-content: space-evenly; align-self: auto; align-content: auto; bottom: 10px; position: relative;">

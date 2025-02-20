@@ -58,6 +58,8 @@ public class LevelManager : MonoBehaviour
     {
         currentLevel++;
         GenerateLevel();
+
+        UIManager.instance.OnLevelChange.Invoke(currentLevel);
     }
 
     public IEnumerator ShuffleLevel()
