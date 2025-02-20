@@ -12,6 +12,8 @@ public class ShelfGrid : MonoBehaviour
     private float shelfPaddingZ = 0.25f;
     private float propOverlapBoxDepth = 0.25f;
 
+    private float propOverlapBoxReduction = 0.75f;
+
     float shelfLeft;
     float shelfRight;
     float shelfY;
@@ -53,8 +55,9 @@ public class ShelfGrid : MonoBehaviour
         foreach (Prop prop in currentPropList)
         {
             float propWidth = prop.propSize.x;
-            float propY = shelfY + (prop.propCollider.size.y / 2) - prop.propCollider.center.y;
-            float propDepth = prop.propCollider.size.z;
+            //float propY = shelfY + (prop.propCollider.size.y / 2) - prop.propCollider.center.y;
+            float propY = shelfY + (prop.propCollider.size.y * prop.transform.localScale.y / 2) - (prop.propCollider.center.y * prop.transform.localScale.y);
+            float propDepth = prop.propSize.z;
 
             if (currentShelfPosX + propWidth <= shelfRight)
             {
@@ -101,7 +104,8 @@ public class ShelfGrid : MonoBehaviour
 
                 if (prop.propSize.x <= availableSpace)
                 {
-                    float propY = shelfY + (prop.propSize.y / 2) - prop.propCollider.center.y;
+                    //float propY = shelfY + (prop.propSize.y / 2) - prop.propCollider.center.y;
+                    float propY = shelfY + (prop.propSize.y * prop.transform.localScale.y / 2) - (prop.propCollider.center.y * prop.transform.localScale.y);
                     float propZ = currentShelfPosZ;
                     float propX = gapStart + (prop.propSize.x / 2);
 
@@ -221,7 +225,7 @@ public class ShelfGrid : MonoBehaviour
         //Vector3 propSize = prop.propCollider.bounds.size;
         Vector3 propCenter = prop.propCollider.bounds.center;
 
-        Vector3 overlapBoxSize = new Vector3(prop.propSize.x * 0.75f, prop.propSize.y, propOverlapBoxDepth);
+        Vector3 overlapBoxSize = new Vector3(prop.propSize.x * propOverlapBoxReduction, prop.propSize.y * propOverlapBoxReduction, propOverlapBoxDepth);
         Vector3 frontOffset = prop.transform.forward * (prop.propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
         Vector3 overlapBoxPos = propCenter + frontOffset;
 
@@ -274,7 +278,7 @@ public class ShelfGrid : MonoBehaviour
                 //Vector3 propSize = prop.propCollider.size;
                 Vector3 propCenter = prop.propCollider.bounds.center;
 
-                Vector3 overlapBoxSize = new Vector3(prop.propSize.x * 0.75f, prop.propSize.y, propOverlapBoxDepth);
+                Vector3 overlapBoxSize = new Vector3(prop.propSize.x * propOverlapBoxReduction, prop.propSize.y * propOverlapBoxReduction, propOverlapBoxDepth);
 
                 Vector3 frontOffset = prop.transform.forward * (prop.propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
                 Vector3 overlapBoxPos = propCenter + frontOffset;
