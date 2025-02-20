@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 5750050946954474210}
   - component: {fileID: 3315381816507174389}
   - component: {fileID: 3032755665984791118}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CanOpener
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -73,7 +73,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.10005676, y: 0.19960263, z: 0.040772073}
-  m_Center: {x: 0.04890349, y: 0.000089511275, z: 0.00085681304}
+  m_Center: {x: 0, y: 0.000089511275, z: 0.00085681304}
 --- !u!1 &6091230137130024879
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ Transform:
   m_GameObject: {fileID: 6091230137130024879}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0492, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
