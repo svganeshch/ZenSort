@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BoosterManager : MonoBehaviour
@@ -21,9 +22,10 @@ public class BoosterManager : MonoBehaviour
 
     public void HandleMagnetBooster()
     {
+        if (GameManager.instance.levelManager.shelfManager.GetPropCount() <= 0) return;
         if (GameManager.instance.slotManager.currentSlotManagerState == SlotManagerState.Matching) return;
 
-        var shelfGrids = GameManager.instance.levelManager.shelfManager.shelfGrids;
+        List<ShelfGrid> shelfGrids = new List<ShelfGrid>(GameManager.instance.levelManager.shelfManager.shelfGrids);
         var slots = GameManager.instance.slotManager.slots;
 
         string propToPull = "";
@@ -63,12 +65,38 @@ public class BoosterManager : MonoBehaviour
 
             if (emptySlotCount == slots.Count)
             {
-                var randomShelfGrid = shelfGrids[Random.Range(0, shelfGrids.Length - 1)].shelfPropList;
-                var randomLayer = randomShelfGrid[Random.Range(0, randomShelfGrid.Count - 1)];
-                var randomProp = randomLayer[Random.Range(0, randomLayer.Count - 1)];
+                bool foundProp = false;
 
-                propToPull = randomProp.name;
-                propsToPull = 3;
+                while (!foundProp)
+                {
+                    var validShelfGrids = shelfGrids
+                        .Where(grid => grid.shelfPropList != null && grid.shelfPropList.Count > 0)
+                        .ToList();
+
+                    if (validShelfGrids.Count > 0)
+                    {
+                        var randomShelfGrid = validShelfGrids[Random.Range(0, validShelfGrids.Count)];
+                        var validLayers = randomShelfGrid.shelfPropList
+                            .Where(layer => layer != null && layer.Count > 0)
+                            .ToList();
+
+                        if (validLayers.Count > 0)
+                        {
+                            var randomLayer = validLayers[Random.Range(0, validLayers.Count)];
+                            var validProps = randomLayer
+                                .Where(prop => prop != null)
+                                .ToList();
+
+                            if (validProps.Count > 0)
+                            {
+                                var randomProp = validProps[Random.Range(0, validProps.Count)];
+                                propToPull = randomProp.name;
+                                propsToPull = 3;
+                                foundProp = true;
+                            }
+                        }
+                    }
+                }
             }
 
             if (emptySlotCount < propsToPull) return;
@@ -103,6 +131,6 @@ public class BoosterManager : MonoBehaviour
 
     public void HandleShuffleBooster()
     {
-        StartCoroutine(GameManager.instance.levelManager.ShuffleLevel());
+        StartCoroutine(GameManager.instance.ReloadLevel());
     }
 }

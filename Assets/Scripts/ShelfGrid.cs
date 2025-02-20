@@ -9,8 +9,8 @@ public class ShelfGrid : MonoBehaviour
     BoxCollider shelfCollider;
 
     private float shelfPaddingX = 0.05f;
-    private float shelfPaddingZ = 0.25f;
-    private float propOverlapBoxDepth = 0.25f;
+    private float shelfPaddingZ = 0.35f;
+    private float propOverlapBoxDepth = 0.5f;
 
     private float propOverlapBoxReduction = 0.75f;
 
@@ -148,8 +148,6 @@ public class ShelfGrid : MonoBehaviour
 
     public void UpdatePropsState()
     {
-        propsMovedInPreviousPick.Clear();
-
         for (int i = 0; i < shelfPropList.Count; i++)
         {
             var propList = new List<Prop>(shelfPropList[i]);
@@ -173,6 +171,8 @@ public class ShelfGrid : MonoBehaviour
     public IEnumerator UpdateShelf(Prop pickedProp)
     {
         int startLayer = pickedProp != null ? pickedProp.propLayer + 1 : 0;
+
+        propsMovedInPreviousPick.Clear();
 
         for (int i = startLayer; i < shelfPropList.Count; i++)
         {
@@ -245,19 +245,26 @@ public class ShelfGrid : MonoBehaviour
         prop.transform.DOMove(shiftPos, 0.25f).SetEase(Ease.InQuad);
     }
 
-    public void OnPropUndo(Prop prop)
+    public IEnumerator OnPropUndo(Prop prop)
     {
-        shelfPropList[prop.propLayer].Add(prop);
+        Sequence propUndoMoveSeq = DOTween.Sequence();
 
         foreach (var previousProp in propsMovedInPreviousPick)
         {
             Tween moveTween = previousProp.SetPositionTween(previousProp.origPropPos);
             moveTween.OnComplete(() =>
             {
-                StartCoroutine(UpdateShelf(prop));
+                shelfPropList[previousProp.propLayer].Remove(previousProp);
+                shelfPropList[previousProp.propLayer + 1].Add(previousProp);
+                previousProp.propLayer = previousProp.propLayer + 1;
             });
+
+            propUndoMoveSeq.Join(moveTween);
         }
 
+        yield return propUndoMoveSeq.WaitForCompletion();
+
+        UpdatePropsState();
         propsMovedInPreviousPick.Clear();
     }
 

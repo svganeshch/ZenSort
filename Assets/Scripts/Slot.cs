@@ -33,9 +33,9 @@ public class Slot : MonoBehaviour
             transistionSpeed = moveSpeed;
         }
 
-        prop.transform.parent = transform;
+        //prop.transform.parent = transform;
 
-        float propY = (slotBoxCollider.bounds.max.y + (prop.propCollider.size.y / 2) - prop.propCollider.center.y) * 0.5f;
+        float propY = slotBoxCollider.bounds.max.y + (prop.propSize.y * prop.transform.localScale.y / 2) - (prop.propCollider.center.y * prop.transform.localScale.y);
 
         Vector3 targetPosition = new Vector3(transform.position.x, propY, transform.position.z);
 

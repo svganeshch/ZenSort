@@ -1,15 +1,16 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShelfManager : MonoBehaviour
 {
-    public ShelfGrid[] shelfGrids;
+    public List<ShelfGrid> shelfGrids;
 
     List<Prop> remainingProps;
 
     private void Awake()
     {
-        shelfGrids = GetComponentsInChildren<ShelfGrid>();
+        shelfGrids = GetComponentsInChildren<ShelfGrid>().ToList();
     }
 
     public void StockShelfs(List<Prop> origPropList)
