@@ -7,21 +7,31 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     public UIDocument levelDoneScreen;
+    public UIDocument gameOverScreen;
 
     public UnityEvent OnLevelDone;
+    public UnityEvent OnGameOver;
 
     private void Awake()
     {
         instance = this;
 
         OnLevelDone = new UnityEvent();
+        OnGameOver = new UnityEvent();
 
         OnLevelDone.AddListener(ShowLevelDoneScreen);
+        OnGameOver.AddListener(ShowGameOverScreen);
     }
 
     private void ShowLevelDoneScreen()
     {
         GameManager.currentGameState = GameState.Paused;
         levelDoneScreen.rootVisualElement.style.visibility = Visibility.Visible;
+    }
+
+    private void ShowGameOverScreen()
+    {
+        GameManager.currentGameState = GameState.Paused;
+        gameOverScreen.rootVisualElement.style.visibility = Visibility.Visible;
     }
 }

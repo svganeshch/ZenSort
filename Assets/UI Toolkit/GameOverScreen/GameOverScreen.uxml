@@ -1,0 +1,9 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="PopUpContainer" style="width: 90%; align-self: center; height: 55%; justify-content: flex-start; align-items: stretch; flex-direction: column; top: 375px;">
+        <engine:VisualElement name="BG" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Base-PopUp-Bordo-02.png?fileID=2800000&amp;guid=e0e055b461946574fb73bb2770589c63&amp;type=3#Base-PopUp-Bordo-02&quot;);">
+            <engine:VisualElement name="FG" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Base-PopUp-Beige.png?fileID=2800000&amp;guid=f64222f4b403d9f409d0b4bfe07af5c9&amp;type=3#Base-PopUp-Beige&quot;); background-size: 95% 85%;">
+                <engine:Button text="TRY AGAIN" name="ReplayButton" enabled="true" style="width: 50%; align-self: center; height: 130px; background-image: url(&quot;project://database/Assets/Sprites/Btn-Big-Green.png?fileID=2800000&amp;guid=f781961d5a8960d409b69414aae25d0a&amp;type=3#Btn-Big-Green&quot;); font-size: 50px; color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Assets/Fonts/BowlbyOneSC-Regular.ttf?fileID=12800000&amp;guid=5a941bc734a21c343b0f29a22b2a1be7&amp;type=3#BowlbyOneSC-Regular&quot;); top: 469px;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

@@ -104,7 +104,7 @@ public class SlotManager : MonoBehaviour
     SlotsCheck:
         if (slots.All(s => s.slotProp != null))
         {
-            //UIManager.Instance.gameOverEvent.Invoke();
+            UIManager.instance.OnGameOver.Invoke();
             Debug.Log("All slots filled");
         }
 
