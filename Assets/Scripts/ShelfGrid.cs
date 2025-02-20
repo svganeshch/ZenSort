@@ -10,7 +10,7 @@ public class ShelfGrid : MonoBehaviour
 
     private float shelfPaddingX = 0.05f;
     private float shelfPaddingZ = 0.45f;
-    private float propOverlapBoxDepth = 0.35f;
+    private float propOverlapBoxDepth = 0.38f;
 
     private float propOverlapBoxReduction = 0.75f;
 
