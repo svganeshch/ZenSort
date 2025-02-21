@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d397bce08d1d934da8d68e1b638f718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origPropPos: {x: 0, y: 0, z: 0}
   origPropScale: {x: 0, y: 0, z: 0}
+  propPickedScale: 0.3
   previousPos: {x: 0, y: 0, z: 0}
   propCollider: {fileID: 0}
   material: {fileID: 0}

@@ -10,16 +10,17 @@ public class Prop : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
 
-    public Vector3 origPropScale;
+    [HideInInspector] public Vector3 origPropScale;
+    public float propPickedScale = 1;
 
-    public Vector3 previousPos;
+    [HideInInspector] public Vector3 previousPos;
 
-    public BoxCollider propCollider;
-    public Material material;
-    public Vector3 propSize;
+    [HideInInspector] public BoxCollider propCollider;
+    [HideInInspector] public Material material;
+    [HideInInspector] public Vector3 propSize;
 
     public int propLayer = 0;
-    public ShelfGrid shelfGrid;
+    [HideInInspector] public ShelfGrid shelfGrid;
 
     private bool propState = false;
     private bool isPicked = false;
@@ -47,18 +48,9 @@ public class Prop : MonoBehaviour
 
     public void SetPropState(bool state)
     {
-        if (state)
-        {
-            material.color = Color.white;
-        }
-        else
-        {
-            ColorUtility.TryParseHtmlString("#5B5B5B", out Color disabledColor);
+        Color targetColor = state ? Color.white : ColorUtility.TryParseHtmlString("#5B5B5B", out Color disabledColor) ? disabledColor : Color.gray;
 
-            material.color = disabledColor;
-
-           // Debug.Log("Setting disabled color for : " + gameObject.name);
-        }
+        material.DOColor(targetColor, 0.25f);
 
         propState = state;
     }
@@ -73,7 +65,16 @@ public class Prop : MonoBehaviour
         BoosterManager.previousPickedProp = this;
 
         GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
-        transform.localScale = transform.localScale / 1.25f;
+        //transform.localScale = transform.localScale / 1.25f;
+
+        if (propPickedScale == 1)
+        {
+            transform.DOScale(transform.localScale / 1.75f, 0.25f).SetEase(Ease.OutQuad);
+        }
+        else
+        {
+            transform.DOScale(Vector3.one * propPickedScale, 0.25f).SetEase(Ease.OutQuad);
+        }
 
         shelfGrid.shelfPropList[propLayer].Remove(this);
 
@@ -89,13 +90,19 @@ public class Prop : MonoBehaviour
 
     public void PropUndo()
     {
+        Sequence undoSeq = DOTween.Sequence();
+
         isPicked = false;
         transform.parent = null;
 
         //transform.SetPositionAndRotation(origPropPos, Quaternion.identity);
         Tween moveTween = SetPositionTween(previousPos);
         transform.rotation = Quaternion.identity;
-        transform.localScale = origPropScale;
+
+        Tween scaleTween = transform.DOScale(origPropScale, 0.15f).SetEase(Ease.InQuad);
+
+        undoSeq.Append(moveTween);
+        undoSeq.Join(scaleTween);
 
         GameManager.instance.slotManager.ResetSlot(this);
         

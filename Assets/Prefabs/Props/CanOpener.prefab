@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d397bce08d1d934da8d68e1b638f718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origPropPos: {x: 0, y: 0, z: 0}
   origPropScale: {x: 0, y: 0, z: 0}
+  previousPos: {x: 0, y: 0, z: 0}
   propCollider: {fileID: 0}
   material: {fileID: 0}
   propSize: {x: 0, y: 0, z: 0}
@@ -72,8 +72,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.10005676, y: 0.19960263, z: 0.040772073}
-  m_Center: {x: 0, y: 0.000089511275, z: 0.00085681304}
+  m_Size: {x: 0.10856037, y: 0.19960263, z: 0.06559088}
+  m_Center: {x: -0.00026927702, y: 0.000089511275, z: -0.011552591}
 --- !u!1 &6091230137130024879
 GameObject:
   m_ObjectHideFlags: 0
