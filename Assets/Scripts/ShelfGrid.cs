@@ -79,9 +79,8 @@ public class ShelfGrid : MonoBehaviour
 
         currentPropList = allProps;
         currentPropList = TryFitInGaps(currentPropList);
-
-        SetPropsTween();
-
+        
+        StartCoroutine(SetPropsTween());
         currentLayer++;
 
         return currentPropList;
@@ -126,8 +125,10 @@ public class ShelfGrid : MonoBehaviour
         return propsToFit;
     }
 
-    private void SetPropsTween()
+    private IEnumerator SetPropsTween()
     {
+        Sequence setPropsSeq = DOTween.Sequence();
+
         foreach (var propValPair in propsToPlace)
         {
             Prop prop = propValPair.Value;
@@ -138,11 +139,14 @@ public class ShelfGrid : MonoBehaviour
 
             prop.transform.position = propPos;
 
-            Tween setPosTween = prop.SetPositionTween(propPos);
-            setPosTween.OnComplete(() => {
-                UpdatePropsState();
-            });
+            Tween setPosTween = prop.SetSpawnTween(propPos);
+            
+            setPropsSeq.Join(setPosTween);
         }
+
+        yield return setPropsSeq.WaitForCompletion();
+
+        UpdatePropsState();
     }
 
     public void UpdatePropsState()

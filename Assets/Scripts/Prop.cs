@@ -116,4 +116,13 @@ public class Prop : MonoBehaviour
 
         return moveTween;
     }
+
+    public Tween SetSpawnTween(Vector3 pos)
+    {
+        previousPos = pos;
+        
+        Tween spawnPunchTween = transform.DOPunchScale(Vector3.one * 0.2f, 0.25f, 0, 0).SetEase(Ease.InQuad);
+
+        return spawnPunchTween;
+    }
 }
