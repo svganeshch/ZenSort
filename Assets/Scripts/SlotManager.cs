@@ -212,39 +212,57 @@ public class SlotManager : MonoBehaviour
         matchingSequence = DOTween.Sequence();
 
         int middleIndex = matchingSlotIndexs[1];
-        int topIndex = matchingSlotIndexs[0];
-        int bottomIndex = matchingSlotIndexs[2];
+        int leftIndex = matchingSlotIndexs[0];
+        int rightIndex = matchingSlotIndexs[2];
 
-        Transform middleTransform = slots[middleIndex].slotProp.transform;
-        Transform topTransform = slots[topIndex].slotProp.transform;
-        Transform bottomTransform = slots[bottomIndex].slotProp.transform;
+        Transform middle = slots[middleIndex].slotProp.transform;
+        Transform left = slots[leftIndex].slotProp.transform;
+        Transform right = slots[rightIndex].slotProp.transform;
 
-        Vector3 middlePosition = middleTransform.position;
-        Vector3 middleTarget = middlePosition + Vector3.up * 0.25f;
-        Vector3 topTarget = middlePosition + Vector3.up * 0.2f;
-        Vector3 bottomTarget = middlePosition + Vector3.up * 0.2f;
+        Vector3 moveUpOffset = Vector3.up * 0.25f; // Upward movement amount
+        Vector3 middleTarget = middle.position + moveUpOffset;
+        Vector3 leftTarget = left.position + moveUpOffset;
+        Vector3 rightTarget = right.position + moveUpOffset;
 
-        Tween middleTween = middleTransform.DOMove(middleTarget, 0.15f).SetEase(Ease.OutQuad);
-        Tween topTween = topTransform.DOMove(topTarget, 0.15f).SetEase(Ease.OutQuad)
-            .OnComplete(() => topTransform.DOMove(middleTarget, 0.1f).SetEase(Ease.InQuad));
+        float tiltAngle = 15f;  // Degrees to tilt the left and right props
+        float moveDuration = 0.15f;
+        float tiltDuration = 0.1f;
+        float mergeDuration = 0.15f; // Slightly fast bang effect
 
-        Tween bottomTween = bottomTransform.DOMove(bottomTarget, 0.15f).SetEase(Ease.OutQuad)
-            .OnComplete(() => bottomTransform.DOMove(middleTarget, 0.1f).SetEase(Ease.InQuad).OnComplete(() =>
-            {
-                Destroy(topTransform.gameObject);
-                Destroy(bottomTransform.gameObject);
-                Destroy(middleTransform.gameObject);
+        // Move all three props up together
+        Tween middleMoveUp = middle.DOMove(middleTarget, moveDuration).SetEase(Ease.OutQuad);
+        Tween leftMoveUp = left.DOMove(leftTarget, moveDuration).SetEase(Ease.OutQuad);
+        Tween rightMoveUp = right.DOMove(rightTarget, moveDuration).SetEase(Ease.OutQuad);
 
-                slots[middleIndex].slotVFX.Play();
-                SFXManager.instance.PlayPropMatchedSound();
-            }));
+        // Left and right props tilt slightly toward the middle
+        Tween leftTilt = left.DORotate(new Vector3(0, 0, tiltAngle), tiltDuration).SetEase(Ease.InOutQuad);
+        Tween rightTilt = right.DORotate(new Vector3(0, 0, -tiltAngle), tiltDuration).SetEase(Ease.InOutQuad);
 
-        matchingSequence.Append(middleTween);
-        matchingSequence.Append(topTween);
-        matchingSequence.Append(bottomTween);
+        // "Bang" effect: Left and Right move quickly into the middle prop
+        Tween leftMerge = left.DOMove(middle.position, mergeDuration).SetEase(Ease.InQuad);
+        Tween rightMerge = right.DOMove(middle.position, mergeDuration).SetEase(Ease.InQuad);
 
-        slots[topIndex].slotProp = null;
-        slots[bottomIndex].slotProp = null;
+        // Sequence setup
+        matchingSequence.Append(middleMoveUp);
+        matchingSequence.Join(leftMoveUp);
+        matchingSequence.Join(rightMoveUp);
+        matchingSequence.Append(leftTilt);
+        matchingSequence.Join(rightTilt);
+        matchingSequence.Append(leftMerge);
+        matchingSequence.Join(rightMerge);
+        matchingSequence.AppendCallback(() =>
+        {
+            Destroy(left.gameObject);
+            Destroy(right.gameObject);
+            Destroy(middle.gameObject);
+
+            slots[middleIndex].slotVFX.Play();
+            SFXManager.instance.PlayPropMatchedSound();
+        });
+
+        // Clear slot references
+        slots[leftIndex].slotProp = null;
+        slots[rightIndex].slotProp = null;
         slots[middleIndex].slotProp = null;
         matchingSlotIndexs.Clear();
     }
