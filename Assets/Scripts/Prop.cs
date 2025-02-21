@@ -79,11 +79,6 @@ public class Prop : MonoBehaviour
 
         SFXManager.instance.PlayPropPickedSound();
 
-        if (GameManager.instance.levelManager.shelfManager.IsLevelDone())
-        {
-            UIManager.instance.OnLevelDone.Invoke();
-        }
-
         Debug.Log(gameObject.name + " is picked!!");
     }
 

@@ -258,6 +258,11 @@ public class SlotManager : MonoBehaviour
 
             slots[middleIndex].slotVFX.Play();
             SFXManager.instance.PlayPropMatchedSound();
+
+            if (GameManager.instance.levelManager.shelfManager.IsLevelDone())
+            {
+                UIManager.instance.OnLevelDone.Invoke();
+            }
         });
 
         // Clear slot references
