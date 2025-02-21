@@ -53,7 +53,7 @@ public class Prop : MonoBehaviour
         }
         else
         {
-            ColorUtility.TryParseHtmlString("#4B4B4B", out Color disabledColor);
+            ColorUtility.TryParseHtmlString("#5B5B5B", out Color disabledColor);
 
             material.color = disabledColor;
 

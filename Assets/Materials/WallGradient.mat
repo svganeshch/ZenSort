@@ -55,11 +55,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _GradientMid: 0.25
+    - _GradientMid: 1.25
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _BottomColor: {r: 0.9622642, g: 0.8080852, b: 0.43120328, a: 0}
+    - _BottomColor: {r: 0.9622642, g: 0.83769435, b: 0.5310609, a: 0}
     - _MiddleColor: {r: 0.9528302, g: 0.8820117, b: 0.7146226, a: 0}
     - _TopColor: {r: 0.9245283, g: 0.83458304, b: 0.5974546, a: 0}
   m_BuildTextureStacks: []
