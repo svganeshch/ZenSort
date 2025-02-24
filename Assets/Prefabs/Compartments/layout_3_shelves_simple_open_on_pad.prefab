@@ -68,13 +68,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3585386968086925054, guid: 61ff119685eaf184ca4929d7a4bb5e66, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8.88
+      objectReference: {fileID: 0}
+    - target: {fileID: -3585386968086925054, guid: 61ff119685eaf184ca4929d7a4bb5e66, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: -3585386968086925054, guid: 61ff119685eaf184ca4929d7a4bb5e66, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: -3224474866302422998, guid: 61ff119685eaf184ca4929d7a4bb5e66, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -275977004347441991, guid: 61ff119685eaf184ca4929d7a4bb5e66, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 829115880697756965, guid: 61ff119685eaf184ca4929d7a4bb5e66, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 61ff119685eaf184ca4929d7a4bb5e66, type: 3}
       propertyPath: m_Name
@@ -144,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf23a5e5ac5e384caa8759e4a92c509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfPaddingX: 0.1
 --- !u!1 &7720256551278832746 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8062565253498554026, guid: 61ff119685eaf184ca4929d7a4bb5e66, type: 3}
@@ -183,7 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf23a5e5ac5e384caa8759e4a92c509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfPaddingX: 0.1
 --- !u!1 &7844285116216231745 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1721395611072664189, guid: 61ff119685eaf184ca4929d7a4bb5e66, type: 3}
@@ -222,7 +236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf23a5e5ac5e384caa8759e4a92c509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfPaddingX: 0.1
 --- !u!1 &8646548589110749293 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 61ff119685eaf184ca4929d7a4bb5e66, type: 3}
