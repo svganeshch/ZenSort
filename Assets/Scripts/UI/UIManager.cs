@@ -14,9 +14,13 @@ public class UIManager : MonoBehaviour
 
     public UnityEvent<int> OnLevelChange;
 
+    public ProgressBar progressBar;
+
     private void Awake()
     {
         instance = this;
+
+        progressBar = GetComponentInChildren<ProgressBar>();
 
         OnLevelDone = new UnityEvent();
         OnGameOver = new UnityEvent();

@@ -24,5 +24,7 @@ public class LevelDoneScreenUI : MonoBehaviour
     {
         StartCoroutine(GameManager.instance.LoadNextLevel());
         document.rootVisualElement.style.visibility = Visibility.Hidden;
+
+        UIManager.instance.progressBar.ResetProgressBar();
     }
 }

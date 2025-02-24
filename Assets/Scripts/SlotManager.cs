@@ -263,6 +263,10 @@ public class SlotManager : MonoBehaviour
             {
                 UIManager.instance.OnLevelDone.Invoke();
             }
+
+            // Set Level Progress
+            float currentProgress = (GameManager.instance.levelManager.shelfManager.GetPropCount() / (float)GameManager.instance.levelManager.numberOfProps) * 100;
+            UIManager.instance.progressBar.SetProgress(100 - currentProgress);
         });
 
         // Clear slot references
