@@ -41,6 +41,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _GridTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -59,7 +63,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _BottomColor: {r: 0.9622642, g: 0.83769435, b: 0.5310609, a: 0}
+    - _BottomColor: {r: 1, g: 0.8790309, b: 0.5707547, a: 0}
     - _MiddleColor: {r: 0.9528302, g: 0.8820117, b: 0.7146226, a: 0}
     - _TopColor: {r: 0.9245283, g: 0.83458304, b: 0.5974546, a: 0}
   m_BuildTextureStacks: []
