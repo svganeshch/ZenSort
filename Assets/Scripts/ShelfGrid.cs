@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ public class ShelfGrid : MonoBehaviour
     float currentShelfPosX;
     float currentShelfPosZ;
 
-    int currentLayer = 0;
+    int currentLayer = -1;
 
     private List<KeyValuePair<Vector3, Prop>> propsToPlace = new List<KeyValuePair<Vector3, Prop>>();
 
@@ -42,7 +43,7 @@ public class ShelfGrid : MonoBehaviour
         currentShelfPosZ = shelfZ;
     }
 
-    public List<Prop> SetProps(List<Prop> allProps)
+    public IEnumerator SetProps(List<Prop> allProps, Action<List<Prop>> sendRemainingProps)
     {
         var currentPropList = new List<Prop>(allProps);
         var currentPlacedProps = new List<Prop>();
@@ -51,6 +52,8 @@ public class ShelfGrid : MonoBehaviour
         currentShelfPosZ = shelfZ;
 
         propsToPlace.Clear();
+
+        currentLayer++;
 
         foreach (Prop prop in currentPropList)
         {
@@ -79,11 +82,10 @@ public class ShelfGrid : MonoBehaviour
 
         currentPropList = allProps;
         currentPropList = TryFitInGaps(currentPropList);
-        
-        StartCoroutine(SetPropsTween());
-        currentLayer++;
 
-        return currentPropList;
+        yield return StartCoroutine(SetPropsPos());
+
+        sendRemainingProps(currentPropList);
     }
 
     public List<Prop> TryFitInGaps(List<Prop> propsToFit)
@@ -125,7 +127,7 @@ public class ShelfGrid : MonoBehaviour
         return propsToFit;
     }
 
-    private IEnumerator SetPropsTween()
+    private IEnumerator SetPropsPos()
     {
         Sequence setPropsSeq = DOTween.Sequence();
 
@@ -137,16 +139,19 @@ public class ShelfGrid : MonoBehaviour
             prop.shelfGrid = this;
             prop.propLayer = currentLayer;
 
-            prop.transform.position = propPos;
+            if (currentLayer > 0)
+            {
+                prop.SetPropState(false);
+            }
 
-            Tween setPosTween = prop.SetSpawnTween(propPos);
-            
-            setPropsSeq.Join(setPosTween);
+            prop.SetPosition(propPos);
+
+            setPropsSeq.Join(prop.PlaySpawnTween());
         }
 
-        yield return setPropsSeq.WaitForCompletion();
+        yield return null;
 
-        UpdatePropsState();
+        //UpdatePropsState();
     }
 
     public void UpdatePropsState()
@@ -158,6 +163,8 @@ public class ShelfGrid : MonoBehaviour
             foreach (var prop in propList)
             {
                 if (prop == null) continue;
+
+                if (prop.propLayer > 0) continue;
 
                 prop.SetPropState(!IsPropBlocked(prop));
             }

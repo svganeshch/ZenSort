@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,6 +16,11 @@ public class ShelfManager : MonoBehaviour
 
     public void StockShelfs(List<Prop> origPropList)
     {
+        StartCoroutine(StockShelfsRoutine(origPropList));
+    }
+
+    private IEnumerator StockShelfsRoutine(List<Prop> origPropList)
+    {
         remainingProps = new List<Prop>(origPropList);
         remainingProps.Sort((a, b) => b.propCollider.bounds.size.x.CompareTo(a.propCollider.bounds.size.x));
 
@@ -22,9 +28,16 @@ public class ShelfManager : MonoBehaviour
         {
             foreach (var shelf in shelfGrids)
             {
-                remainingProps = shelf.SetProps(remainingProps);
+                yield return StartCoroutine(shelf.SetProps(remainingProps,
+                    (receivedProps) => remainingProps = receivedProps));
             }
         }
+
+        // Ensure all props have been placed before generating the shelf tree
+        //foreach (var shelf in shelfGrids)
+        //{
+        //    shelf.UpdatePropsState();
+        //}
     }
 
     public bool IsLevelDone()

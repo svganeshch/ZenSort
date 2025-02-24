@@ -22,7 +22,7 @@ public class Prop : MonoBehaviour
     public int propLayer = 0;
     [HideInInspector] public ShelfGrid shelfGrid;
 
-    private bool propState = false;
+    private bool propState = true;
     private bool isPicked = false;
 
     private void Awake()
@@ -109,6 +109,12 @@ public class Prop : MonoBehaviour
         moveTween.OnComplete(() => StartCoroutine(shelfGrid.OnPropUndo(this)));
     }
 
+    public void SetPosition(Vector3 pos)
+    {
+        previousPos = pos;
+        transform.position = pos;
+    }
+
     public Tween SetPositionTween(Vector3 pos)
     {
         previousPos = pos;
@@ -119,10 +125,8 @@ public class Prop : MonoBehaviour
         return moveTween;
     }
 
-    public Tween SetSpawnTween(Vector3 pos)
+    public Tween PlaySpawnTween()
     {
-        previousPos = pos;
-        
         Tween spawnPunchTween = transform.DOPunchScale(Vector3.one * 0.2f, 0.25f, 0, 0).SetEase(Ease.InQuad);
 
         return spawnPunchTween;
