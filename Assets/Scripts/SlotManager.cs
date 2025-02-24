@@ -226,8 +226,8 @@ public class SlotManager : MonoBehaviour
 
         float tiltAngle = 15f;  // Degrees to tilt the left and right props
         float moveDuration = 0.15f;
-        float tiltDuration = 0.1f;
-        float mergeDuration = 0.15f; // Slightly fast bang effect
+        float tiltDuration = 0.25f;
+        float mergeDuration = 0.1f; // Slightly fast bang effect
 
         // Move all three props up together
         Tween middleMoveUp = middle.DOMove(middleTarget, moveDuration).SetEase(Ease.OutQuad);
@@ -239,8 +239,8 @@ public class SlotManager : MonoBehaviour
         Tween rightTilt = right.DORotate(new Vector3(0, 0, -tiltAngle), tiltDuration).SetEase(Ease.InOutQuad);
 
         // "Bang" effect: Left and Right move quickly into the middle prop
-        Tween leftMerge = left.DOMove(middle.position, mergeDuration).SetEase(Ease.InQuad);
-        Tween rightMerge = right.DOMove(middle.position, mergeDuration).SetEase(Ease.InQuad);
+        Tween leftMerge = left.DOMove(middleTarget, mergeDuration).SetEase(Ease.InQuad);
+        Tween rightMerge = right.DOMove(middleTarget, mergeDuration).SetEase(Ease.InQuad);
 
         // Sequence setup
         matchingSequence.Append(middleMoveUp);
