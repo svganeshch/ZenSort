@@ -256,8 +256,11 @@ public class SlotManager : MonoBehaviour
             Destroy(right.gameObject);
             Destroy(middle.gameObject);
 
-            slots[middleIndex].slotVFX.Play();
+            //slots[middleIndex].slotVFX.Play();
             SFXManager.instance.PlayPropMatchedSound();
+
+            Instantiate(WorldLayerMaskManager.instance.matchVFX, middleTarget, Quaternion.identity)
+                                        .TryGetComponent<ParticleSystem>(out ParticleSystem matchVFX);
 
             if (GameManager.instance.levelManager.shelfManager.IsLevelDone())
             {

@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 0.90000004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8
+      value: 0.90000004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.98171425
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7741635466372317022, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
       propertyPath: m_IsActive
@@ -194,7 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf23a5e5ac5e384caa8759e4a92c509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfPaddingX: 0.1
 --- !u!1 &468888985085252236 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3528111677950016338, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
@@ -233,7 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf23a5e5ac5e384caa8759e4a92c509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfPaddingX: 0.1
 --- !u!1 &2209890880192861311 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2944394149056675233, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
@@ -272,7 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf23a5e5ac5e384caa8759e4a92c509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfPaddingX: 0.1
 --- !u!1 &3946593926431319503 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -9173106038258234351, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
@@ -311,7 +308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf23a5e5ac5e384caa8759e4a92c509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfPaddingX: 0.1
 --- !u!1 &4230818751278912655 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
@@ -368,7 +364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf23a5e5ac5e384caa8759e4a92c509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfPaddingX: 0.1
 --- !u!1 &5301504902167603094 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9215825480206683720, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
@@ -407,7 +402,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf23a5e5ac5e384caa8759e4a92c509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfPaddingX: 0.1
 --- !u!1 &6045078189472739338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7319445028386658772, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
@@ -446,7 +440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf23a5e5ac5e384caa8759e4a92c509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfPaddingX: 0.1
 --- !u!1 &6188779199458810527 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7175781256273474369, guid: eda148a126fc186419c8f25399cae4f1, type: 3}
@@ -485,4 +478,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf23a5e5ac5e384caa8759e4a92c509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shelfPaddingX: 0.1

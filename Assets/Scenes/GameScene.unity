@@ -2374,6 +2374,7 @@ MonoBehaviour:
   propLayerMask:
     serializedVersion: 2
     m_Bits: 32768
+  matchVFX: {fileID: 8912149025939924149, guid: d146f2e963a28704f927c6f255f316ee, type: 3}
 --- !u!1 &1086976894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,7 +2565,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
   m_LocalPosition: {x: 0, y: 0.03, z: 1.85}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalScale: {x: 1.69, y: 1.69, z: 1.69}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 401871784540030116}

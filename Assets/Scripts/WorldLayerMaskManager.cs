@@ -6,6 +6,9 @@ public class WorldLayerMaskManager : MonoBehaviour
 
     public LayerMask propLayerMask;
 
+    [Header("VFX")]
+    public ParticleSystem matchVFX;
+
     private void Awake()
     {
         instance = this;
