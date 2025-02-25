@@ -285,6 +285,7 @@ public class SlotManager : MonoBehaviour
 
             Instantiate(WorldLayerMaskManager.instance.matchVFX, middleTarget, Quaternion.identity)
                                         .TryGetComponent<ParticleSystem>(out ParticleSystem matchVFX);
+            Destroy(matchVFX.gameObject, 1f);
 
             if (GameManager.instance.levelManager.shelfManager.IsLevelDone())
             {
