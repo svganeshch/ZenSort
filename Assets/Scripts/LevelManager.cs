@@ -69,7 +69,7 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator ClearLevel()
     {
-        DOTween.KillAll();
+        DOTween.KillAll(complete: true);
 
         bool shelfGridsCleared = shelfManager.ClearGrids();
         bool slotsCleared = GameManager.instance.slotManager.ClearAllSlots();
