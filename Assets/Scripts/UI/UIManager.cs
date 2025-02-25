@@ -15,12 +15,14 @@ public class UIManager : MonoBehaviour
     public UnityEvent<int> OnLevelChange;
 
     public ProgressBar progressBar;
+    public ComboTextHandler comboTextHandler;
 
     private void Awake()
     {
         instance = this;
 
         progressBar = GetComponentInChildren<ProgressBar>();
+        comboTextHandler = GetComponentInChildren<ComboTextHandler>();
 
         OnLevelDone = new UnityEvent();
         OnGameOver = new UnityEvent();

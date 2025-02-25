@@ -21,6 +21,11 @@ public class SlotManager : MonoBehaviour
     private Queue<Func<IEnumerator>> propQueue = new Queue<Func<IEnumerator>>();
     private bool isProcessingQueue = false;
 
+    private bool isComboActive = false;
+    private int matchCount = 0;
+
+    private int pickCount = 0;
+
     private void Awake()
     {
         currentSlotManagerState = SlotManagerState.Done;
@@ -59,7 +64,12 @@ public class SlotManager : MonoBehaviour
 
     private IEnumerator SetPropSlot(Prop prop, Action OnCompleteCallback)
     {
+        bool willCauseMatch = false;
+
         currentSlotManagerState = SlotManagerState.Matching;
+
+        if (isComboActive)
+            pickCount++;
 
         int sameColorIndex = slots.FindLastIndex(s => s.slotProp != null && s.slotProp.gameObject.name == prop.gameObject.name);
 
@@ -75,7 +85,7 @@ public class SlotManager : MonoBehaviour
                 yield return StartCoroutine(ShiftSlots(insertIndex));
             }
 
-            bool willCauseMatch = CheckForMatch(insertIndex, prop);
+            willCauseMatch = CheckForMatch(insertIndex, prop);
 
             Tween propTween = slots[insertIndex].SetSlotPositionTween(prop);
             yield return propTween.WaitForCompletion();
@@ -97,6 +107,19 @@ public class SlotManager : MonoBehaviour
                     Tween propTween = slots[i].SetSlotPositionTween(prop);
                     yield return propTween.WaitForCompletion();
                     break;
+                }
+            }
+        }
+
+        if (isComboActive)
+        {
+            if (pickCount == 3)
+            {
+                if (!willCauseMatch)
+                {
+                    pickCount = 0;
+                    matchCount = 0;
+                    isComboActive = false;
                 }
             }
         }
@@ -211,6 +234,7 @@ public class SlotManager : MonoBehaviour
     {
         matchingSequence = DOTween.Sequence();
 
+
         int middleIndex = matchingSlotIndexs[1];
         int leftIndex = matchingSlotIndexs[0];
         int rightIndex = matchingSlotIndexs[2];
@@ -267,6 +291,14 @@ public class SlotManager : MonoBehaviour
                 UIManager.instance.OnLevelDone.Invoke();
             }
 
+            // Set Combo Text
+            matchCount++;
+            if (matchCount > 2)
+            {
+                isComboActive = true;
+                UIManager.instance.comboTextHandler.SetComboText(middleTarget);
+            }
+
             // Set Level Progress
             float currentProgress = (GameManager.instance.levelManager.shelfManager.GetPropCount() / (float)GameManager.instance.levelManager.numberOfProps) * 100;
             UIManager.instance.progressBar.SetProgress(100 - currentProgress);
@@ -298,6 +330,10 @@ public class SlotManager : MonoBehaviour
 
     public bool ClearAllSlots()
     {
+        pickCount = 0;
+        matchCount = 0;
+        isComboActive = false;
+
         for (int i = 0; i < slots.Count; i++)
         {
             if (slots[i].slotProp != null)
