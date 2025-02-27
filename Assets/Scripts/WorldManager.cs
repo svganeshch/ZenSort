@@ -9,6 +9,7 @@ public class WorldManager : MonoBehaviour
 
     [Header("Prefabs")]
     public GameObject starPrefab;
+    public GameObject bonusStarPrefab;
 
     private void Awake()
     {

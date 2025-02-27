@@ -121,6 +121,8 @@ public class SlotManager : MonoBehaviour
                     pickCount = 0;
                     matchCount = 0;
                     isComboActive = false;
+
+                    UIManager.instance.bonusStarHandler.RemoveBonusStars();
                 }
             }
         }
@@ -267,7 +269,11 @@ public class SlotManager : MonoBehaviour
         Tween leftMerge = left.DOMove(middleTarget, mergeDuration).SetEase(Ease.InQuad);
         Tween rightMerge = right.DOMove(middleTarget, mergeDuration).SetEase(Ease.InQuad);
 
+        // Play matched star tween
         UIManager.instance.starCountHandler.PlayStarAddTween();
+
+        // Add bonus star
+        UIManager.instance.bonusStarHandler.AddBonusStar();
 
         // Sequence setup
         matchingSequence.Append(middleMoveUp);
