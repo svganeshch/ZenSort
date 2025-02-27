@@ -4,6 +4,9 @@ public class WorldManager : MonoBehaviour
 {
     public static WorldManager instance;
 
+    [Header("UI Camera")]
+    public Camera UICamera;
+
     [Header("VFX")]
     public ParticleSystem matchVFX;
 

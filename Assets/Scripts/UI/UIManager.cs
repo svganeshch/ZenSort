@@ -6,7 +6,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    public UIDocument levelDoneScreen;
+    public UIDocument gameScreenUI;
     public UIDocument gameOverScreen;
 
     public UnityEvent OnLevelDone;
@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     public StarCountHandler starCountHandler;
     public BonusStarHandler bonusStarHandler;
 
+    public LevelDoneScreenUI levelDoneScreen;
+
     private void Awake()
     {
         instance = this;
@@ -27,6 +29,8 @@ public class UIManager : MonoBehaviour
         comboTextHandler = GetComponentInChildren<ComboTextHandler>();
         starCountHandler = GetComponentInChildren<StarCountHandler>();
         bonusStarHandler = GetComponentInChildren<BonusStarHandler>();
+
+        levelDoneScreen = GetComponentInChildren<LevelDoneScreenUI>(includeInactive: true);
 
         OnLevelDone = new UnityEvent();
         OnGameOver = new UnityEvent();
@@ -40,7 +44,9 @@ public class UIManager : MonoBehaviour
     private void ShowLevelDoneScreen()
     {
         GameManager.currentGameState = GameState.Paused;
-        levelDoneScreen.rootVisualElement.style.visibility = Visibility.Visible;
+
+        gameScreenUI.rootVisualElement.style.visibility = Visibility.Hidden;
+        levelDoneScreen.ShowPopUp();
     }
 
     private void ShowGameOverScreen()

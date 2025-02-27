@@ -1,30 +1,35 @@
+using DG.Tweening;
 using System;
+using System.Collections;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class LevelDoneScreenUI : MonoBehaviour
 {
-    private UIDocument document;
-
-    private Button continueButton;
+    public TextMeshProUGUI levelText;
+    public Button continueButton;
 
     private void Awake()
     {
-        document = GetComponent<UIDocument>();
-
-        if (!document.enabled) document.enabled = true;
-
-        continueButton = document.rootVisualElement.Q<Button>("ContinueButton");
-        continueButton.RegisterCallback<ClickEvent>(ContinueButtonClicked);
-
-        document.rootVisualElement.style.visibility = Visibility.Hidden;
+        continueButton.onClick.AddListener(() => StartCoroutine(ContinueButtonClicked()));
     }
 
-    private void ContinueButtonClicked(ClickEvent clickEvent)
+    public void ShowPopUp()
     {
-        StartCoroutine(GameManager.instance.LoadNextLevel());
-        document.rootVisualElement.style.visibility = Visibility.Hidden;
+        gameObject.SetActive(true);
 
+        levelText.text = $"LEVEL {GameManager.instance.levelManager.currentLevel}";
+        transform.DOPunchScale(Vector3.one * 0.25f, 0.5f, 0, 0);
+    }
+
+    public IEnumerator ContinueButtonClicked()
+    {
+        yield return StartCoroutine(GameManager.instance.LoadNextLevel());
+
+        UIManager.instance.gameScreenUI.rootVisualElement.style.visibility = UnityEngine.UIElements.Visibility.Visible;
         UIManager.instance.progressBar.ResetProgressBar();
+        
+        gameObject.SetActive(false);
     }
 }
