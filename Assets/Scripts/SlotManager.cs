@@ -69,8 +69,7 @@ public class SlotManager : MonoBehaviour
 
         currentSlotManagerState = SlotManagerState.Matching;
 
-        if (isComboActive)
-            pickCount++;
+        pickCount++;
 
         int sameColorIndex = slots.FindLastIndex(s => s.slotProp != null && s.slotProp.gameObject.name == prop.gameObject.name);
 
@@ -94,6 +93,7 @@ public class SlotManager : MonoBehaviour
             if (willCauseMatch)
             {
                 BoosterManager.previousPickedProp = null;
+                pickCount = 0;
 
                 HandleMatchingSlotGroupsCallback();
                 yield return StartCoroutine(RearrangeSlots());
@@ -112,18 +112,18 @@ public class SlotManager : MonoBehaviour
             }
         }
 
-        if (isComboActive)
+        if (pickCount == 3)
         {
-            if (pickCount == 3)
+            if (!willCauseMatch)
             {
-                if (!willCauseMatch)
+                if (isComboActive)
                 {
                     pickCount = 0;
                     matchCount = 0;
                     isComboActive = false;
-
-                    UIManager.instance.bonusStarHandler.RemoveBonusStars();
                 }
+
+                UIManager.instance.bonusStarHandler.RemoveBonusStars();
             }
         }
 
