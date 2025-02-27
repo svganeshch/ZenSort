@@ -6714,6 +6714,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6b83c582ccac06c448cb804152742b01, type: 3}
   - {fileID: 8300000, guid: a282fa49807bf8a47ad865e6af6f219a, type: 3}
   propMatched: {fileID: 8300000, guid: e5418ba580152754799c5810946d6dc4, type: 3}
+  starBonus: {fileID: 8300000, guid: 040adf4728e85744eb1dc424b2072e35, type: 3}
 --- !u!1 &2088741633
 GameObject:
   m_ObjectHideFlags: 0

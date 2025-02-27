@@ -69,6 +69,8 @@ public class BonusStarHandler : MonoBehaviour
             {
                 RemoveBonusStars();
             });
+
+            SFXManager.instance.PlayStarBonusSound();
         }
     }
 

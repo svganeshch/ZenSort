@@ -6,6 +6,7 @@ public class SFXManager : MonoBehaviour
 
     public AudioClip[] propPickupSounds;
     public AudioClip propMatched;
+    public AudioClip starBonus;
 
     private AudioSource audioSource;
 
@@ -49,5 +50,10 @@ public class SFXManager : MonoBehaviour
     public void PlayPropMatchedSound()
     {
         PlaySFX(propMatched);
+    }
+
+    public void PlayStarBonusSound()
+    {
+        PlaySFX(starBonus);
     }
 }
