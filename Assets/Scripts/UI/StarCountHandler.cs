@@ -19,12 +19,12 @@ public class StarCountHandler : MonoBehaviour
     {
         starCountText.text = (int.Parse(starCountText.text) + 1).ToString();
 
-        if (starAddTween != null && starAddTween.IsActive()) starAddTween.Complete();
         PlayStarAddTween();
     }
 
     public void PlayStarAddTween()
     {
+        if (starAddTween != null && starAddTween.IsActive()) starAddTween.Complete();
         starAddTween = starImage.transform.DOPunchScale(Vector3.one * 0.2f, 0.25f, 0, 0).SetEase(Ease.InQuad);
     }
 
