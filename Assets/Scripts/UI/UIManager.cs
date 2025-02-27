@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
 
     public ProgressBar progressBar;
     public ComboTextHandler comboTextHandler;
+    public StarCountHandler starCountHandler;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class UIManager : MonoBehaviour
 
         progressBar = GetComponentInChildren<ProgressBar>();
         comboTextHandler = GetComponentInChildren<ComboTextHandler>();
+        starCountHandler = GetComponentInChildren<StarCountHandler>();
 
         OnLevelDone = new UnityEvent();
         OnGameOver = new UnityEvent();

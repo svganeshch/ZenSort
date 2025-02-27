@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using UnityEngine;
 
 public class SlotManager : MonoBehaviour
@@ -266,6 +267,8 @@ public class SlotManager : MonoBehaviour
         Tween leftMerge = left.DOMove(middleTarget, mergeDuration).SetEase(Ease.InQuad);
         Tween rightMerge = right.DOMove(middleTarget, mergeDuration).SetEase(Ease.InQuad);
 
+        UIManager.instance.starCountHandler.PlayStarAddTween();
+
         // Sequence setup
         matchingSequence.Append(middleMoveUp);
         matchingSequence.Join(leftMoveUp);
@@ -283,7 +286,7 @@ public class SlotManager : MonoBehaviour
             //slots[middleIndex].slotVFX.Play();
             SFXManager.instance.PlayPropMatchedSound();
 
-            Instantiate(WorldLayerMaskManager.instance.matchVFX, middleTarget, Quaternion.identity)
+            Instantiate(WorldManager.instance.matchVFX, middleTarget, Quaternion.identity)
                                         .TryGetComponent<ParticleSystem>(out ParticleSystem matchVFX);
             Destroy(matchVFX.gameObject, 1f);
 
@@ -303,6 +306,10 @@ public class SlotManager : MonoBehaviour
             // Set Level Progress
             float currentProgress = (GameManager.instance.levelManager.shelfManager.GetPropCount() / (float)GameManager.instance.levelManager.numberOfProps) * 100;
             UIManager.instance.progressBar.SetProgress(100 - currentProgress);
+
+            // Star animation
+            GameObject star = Instantiate(WorldManager.instance.starPrefab, middleTarget, Quaternion.identity);
+            AnimateStar(star, middleIndex);
         });
 
         // Clear slot references
@@ -310,6 +317,37 @@ public class SlotManager : MonoBehaviour
         slots[rightIndex].slotProp = null;
         slots[middleIndex].slotProp = null;
         matchingSlotIndexs.Clear();
+    }
+
+    public void AnimateStar(GameObject star, int midIndex)
+    {
+        Vector3 startPoint = star.transform.position;
+        Vector3 endPoint = UIManager.instance.starCountHandler.starImage.transform.position;
+
+        Vector3 screenTopRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+        Vector3 screenBottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
+
+        int direction = -1;
+        if (midIndex > 3) direction = 1;
+
+        Vector3 midPoint = new Vector3(
+            (startPoint.x + endPoint.x) / 2 + direction,
+            (startPoint.y + endPoint.y) / 2 + (screenTopRight.y * 0.2f), 
+            0
+        );
+
+        midPoint.x = Mathf.Clamp(midPoint.x, screenBottomLeft.x, screenTopRight.x);
+        midPoint.y = Mathf.Clamp(midPoint.y, screenBottomLeft.y, screenTopRight.y);
+
+        Vector3[] pathPoints = { startPoint, midPoint, endPoint };
+
+        star.transform.DOPath(pathPoints, 1f, PathType.CatmullRom)
+            .SetEase(Ease.InOutSine)
+            .OnComplete(() =>
+            {
+                Destroy(star);
+                UIManager.instance.starCountHandler.AddStar();
+            });
     }
 
     public void EnableExtraSlot()
