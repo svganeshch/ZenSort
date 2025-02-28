@@ -21,8 +21,6 @@ public class GameOverScreenUI : MonoBehaviour
         gameObject.SetActive(true);
 
         PlayDropDownAnim();
-
-        SFXManager.instance.PlaySFX(SFXManager.instance.levelFailedSound);
     }
 
     private void PlayDropDownAnim()

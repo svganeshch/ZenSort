@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
         gameScreenUI.rootVisualElement.style.visibility = Visibility.Hidden;
         levelDoneScreen.ShowPopUp();
 
-        SFXManager.instance.PlaySFX(SFXManager.instance.levelDoneSound);
+        SFXManager.instance.PlaySFX(SFXManager.instance.levelDoneSound, volume: 2);
     }
 
     private void ShowGameOverScreen()
@@ -58,5 +58,7 @@ public class UIManager : MonoBehaviour
 
         gameScreenUI.rootVisualElement.style.visibility = Visibility.Hidden;
         gameOverScreen.ShowPopUP();
+
+        SFXManager.instance.PlaySFX(SFXManager.instance.levelFailedSound, volume: 2);
     }
 }
