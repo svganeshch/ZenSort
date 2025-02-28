@@ -8,6 +8,7 @@ public class SFXManager : MonoBehaviour
     public AudioClip propMatched;
     public AudioClip starBonus;
     public AudioClip levelDoneSound;
+    public AudioClip levelFailedSound;
 
     public AudioClip buttonTap;
 

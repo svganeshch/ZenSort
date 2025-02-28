@@ -1,27 +1,55 @@
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class GameOverScreenUI : MonoBehaviour
 {
-    private UIDocument document;
+    public Image dropDownBanner;
 
-    private Button replayButton;
+    public GameObject gameOverPopUp;
+    public TextMeshProUGUI levelText;
+    public Button replayButton;
 
     private void Awake()
     {
-        document = GetComponent<UIDocument>();
-
-        if (!document.enabled) document.enabled = true;
-
-        replayButton = document.rootVisualElement.Q<Button>("ReplayButton");
-        replayButton.RegisterCallback<ClickEvent>(ReplayButtonClicked);
-
-        document.rootVisualElement.style.visibility = Visibility.Hidden;
+        replayButton.onClick.AddListener(() => ReplayButtonClicked());
     }
 
-    private void ReplayButtonClicked(ClickEvent clickEvent)
+    public void ShowPopUP()
+    {
+        gameObject.SetActive(true);
+
+        PlayDropDownAnim();
+
+        SFXManager.instance.PlaySFX(SFXManager.instance.levelFailedSound);
+    }
+
+    private void PlayDropDownAnim()
+    {
+        dropDownBanner.gameObject.SetActive(true);
+
+        Sequence gameOverSeq = DOTween.Sequence();
+
+        gameOverSeq.Append(dropDownBanner.transform.DOLocalMoveY(5, 1f).SetEase(Ease.OutBounce))
+           .AppendInterval(0.2f)
+           .Append(dropDownBanner.transform.DOLocalMoveY(-1500, 0.8f).SetEase(Ease.InQuad))
+           .OnComplete(() => ShowGameOverContainer());
+    }
+
+    private void ShowGameOverContainer()
+    {
+        gameOverPopUp.SetActive(true);
+        levelText.text = $"LEVEL {GameManager.instance.levelManager.currentLevel}";
+        gameOverPopUp.transform.DOPunchScale(Vector3.one * 0.25f, 0.5f, 0, 0);
+    }
+
+    private void ReplayButtonClicked()
     {
         StartCoroutine(GameManager.instance.ReloadLevel());
-        document.rootVisualElement.style.visibility = Visibility.Hidden;
+
+        UIManager.instance.gameScreenUI.rootVisualElement.style.visibility = UnityEngine.UIElements.Visibility.Visible;
+
+        gameOverPopUp.SetActive(false);
     }
 }

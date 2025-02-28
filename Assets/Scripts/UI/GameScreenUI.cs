@@ -51,8 +51,6 @@ public class GameScreenUI : MonoBehaviour
     private void OnNextButtonClick(ClickEvent clickEvent)
     {
         StartCoroutine(GameManager.instance.LoadNextLevel());
-
-        UIManager.instance.progressBar.ResetProgressBar();
     }
 
     private void OnUndoButtonClick(ClickEvent clickEvent)

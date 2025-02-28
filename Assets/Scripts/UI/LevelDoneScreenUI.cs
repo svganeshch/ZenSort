@@ -29,7 +29,6 @@ public class LevelDoneScreenUI : MonoBehaviour
         yield return StartCoroutine(GameManager.instance.LoadNextLevel());
 
         UIManager.instance.gameScreenUI.rootVisualElement.style.visibility = UnityEngine.UIElements.Visibility.Visible;
-        UIManager.instance.progressBar.ResetProgressBar();
         
         gameObject.SetActive(false);
     }

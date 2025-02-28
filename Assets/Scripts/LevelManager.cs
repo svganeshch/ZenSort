@@ -76,6 +76,11 @@ public class LevelManager : MonoBehaviour
 
         Destroy(shelfManager.gameObject);
 
+        // Reset UI
+        UIManager.instance.progressBar.ResetProgressBar();
+        UIManager.instance.starCountHandler.ResetStarCount();
+        UIManager.instance.bonusStarHandler.RemoveBonusStars();
+
         yield return new WaitUntil(() => shelfGridsCleared && slotsCleared);
     }
 }
