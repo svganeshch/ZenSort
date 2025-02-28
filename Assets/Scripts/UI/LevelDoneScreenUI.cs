@@ -18,13 +18,14 @@ public class LevelDoneScreenUI : MonoBehaviour
     public void ShowPopUp()
     {
         gameObject.SetActive(true);
-
         levelText.text = $"LEVEL {GameManager.instance.levelManager.currentLevel}";
         transform.DOPunchScale(Vector3.one * 0.25f, 0.5f, 0, 0);
     }
 
     public IEnumerator ContinueButtonClicked()
     {
+        SFXManager.instance.PlaySFX(SFXManager.instance.buttonTap);
+
         yield return StartCoroutine(GameManager.instance.LoadNextLevel());
 
         UIManager.instance.gameScreenUI.rootVisualElement.style.visibility = UnityEngine.UIElements.Visibility.Visible;

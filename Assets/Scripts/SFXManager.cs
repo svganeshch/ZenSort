@@ -7,6 +7,9 @@ public class SFXManager : MonoBehaviour
     public AudioClip[] propPickupSounds;
     public AudioClip propMatched;
     public AudioClip starBonus;
+    public AudioClip levelDoneSound;
+
+    public AudioClip buttonTap;
 
     private AudioSource audioSource;
 

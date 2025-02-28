@@ -3093,7 +3093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700768a7df12f484a8f0ff99598e04d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelText: {fileID: 0}
+  levelText: {fileID: 79740395}
   continueButton: {fileID: 1523204580}
 --- !u!1 &862244437
 GameObject:
@@ -4981,7 +4981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1573621657
 Transform:
   m_ObjectHideFlags: 0
@@ -6715,6 +6715,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a282fa49807bf8a47ad865e6af6f219a, type: 3}
   propMatched: {fileID: 8300000, guid: e5418ba580152754799c5810946d6dc4, type: 3}
   starBonus: {fileID: 8300000, guid: 040adf4728e85744eb1dc424b2072e35, type: 3}
+  levelDoneSound: {fileID: 8300000, guid: 1e1a032628bdcb5478f077e03175e615, type: 3}
+  buttonTap: {fileID: 8300000, guid: 462db61335d914349868e177d287f627, type: 3}
 --- !u!1 &2088741633
 GameObject:
   m_ObjectHideFlags: 0
