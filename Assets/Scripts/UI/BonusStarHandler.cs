@@ -15,6 +15,15 @@ public class BonusStarHandler : MonoBehaviour
 {
     public List<BonusStarSlot> bonusSlots = new();
 
+    private void Awake()
+    {
+        foreach (var bonusSlot in bonusSlots)
+        {
+            bonusSlot.star = Instantiate(WorldManager.instance.bonusStarPrefab, bonusSlot.slot.transform);
+            bonusSlot.star.SetActive(false);
+        }
+    }
+
     private void Start()
     {
         UIManager.instance.OnLevelChange.AddListener(RemoveBonusStars);
@@ -24,11 +33,12 @@ public class BonusStarHandler : MonoBehaviour
     {
         foreach (var bonusSlot in bonusSlots)
         {
-            if (bonusSlot.star == null)
+            if (!bonusSlot.star.activeSelf)
             {
-                GameObject star = Instantiate(WorldManager.instance.bonusStarPrefab, bonusSlot.slot.transform.position, Quaternion.identity);
+                GameObject star = bonusSlot.star;
+
+                star.SetActive(true);
                 star.transform.DOPunchScale(Vector3.one * 0.01f, 0.1f, 0, 0).SetEase(Ease.InQuad);
-                bonusSlot.star = star;
 
                 break;
             }
@@ -40,7 +50,7 @@ public class BonusStarHandler : MonoBehaviour
     private void CheckSlots()
     {
         Sequence bonusStarJumpSeq = DOTween.Sequence();
-        bool isSlotsFull = bonusSlots.All(bonusSlot => bonusSlot.star != null);
+        bool isSlotsFull = bonusSlots.All(bonusSlot => bonusSlot.star.activeSelf);
 
         if (isSlotsFull)
         {
@@ -78,8 +88,8 @@ public class BonusStarHandler : MonoBehaviour
     {
         foreach (var bonusSlot in bonusSlots)
         {
-            Destroy(bonusSlot.star);
-            bonusSlot.star = null;
+            bonusSlot.star.SetActive(false);
+            bonusSlot.star.transform.position = bonusSlot.slot.transform.position;
         }
     }
 }
