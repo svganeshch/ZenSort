@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8115106082919952324}
   - component: {fileID: 325673862260455340}
   - component: {fileID: 9051421614943988856}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: StarTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 3829544217556679099}
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}

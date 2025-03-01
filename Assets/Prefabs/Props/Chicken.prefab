@@ -67,6 +67,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 69214e0bf08998546961548bc9b8d240, type: 2}
+  - {fileID: 2100000, guid: 26768667f6ba2c8419fcb8efc8701b3d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origPropScale: {x: 0, y: 0, z: 0}
-  propPickedScale: 0.45
+  propPickedScale: 0.3
   previousPos: {x: 0, y: 0, z: 0}
   propCollider: {fileID: 0}
   material: {fileID: 0}

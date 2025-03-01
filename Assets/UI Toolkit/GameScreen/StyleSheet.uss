@@ -1,6 +1,6 @@
 .booster-button {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     background-color: rgba(255, 255, 255, 0);
     background-image: url("project://database/Assets/Sprites/Btn-CircleBoosterGreen.png?fileID=2800000&guid=c8f56c135d390a24a8b7951aaf4fa9a7&type=3#Btn-CircleBoosterGreen");
     -unity-background-image-tint-color: rgb(255, 255, 255);

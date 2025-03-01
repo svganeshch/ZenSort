@@ -69,7 +69,7 @@ public class Prop : MonoBehaviour
 
         if (propPickedScale == 1)
         {
-            transform.DOScale(transform.localScale / 1.25f, 0.25f).SetEase(Ease.OutQuad);
+            transform.DOScale(transform.localScale / 2, 0.25f).SetEase(Ease.OutQuad);
         }
         else
         {

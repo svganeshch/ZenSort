@@ -14,17 +14,17 @@
     <engine:VisualElement name="Boosters_Container" style="flex-direction: row; flex-shrink: 1; align-items: center; justify-content: center; align-self: auto; align-content: auto; bottom: 65px; position: relative;">
         <engine:Button name="UndoButton" class="booster-button" style="background-size: 90% 90%;">
             <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Btn-BoosterCircleStrock-Gold.png?fileID=2800000&amp;guid=aa39dd680fc69554e9f905720210f139&amp;type=3#Btn-BoosterCircleStrock-Gold&quot;); width: auto; height: auto; align-items: auto; justify-content: flex-start; align-self: auto; align-content: auto; background-size: 100% 100%; -unity-background-image-tint-color: rgb(255, 255, 255); rotate: 0; flex-wrap: nowrap; flex-direction: column-reverse;">
-                <engine:VisualElement name="Image" style="flex-grow: 1; flex-shrink: 0; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Icon-GameUndo.png?fileID=2800000&amp;guid=22991004ba0370f43af508a8166cea2e&amp;type=3#Icon-GameUndo&quot;); width: 150px; align-self: center; background-size: 60% 60%;" />
+                <engine:VisualElement name="Image" style="flex-grow: 1; flex-shrink: 0; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Icon-GameUndo.png?fileID=2800000&amp;guid=22991004ba0370f43af508a8166cea2e&amp;type=3#Icon-GameUndo&quot;); width: 200px; align-self: center; background-size: 60% 60%;" />
             </engine:VisualElement>
         </engine:Button>
         <engine:Button name="MagnetButton" class="booster-button" style="flex-direction: column-reverse; flex-grow: 0;">
             <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Btn-BoosterCircleStrock-Gold.png?fileID=2800000&amp;guid=aa39dd680fc69554e9f905720210f139&amp;type=3#Btn-BoosterCircleStrock-Gold&quot;); width: auto; height: auto; align-items: auto; justify-content: flex-start; align-self: auto; align-content: auto; background-size: 100% 100%; flex-shrink: 0;">
-                <engine:VisualElement name="Image" style="flex-grow: 1; flex-shrink: 0; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Icon-Magnet.png?fileID=2800000&amp;guid=3686945eec5774440b1ae10e4365c8c5&amp;type=3#Icon-Magnet&quot;); width: 150px; align-self: center; background-size: 75% 75%;" />
+                <engine:VisualElement name="Image" style="flex-grow: 1; flex-shrink: 0; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Icon-Magnet.png?fileID=2800000&amp;guid=3686945eec5774440b1ae10e4365c8c5&amp;type=3#Icon-Magnet&quot;); width: 200px; align-self: center; background-size: 75% 75%;" />
             </engine:VisualElement>
         </engine:Button>
         <engine:Button name="ShuffleButton" class="booster-button">
             <engine:VisualElement name="Sprite" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Btn-BoosterCircleStrock-Gold.png?fileID=2800000&amp;guid=aa39dd680fc69554e9f905720210f139&amp;type=3#Btn-BoosterCircleStrock-Gold&quot;); width: auto; height: auto; align-items: auto; justify-content: flex-start; align-self: auto; align-content: auto; background-size: 100% 100%;">
-                <engine:VisualElement name="Image" style="flex-grow: 1; flex-shrink: 0; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Icon-GameShuffle.png?fileID=2800000&amp;guid=61c7033d3e4e82f40972e4564e8014d3&amp;type=3#Icon-GameShuffle&quot;); width: 150px; align-self: center; background-size: 70% 70%;" />
+                <engine:VisualElement name="Image" style="flex-grow: 1; flex-shrink: 0; background-image: url(&quot;project://database/Assets/Clone%20Dump/Textures/Icon-GameShuffle.png?fileID=2800000&amp;guid=61c7033d3e4e82f40972e4564e8014d3&amp;type=3#Icon-GameShuffle&quot;); width: 200px; align-self: center; background-size: 70% 70%;" />
             </engine:VisualElement>
         </engine:Button>
     </engine:VisualElement>
