@@ -22,7 +22,7 @@ public class Slot : MonoBehaviour
         slotBoxCollider = GetComponent<BoxCollider>();
     }
 
-    public Tween SetSlotPositionTween(Prop prop, bool isShift = false, Action OnCompleteCallback = null)
+    public Tween SetSlotPositionTween(Prop setProp, bool isShift = false, Action OnCompleteCallback = null)
     {
         if (isShift)
         {
@@ -33,16 +33,17 @@ public class Slot : MonoBehaviour
             transistionSpeed = moveSpeed;
         }
 
-        float propY = slotBoxCollider.bounds.max.y + (prop.propCollider.size.y * prop.transform.localScale.y / 2) - (prop.propCollider.center.y * prop.transform.localScale.y);
-        //float propY = (slotBoxCollider.bounds.max.y + (prop.propCollider.size.y / 2) - prop.propCollider.center.y) * 0.5f;
+        if (setProp.scaleTween != null) setProp.scaleTween.Complete();
+
+        float propY = slotBoxCollider.bounds.max.y + (setProp.propCollider.size.y * setProp.transform.localScale.y / 2) - (setProp.propCollider.center.y * setProp.transform.localScale.y);
 
         Vector3 targetPosition = new Vector3(transform.position.x, propY, transform.position.z);
 
-        Tween moveTween = prop.transform.DOMove(targetPosition, transistionSpeed)
-                                .SetEase(Ease.InQuad)
-                                .OnComplete(() => OnCompleteCallback?.Invoke());
+        Tween moveTween = setProp.transform.DOMove(targetPosition, transistionSpeed)
+                        .SetEase(Ease.InQuad)
+                        .OnComplete(() => OnCompleteCallback?.Invoke());
 
-        this.prop = prop;
+        this.prop = setProp;
 
         return moveTween;
     }

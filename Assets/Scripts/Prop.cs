@@ -21,6 +21,8 @@ public class Prop : MonoBehaviour
 
     public int propLayer = 0;
     [HideInInspector] public ShelfGrid shelfGrid;
+    
+    [HideInInspector] public Tween scaleTween;
 
     private bool propState = true;
     private bool isPicked = false;
@@ -41,7 +43,7 @@ public class Prop : MonoBehaviour
         }
 
         material = meshRenderer.material;
-        propSize = Vector3.Scale(propCollider.size, transform.localScale);
+        propSize = Vector3.Scale(propCollider.size, transform.lossyScale);
 
         origPropScale = transform.localScale;
     }
@@ -63,24 +65,37 @@ public class Prop : MonoBehaviour
 
         isPicked = true;
         BoosterManager.previousPickedProp = this;
+        
+        //ScalePropToSlot();
 
-        GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
-        //transform.localScale = transform.localScale / 1.25f;
-
-        if (propPickedScale == 1)
+        if (propPickedScale < 1)
         {
-            transform.DOScale(transform.localScale / 2, 0.25f).SetEase(Ease.OutQuad);
+            scaleTween = transform.DOScale(Vector3.one * propPickedScale, 0.25f).SetEase(Ease.OutQuad);
         }
         else
         {
-            transform.DOScale(Vector3.one * propPickedScale, 0.25f).SetEase(Ease.OutQuad);
+            scaleTween = transform.DOScale(transform.localScale / 2f, 0.25f).SetEase(Ease.OutQuad);
         }
+        
+        GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
 
         shelfGrid.shelfPropList[propLayer].Remove(this);
 
         SFXManager.instance.PlayPropPickedSound();
 
         Debug.Log(gameObject.name + " is picked!!");
+    }
+
+    private void ScalePropToSlot()
+    {
+        float slotWidth = 0.15f;
+        float propWidth = propSize.x;
+        
+        float scaleFactor = propWidth / slotWidth;
+        
+        Vector3 targetScale = Vector3.one * scaleFactor;
+        
+        scaleTween = transform.DOScale(targetScale, 0.25f).SetEase(Ease.OutQuad);
     }
 
     private void OnPropQueueComplete()
