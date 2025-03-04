@@ -44,7 +44,7 @@ public class GameOverScreenUI : MonoBehaviour
 
     private void ReplayButtonClicked()
     {
-        StartCoroutine(GameManager.instance.ReloadLevel());
+        StartCoroutine(GameManager.instance.levelManager.ReloadLevel());
 
         UIManager.instance.gameScreenUI.rootVisualElement.style.visibility = UnityEngine.UIElements.Visibility.Visible;
 

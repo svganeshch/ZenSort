@@ -26,7 +26,7 @@ public class LevelDoneScreenUI : MonoBehaviour
     {
         SFXManager.instance.PlaySFX(SFXManager.instance.buttonTap);
 
-        yield return StartCoroutine(GameManager.instance.LoadNextLevel());
+        yield return StartCoroutine(GameManager.instance.levelManager.LoadNextLevel());
 
         UIManager.instance.gameScreenUI.rootVisualElement.style.visibility = UnityEngine.UIElements.Visibility.Visible;
         

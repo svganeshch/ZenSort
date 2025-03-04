@@ -50,7 +50,7 @@ public class GameScreenUI : MonoBehaviour
 
     private void OnNextButtonClick(ClickEvent clickEvent)
     {
-        StartCoroutine(GameManager.instance.LoadNextLevel());
+        StartCoroutine(GameManager.instance.levelManager.LoadNextLevel());
     }
 
     private void OnUndoButtonClick(ClickEvent clickEvent)
