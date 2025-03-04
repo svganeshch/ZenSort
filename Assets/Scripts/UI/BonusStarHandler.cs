@@ -8,21 +8,12 @@ using UnityEngine;
 public class BonusStarSlot
 {
     public GameObject slot;
-    [HideInInspector] public GameObject star;
+    public GameObject star;
 }
 
 public class BonusStarHandler : MonoBehaviour
 {
     public List<BonusStarSlot> bonusSlots = new();
-
-    private void Awake()
-    {
-        foreach (var bonusSlot in bonusSlots)
-        {
-            bonusSlot.star = Instantiate(WorldManager.instance.bonusStarPrefab, bonusSlot.slot.transform);
-            bonusSlot.star.SetActive(false);
-        }
-    }
 
     private void Start()
     {
