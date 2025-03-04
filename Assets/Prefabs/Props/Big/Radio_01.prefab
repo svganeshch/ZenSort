@@ -133,13 +133,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origPropScale: {x: 0, y: 0, z: 0}
-  propPickedScale: 0.03
+  propPickedScale: 0.025
   previousPos: {x: 0, y: 0, z: 0}
   propCollider: {fileID: 0}
   material: {fileID: 0}
   propSize: {x: 0, y: 0, z: 0}
   propLayer: 0
   shelfGrid: {fileID: 0}
+  propState: 1
+  isPicked: 0
 --- !u!65 &3189805888478633745
 BoxCollider:
   m_ObjectHideFlags: 0

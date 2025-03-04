@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2440750573052066036}
   m_Father: {fileID: 0}
@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d397bce08d1d934da8d68e1b638f718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origPropPos: {x: 0, y: 0, z: 0}
   origPropScale: {x: 0, y: 0, z: 0}
+  propPickedScale: 1
+  previousPos: {x: 0, y: 0, z: 0}
   propCollider: {fileID: 0}
   material: {fileID: 0}
   propSize: {x: 0, y: 0, z: 0}

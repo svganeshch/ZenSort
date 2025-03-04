@@ -107,8 +107,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.32333955, y: 0.3230213, z: 0.07709041}
-  m_Center: {x: -0.00066284835, y: 0.16178915, z: 0.0027142875}
+  m_Size: {x: 0.32333955, y: 0.3230213, z: 0.14535466}
+  m_Center: {x: -0.00066284835, y: 0.16178915, z: -0.031417836}
 --- !u!114 &1847954083540041122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origPropScale: {x: 0, y: 0, z: 0}
-  propPickedScale: 1
+  propPickedScale: 0.4
   previousPos: {x: 0, y: 0, z: 0}
   propCollider: {fileID: 0}
   material: {fileID: 0}
