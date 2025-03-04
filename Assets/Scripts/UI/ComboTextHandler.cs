@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ComboTextHandler : MonoBehaviour
 {
+    private static readonly int OutlineColor = Shader.PropertyToID("_OutlineColor");
     public TextMeshProUGUI comboTextField;
 
     public string[] comboTexts;
@@ -13,7 +14,7 @@ public class ComboTextHandler : MonoBehaviour
     {
         comboTextField.transform.position = pos;
         comboTextField.text = comboTexts[Random.Range(0, comboTexts.Length)];
-        comboTextField.color = comboColors[Random.Range(0, comboColors.Length)];
+        comboTextField.fontMaterial.SetColor(OutlineColor, comboColors[Random.Range(0, comboColors.Length)]);
 
         Sequence comboTextSequence = DOTween.Sequence();
 
@@ -27,6 +28,7 @@ public class ComboTextHandler : MonoBehaviour
         comboTextSequence.OnComplete(() =>
         {
             comboTextField.text = "";
+            comboTextField.color = Color.white;
         });
     }
 }
