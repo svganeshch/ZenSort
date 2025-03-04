@@ -38,18 +38,4 @@ public class GameManager : MonoBehaviour
 
         levelManager.GenerateLevel();
     }
-
-    public IEnumerator ReloadLevel()
-    {
-        yield return StartCoroutine(levelManager.ClearLevel());
-
-        levelManager.GenerateLevel();
-    }
-
-    public IEnumerator LoadNextLevel()
-    {
-        yield return StartCoroutine(levelManager.ClearLevel());
-
-        levelManager.GenerateNextLevel();
-    }
 }

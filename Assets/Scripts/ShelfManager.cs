@@ -67,7 +67,7 @@ public class ShelfManager : MonoBehaviour
         return propCount;
     }
 
-    public bool ClearGrids()
+    public bool ClearGrids(bool reset = false)
     {
         foreach (var shelfGrid in shelfGrids)
         {
@@ -79,11 +79,19 @@ public class ShelfManager : MonoBehaviour
                 {
                     if (prop == null) continue;
 
-                    Destroy(prop.gameObject);
+                    if (reset)
+                    {
+                        prop.ResetProp();
+                    }
+                    else
+                    {
+                        Destroy(prop.gameObject);
+                    }
                 }
             }
 
             shelfGrid.shelfPropList.Clear();
+            shelfGrid.Awake();
         }
 
         remainingProps.Clear();

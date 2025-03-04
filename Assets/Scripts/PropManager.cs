@@ -6,7 +6,7 @@ public class PropManager : MonoBehaviour
     public GameObject[] propPrefabs;
 
     [SerializeField]
-    private List<Prop> generatedProps = new List<Prop>();
+    public List<Prop> generatedProps = new List<Prop>();
 
     public List<Prop> GenerateProps(int numberOfProps)
     {

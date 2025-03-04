@@ -131,6 +131,6 @@ public class BoosterManager : MonoBehaviour
 
     public void HandleShuffleBooster()
     {
-        StartCoroutine(GameManager.instance.ReloadLevel());
+        StartCoroutine(GameManager.instance.levelManager.ShuffleLevel());
     }
 }

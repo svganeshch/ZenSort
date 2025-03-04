@@ -24,8 +24,8 @@ public class Prop : MonoBehaviour
     
     [HideInInspector] public Tween scaleTween;
 
-    private bool propState = true;
-    private bool isPicked = false;
+    public bool propState = true;
+    public bool isPicked = false;
 
     private void Awake()
     {
@@ -55,6 +55,15 @@ public class Prop : MonoBehaviour
         material.DOColor(targetColor, 0.25f);
 
         propState = state;
+    }
+
+    public void ResetProp()
+    {
+        transform.position = Vector3.zero;
+        transform.localScale = origPropScale;
+
+        propLayer = 0;
+        propState = true;
     }
 
     public void OnPicked()

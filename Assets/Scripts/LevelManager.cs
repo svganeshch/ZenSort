@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -32,8 +33,8 @@ public class LevelManager : MonoBehaviour
 
         numberOfProps = GetNumberOfProps(currentLevel);
 
-        List<Prop> levelProps = new List<Prop>();
-        levelProps = GameManager.instance.propManager.GenerateProps(numberOfProps);
+        List<Prop> levelProps = new List<Prop>(GameManager.instance.propManager.GenerateProps(numberOfProps));
+
         shelfManager.StockShelfs(levelProps);
     }
 
@@ -59,12 +60,39 @@ public class LevelManager : MonoBehaviour
 
         UIManager.instance.OnLevelChange.Invoke(currentLevel);
     }
-
-    public IEnumerator ShuffleLevel()
+    
+    public IEnumerator ReloadLevel()
     {
         yield return StartCoroutine(ClearLevel());
 
         GenerateLevel();
+    }
+
+    public IEnumerator LoadNextLevel()
+    {
+        yield return StartCoroutine(ClearLevel());
+
+        GenerateNextLevel();
+    }
+    
+    public IEnumerator ShuffleLevel()
+    {
+        yield return StartCoroutine(ClearProps());
+
+        var existingPropsList = GameManager.instance.propManager.generatedProps;
+        existingPropsList = existingPropsList.Where(item => item != null).ToList();
+        
+        shelfManager.StockShelfs(existingPropsList);
+        //GenerateLevel(existingPropsList);
+    }
+
+    public IEnumerator ClearProps()
+    {
+        DOTween.KillAll(complete: true);
+
+        bool shelfGridsCleared = shelfManager.ClearGrids(true);
+        
+        yield return new WaitUntil(() => shelfGridsCleared);
     }
 
     public IEnumerator ClearLevel()

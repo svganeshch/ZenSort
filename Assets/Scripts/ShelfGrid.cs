@@ -22,14 +22,14 @@ public class ShelfGrid : MonoBehaviour
     float currentShelfPosX;
     float currentShelfPosZ;
 
-    int currentLayer = -1;
+    int currentLayer;
 
     private List<KeyValuePair<Vector3, Prop>> propsToPlace = new List<KeyValuePair<Vector3, Prop>>();
 
     private List<Prop> propsMovedInPreviousPick = new List<Prop>();
     public List<List<Prop>> shelfPropList = new List<List<Prop>>();
 
-    private void Awake()
+    public void Awake()
     {
         shelfCollider = GetComponent<BoxCollider>();
 
@@ -41,6 +41,8 @@ public class ShelfGrid : MonoBehaviour
 
         currentShelfPosX = shelfLeft;
         currentShelfPosZ = shelfZ;
+
+        currentLayer = -1;
     }
 
     public IEnumerator SetProps(List<Prop> allProps, Action<List<Prop>> sendRemainingProps)
@@ -57,6 +59,12 @@ public class ShelfGrid : MonoBehaviour
 
         foreach (Prop prop in currentPropList)
         {
+            if (prop.isPicked)
+            {
+                allProps.Remove(prop);
+                continue;
+            }
+            
             float propWidth = prop.propSize.x;
             //float propY = shelfY + (prop.propCollider.size.y / 2) - prop.propCollider.center.y;
             float propY = shelfY + (prop.propCollider.size.y * prop.transform.localScale.y / 2) - (prop.propCollider.center.y * prop.transform.localScale.y);
