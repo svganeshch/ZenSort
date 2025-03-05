@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PropManager : MonoBehaviour
 {
+    public Transform propsSpawnPoint;
     public GameObject[] propPrefabs;
 
     [SerializeField]
@@ -20,7 +21,7 @@ public class PropManager : MonoBehaviour
             
             for (int j = 0; j < 3; j++)
             {
-                GameObject propObj = Instantiate(propPrefab);
+                GameObject propObj = Instantiate(propPrefab, propsSpawnPoint.position, Quaternion.identity);
                 propObj.transform.parent = transform;
 
                 Prop prop = propObj.GetComponent<Prop>();
