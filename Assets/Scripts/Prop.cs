@@ -130,7 +130,7 @@ public class Prop : MonoBehaviour
 
         GameManager.instance.slotManager.ResetSlot(this);
         
-        moveTween.OnComplete(() => StartCoroutine(shelfGrid.OnPropUndo(this)));
+        undoSeq.OnComplete(() => StartCoroutine(shelfGrid.OnPropUndo(this)));
     }
 
     public void SetPosition(Vector3 pos)

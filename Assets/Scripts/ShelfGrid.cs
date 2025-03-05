@@ -247,8 +247,7 @@ public class ShelfGrid : MonoBehaviour
 
         return isBlocked;
     }
-
-
+    
     private void ShiftPropTween(Prop prop, Vector3 shiftPos)
     {
         propsMovedInPreviousPick.Add(prop);
@@ -264,6 +263,8 @@ public class ShelfGrid : MonoBehaviour
 
         foreach (var previousProp in propsMovedInPreviousPick)
         {
+            previousProp.SetPropState(false);
+            
             Tween moveTween = previousProp.SetPositionTween(previousProp.previousPos);
             moveTween.OnComplete(() =>
             {
