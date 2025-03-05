@@ -26,12 +26,13 @@ public class BoosterManager : MonoBehaviour
         if (GameManager.instance.slotManager.currentSlotManagerState == SlotManagerState.Matching) return;
 
         List<ShelfGrid> shelfGrids = new List<ShelfGrid>(GameManager.instance.levelManager.shelfManager.shelfGrids);
+        List<Prop> propsToPull = new List<Prop>();
         var slots = GameManager.instance.slotManager.slots;
 
-        string propToPull = "";
+        string propToPullName = "";
         int emptySlotCount = 0;
         int count = 0;
-        int propsToPull = 0;
+        int numberPropsToPull = 0;
 
         for (int i = 0; i < slots.Count - 1; i++)
         {
@@ -43,16 +44,16 @@ public class BoosterManager : MonoBehaviour
             {
                 if (slotProp.name == nextProp.name)
                 {
-                    propToPull = slots[i].slotProp.name;
-                    propsToPull = 1;
+                    propToPullName = slots[i].slotProp.name;
+                    numberPropsToPull = 1;
                     break;
                 }
             }
 
             if (firstProp != null)
             {
-                propToPull = firstProp.name;
-                propsToPull = 2;
+                propToPullName = firstProp.name;
+                numberPropsToPull = 2;
             }
 
             foreach (var slot in slots)
@@ -63,43 +64,43 @@ public class BoosterManager : MonoBehaviour
                 }
             }
 
-            if (emptySlotCount == slots.Count)
-            {
-                bool foundProp = false;
+            // if (emptySlotCount == slots.Count)
+            // {
+            //     bool foundProp = false;
+            //
+            //     while (!foundProp)
+            //     {
+            //         var validShelfGrids = shelfGrids
+            //             .Where(grid => grid.shelfPropList != null && grid.shelfPropList.Count > 0)
+            //             .ToList();
+            //
+            //         if (validShelfGrids.Count > 0)
+            //         {
+            //             var randomShelfGrid = validShelfGrids[Random.Range(0, validShelfGrids.Count)];
+            //             var validLayers = randomShelfGrid.shelfPropList
+            //                 .Where(layer => layer != null && layer.Count > 0)
+            //                 .ToList();
+            //
+            //             if (validLayers.Count > 0)
+            //             {
+            //                 var randomLayer = validLayers[Random.Range(0, validLayers.Count)];
+            //                 var validProps = randomLayer
+            //                     .Where(prop => prop != null)
+            //                     .ToList();
+            //
+            //                 if (validProps.Count > 0)
+            //                 {
+            //                     var randomProp = validProps[Random.Range(0, validProps.Count)];
+            //                     propToPullName = randomProp.name;
+            //                     numberPropsToPull = 3;
+            //                     foundProp = true;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
 
-                while (!foundProp)
-                {
-                    var validShelfGrids = shelfGrids
-                        .Where(grid => grid.shelfPropList != null && grid.shelfPropList.Count > 0)
-                        .ToList();
-
-                    if (validShelfGrids.Count > 0)
-                    {
-                        var randomShelfGrid = validShelfGrids[Random.Range(0, validShelfGrids.Count)];
-                        var validLayers = randomShelfGrid.shelfPropList
-                            .Where(layer => layer != null && layer.Count > 0)
-                            .ToList();
-
-                        if (validLayers.Count > 0)
-                        {
-                            var randomLayer = validLayers[Random.Range(0, validLayers.Count)];
-                            var validProps = randomLayer
-                                .Where(prop => prop != null)
-                                .ToList();
-
-                            if (validProps.Count > 0)
-                            {
-                                var randomProp = validProps[Random.Range(0, validProps.Count)];
-                                propToPull = randomProp.name;
-                                propsToPull = 3;
-                                foundProp = true;
-                            }
-                        }
-                    }
-                }
-            }
-
-            if (emptySlotCount < propsToPull) return;
+            if (emptySlotCount < numberPropsToPull) return;
         }
 
         foreach (var shelfGrid in shelfGrids)
@@ -112,20 +113,24 @@ public class BoosterManager : MonoBehaviour
 
                 foreach (var prop in shelfLayerProps)
                 {
-                    if (count == propsToPull)
+                    if (count == numberPropsToPull)
                     {
-                        return;
+                        break;
                     }
 
-                    if (prop.name == propToPull)
+                    if (prop.name == propToPullName)
                     {
-                        prop.SetPropState(true);
-                        prop.OnPicked();
-
+                        propsToPull.Add(prop);
                         count++;
                     }
                 }
             }
+        }
+
+        foreach (var prop in propsToPull)
+        {
+            prop.SetPropState(true);
+            prop.OnPicked();
         }
     }
 

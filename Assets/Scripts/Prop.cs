@@ -129,7 +129,7 @@ public class Prop : MonoBehaviour
         undoSeq.Join(scaleTween);
 
         GameManager.instance.slotManager.ResetSlot(this);
-        
+
         undoSeq.OnComplete(() => StartCoroutine(shelfGrid.OnPropUndo(this)));
     }
 
