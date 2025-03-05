@@ -267,8 +267,11 @@ public class SlotManager : MonoBehaviour
         Tween rightTilt = right.DORotate(new Vector3(0, 0, -tiltAngle), tiltDuration).SetEase(Ease.InOutQuad);
         
         // pop scale effect
-        Tween leftPopScale = left.DOPunchScale(Vector3.one * 0.1f, popScaleDuration, 5, 0);
-        Tween rightPopScale = right.DOPunchScale(Vector3.one * 0.1f, popScaleDuration, 5, 0);
+        float targetScale = 1.1f;
+        Vector3 scaleDifference = left.localScale * targetScale - left.localScale;
+        
+        Tween leftPopScale = left.DOPunchScale(scaleDifference, popScaleDuration, 5, 0);
+        Tween rightPopScale = right.DOPunchScale(scaleDifference, popScaleDuration, 5, 0);
 
         // "Bang" effect: Left and Right move quickly into the middle prop
         Tween leftMerge = left.DOMove(middleTarget, mergeDuration).SetEase(Ease.InQuad);
@@ -286,7 +289,7 @@ public class SlotManager : MonoBehaviour
         matchingSequence.Join(rightMoveUp);
         matchingSequence.Append(leftTilt);
         matchingSequence.Join(rightTilt);
-        matchingSequence.Join(leftPopScale);
+        matchingSequence.Append(leftPopScale);
         matchingSequence.Join(rightPopScale);
         matchingSequence.Append(leftMerge);
         matchingSequence.Join(rightMerge);

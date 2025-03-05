@@ -63,7 +63,7 @@ public class Prop : MonoBehaviour
         transform.localScale = origPropScale;
 
         propLayer = 0;
-        propState = true;
+        SetPropState(true);
     }
 
     public void OnPicked()
@@ -151,7 +151,10 @@ public class Prop : MonoBehaviour
 
     public Tween PlaySpawnTween()
     {
-        Tween spawnPunchTween = transform.DOPunchScale(Vector3.one * 0.2f, 0.2f, 0, 0).SetEase(Ease.InQuad);
+        float targetScale = 1.2f;
+        Vector3 scaleDifference = transform.localScale * targetScale - transform.localScale;
+        
+        Tween spawnPunchTween = transform.DOPunchScale(scaleDifference, 0.1f, 0, 0).SetEase(Ease.InQuad);
 
         return spawnPunchTween;
     }

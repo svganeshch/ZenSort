@@ -100,7 +100,7 @@ public class ShelfManager : MonoBehaviour
             }
 
             shelfGrid.shelfPropList.Clear();
-            shelfGrid.Awake();
+            if (reset) shelfGrid.Awake();
         }
 
         remainingProps.Clear();

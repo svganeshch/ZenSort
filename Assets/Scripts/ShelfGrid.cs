@@ -10,10 +10,10 @@ public class ShelfGrid : MonoBehaviour
     BoxCollider shelfCollider;
 
     private float shelfPaddingX = 0.05f;
-    private float shelfPaddingZ = 0.45f;
-    private float propOverlapBoxDepth = 0.38f;
+    private float shelfPaddingZ = 0.55f;
+    private float propOverlapBoxDepth = 0.7f;
 
-    private float propOverlapBoxReduction = 0.75f;
+    private float propOverlapBoxReduction = 0.95f;
 
     float shelfLeft;
     float shelfRight;
@@ -149,7 +149,7 @@ public class ShelfGrid : MonoBehaviour
 
             if (currentLayer > 0)
             {
-                prop.SetPropState(false);
+                 prop.SetPropState(false);
             }
 
             prop.SetPosition(propPos);
