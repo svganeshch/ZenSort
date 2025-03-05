@@ -22,7 +22,20 @@ public class ShelfManager : MonoBehaviour
     private IEnumerator StockShelfsRoutine(List<Prop> origPropList)
     {
         remainingProps = new List<Prop>(origPropList);
-        remainingProps.Sort((a, b) => b.propCollider.bounds.size.x.CompareTo(a.propCollider.bounds.size.x));
+
+        List<List<Prop>> propPairs = new List<List<Prop>>();
+        for (int i = 0; i < remainingProps.Count; i += 3)
+        {
+            List<Prop> pair = new List<Prop> { remainingProps[i] };
+            if (i + 1 < remainingProps.Count) pair.Add(remainingProps[i + 1]);
+            if (i + 2 < remainingProps.Count) pair.Add(remainingProps[i + 2]);
+
+            propPairs.Add(pair);
+        }
+        
+        Utils.ShuffleList(ref propPairs);
+        
+        remainingProps = propPairs.SelectMany(p => p).ToList();
 
         while (remainingProps.Count > 0)
         {
@@ -30,14 +43,10 @@ public class ShelfManager : MonoBehaviour
             {
                 yield return StartCoroutine(shelf.SetProps(remainingProps,
                     (receivedProps) => remainingProps = receivedProps));
+                
+                if (remainingProps.Count == 0) break;
             }
         }
-
-        // Ensure all props have been placed before generating the shelf tree
-        //foreach (var shelf in shelfGrids)
-        //{
-        //    shelf.UpdatePropsState();
-        //}
     }
 
     public bool IsLevelDone()

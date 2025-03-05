@@ -1869,7 +1869,6 @@ MonoBehaviour:
   - {r: 0, g: 0.68260765, b: 1, a: 1}
   - {r: 1, g: 0.36320752, b: 0.9872933, a: 1}
   - {r: 1, g: 0.26600984, b: 0, a: 1}
-  outlineMaterial: {fileID: -4089514635812131988, guid: e5947622bdc71574f9fbb60133541142, type: 2}
 --- !u!1 &607751709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5165,7 +5164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1573621657
 Transform:
   m_ObjectHideFlags: 0
