@@ -16,7 +16,7 @@ public class Prop : MonoBehaviour
     [HideInInspector] public Vector3 previousPos;
 
     [HideInInspector] public BoxCollider propCollider;
-    [HideInInspector] public Material material;
+    [HideInInspector] public Material[] materials;
     [HideInInspector] public Vector3 propSize;
 
     public int propLayer = 0;
@@ -42,7 +42,7 @@ public class Prop : MonoBehaviour
             propCollider = GetComponentInChildren<BoxCollider>();
         }
 
-        material = meshRenderer.material;
+        materials = meshRenderer.materials;
         propSize = Vector3.Scale(propCollider.size, transform.lossyScale);
 
         origPropScale = transform.localScale;
@@ -52,7 +52,10 @@ public class Prop : MonoBehaviour
     {
         Color targetColor = state ? Color.white : ColorUtility.TryParseHtmlString("#5B5B5B", out Color disabledColor) ? disabledColor : Color.gray;
 
-        material.DOColor(targetColor, 0.25f);
+        foreach (var material in materials)
+        {
+            material.DOColor(targetColor, 0.25f);
+        }
 
         propState = state;
     }
