@@ -47,9 +47,9 @@ public class UIManager : MonoBehaviour
         GameManager.currentGameState = GameState.Paused;
 
         gameScreenUI.rootVisualElement.style.visibility = Visibility.Hidden;
-        levelDoneScreen.ShowPopUp();
+        StartCoroutine(levelDoneScreen.ShowPopUp());
 
-        SFXManager.instance.PlaySFX(SFXManager.instance.levelDoneSound, volume: 2);
+        SFXManager.instance.PlaySFX(SFXManager.instance.levelDoneSound, volume: 2, true, 3.8f);
     }
 
     private void ShowGameOverScreen()

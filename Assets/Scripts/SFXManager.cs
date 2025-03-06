@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class SFXManager : MonoBehaviour
@@ -41,9 +42,24 @@ public class SFXManager : MonoBehaviour
         return clips[randomIndex];
     }
 
-    public void PlaySFX(AudioClip clip, float volume = 1)
+    public void PlaySFX(AudioClip clip, float volume = 1, bool fade = false, float fadeDuration = 0f)
     {
         audioSource.PlayOneShot(clip, volume);
+        
+        if (fade) audioSource.DOFade(0, fadeDuration).OnComplete(() =>
+        {
+            audioSource.Stop();
+            audioSource.volume = 1;
+        });
+    }
+
+    public void QuickFade()
+    {
+        audioSource.DOFade(0, 1.5f).OnComplete(() =>
+        {
+            audioSource.Stop();
+            audioSource.volume = 1;
+        });
     }
 
     public void PlayPropPickedSound()
