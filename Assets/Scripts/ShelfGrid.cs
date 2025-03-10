@@ -13,7 +13,7 @@ public class ShelfGrid : MonoBehaviour
     private float shelfPaddingZ = 0.55f;
     private float propOverlapBoxDepth = 0.7f;
 
-    private float propOverlapBoxReduction = 0.95f;
+    private float propOverlapBoxReduction = 0.90f;
 
     float shelfLeft;
     float shelfRight;
@@ -197,8 +197,10 @@ public class ShelfGrid : MonoBehaviour
                 if (!IsPropBlocked(prop))
                 {
                     shelfPropList[i].Remove(prop);
-                    shelfPropList[i - 1].Add(prop);
-                    prop.propLayer = i - 1;
+                    
+                    var currentPropLayer = Mathf.Max(0, i - 1);
+                    prop.propLayer = currentPropLayer;
+                    shelfPropList[currentPropLayer].Add(prop);
 
                     layerPropsToMove.Add(prop);
                 }
