@@ -40,8 +40,8 @@ public class LevelManager : MonoBehaviour
 
     int GetNumberOfProps(int levelNumber)
     {
-        int baseProps = 6;
-        int scalingFactor = 3;
+        int baseProps = 15;
+        int scalingFactor = 9;
 
         int calculatedProps = baseProps + (levelNumber * scalingFactor);
 
