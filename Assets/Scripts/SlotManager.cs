@@ -127,7 +127,7 @@ public class SlotManager : MonoBehaviour
             }
         }
 
-    SlotsCheck:
+        SlotsCheck:
         if (slots.All(s => s.slotProp != null))
         {
             UIManager.instance.OnGameOver.Invoke();

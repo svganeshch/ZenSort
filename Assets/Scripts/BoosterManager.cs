@@ -136,6 +136,7 @@ public class BoosterManager : MonoBehaviour
 
     public void HandleShuffleBooster()
     {
+        if (GameManager.instance.slotManager.currentSlotManagerState == SlotManagerState.Matching) return;
         StartCoroutine(GameManager.instance.levelManager.ShuffleLevel());
     }
 }

@@ -1209,14 +1209,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9961947, z: -0.08715578, w: -0}
+  m_LocalRotation: {x: -0, y: 0.9961947, z: -0.08715578, w: 0}
   m_LocalPosition: {x: 0, y: 1.89, z: 11.99}
-  m_LocalScale: {x: 0.8, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1561087}
   - {fileID: 1215507594}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 761651663}
   m_LocalEulerAnglesHint: {x: -190, y: 0, z: 180}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -2416,6 +2416,38 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &761651662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 761651663}
+  m_Layer: 0
+  m_Name: Camera Main
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &761651663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761651662}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &764743216 stripped
@@ -3825,7 +3857,7 @@ Transform:
   m_GameObject: {fileID: 1215507593}
   serializedVersion: 2
   m_LocalRotation: {x: -0.17364825, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0.075, y: -0.75, z: 5.75}
+  m_LocalPosition: {x: 0.075, y: -0.7305593, z: 5.757549}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3838,7 +3870,7 @@ Transform:
   - {fileID: 1527704326}
   - {fileID: 1856687419}
   m_Father: {fileID: 330585546}
-  m_LocalEulerAnglesHint: {x: -20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -20.00001, y: 0, z: 0}
 --- !u!114 &1215507595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7933,7 +7965,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 330585546}
+  - {fileID: 761651663}
   - {fileID: 607751712}
   - {fileID: 410087041}
   - {fileID: 832575519}

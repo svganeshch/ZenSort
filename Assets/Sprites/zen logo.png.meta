@@ -1,0 +1,667 @@
+fileFormatVersion: 2
+guid: 3d4ddcec69cc95b428e13c842f694717
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 4
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 0
+  flipbookColumns: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: zen logo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 784
+        width: 136
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eaa63eaf0d86cb409ee83535e1c0023
+      internalID: 593390717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 783
+        width: 132
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b6e466d24ba1944fbe47cc4949ec2ae
+      internalID: 870089886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_2
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 761
+        width: 123
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f5f20eb97f9fa459983d4b6fb93038
+      internalID: 133319184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_4
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 868
+        width: 110
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 232ab3879313047499ba482c5d5f52ea
+      internalID: 1808816227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_5
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 857
+        width: 127
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9812af44248d646975dcbb9b8adb88
+      internalID: 568070311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_6
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 856
+        width: 111
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b31432a306a93e4ea94b69b5a487cf4
+      internalID: 1847987877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 659
+        width: 136
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac67ec3265f71c04692f1deeb83f22e4
+      internalID: -1063722783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_8
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 631
+        width: 130
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef69a1bb8dde3e640af42a6d8c9e355b
+      internalID: 1058386182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_9
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 751
+        width: 128
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974be9491383bec45b5d6a802e25be58
+      internalID: -2004324833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_10
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 632
+        width: 141
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca775527d4a999941a9a91f415e12d09
+      internalID: 594187837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_11
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 747
+        width: 128
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a40d03d6201d0e3419a6dc780f584bc3
+      internalID: 1076722285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_12
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 734
+        width: 135
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8ca9bf386a5624ab1c113182eb962e
+      internalID: 471075972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_13
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 734
+        width: 125
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2e0c2c360f4f04d999206a6227dc8a
+      internalID: -941341959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_14
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 524
+        width: 144
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fecaed12aad687d4d85204c75e516339
+      internalID: 667927293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_15
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 631
+        width: 150
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c6561854595dd4f98874ac724bf393
+      internalID: -1277397680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_16
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 604
+        width: 138
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9762ee24e51c05648ac1e6473e679313
+      internalID: 137064904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_17
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 605
+        width: 101
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99d7a9d8f43d02545bbbdfb8735ad9d7
+      internalID: 1133678972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_43
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 130
+        width: 108
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82542c4e46973eb43887b4a4b59d97e2
+      internalID: 984689960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_47
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 2
+        width: 107
+        height: 127
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36aac4f26fe8c4d4c981ac32c2e25630
+      internalID: -875610239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_49
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 2
+        width: 35
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eca50d25b9dbd7b42b39c6a8f8c07249
+      internalID: 1803059184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_3
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 652
+        width: 126
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c30f65a043d5e4bba6f81580e531c8
+      internalID: -528073785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zen logo_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 527
+        width: 131
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59d95fe13555bb94d8b6b413d93e4785
+      internalID: -476208124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 86864f0a202a40b4082fd0b5ec8ee79a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      zen logo_0: 593390717
+      zen logo_1: 870089886
+      zen logo_10: 594187837
+      zen logo_11: 1076722285
+      zen logo_12: 471075972
+      zen logo_13: -941341959
+      zen logo_14: 667927293
+      zen logo_15: -1277397680
+      zen logo_16: 137064904
+      zen logo_17: 1133678972
+      zen logo_18: -476208124
+      zen logo_19: 1200944914
+      zen logo_2: 133319184
+      zen logo_20: -990372047
+      zen logo_21: 2029916358
+      zen logo_22: 929104834
+      zen logo_23: 2048096948
+      zen logo_24: -726157766
+      zen logo_25: 1756008820
+      zen logo_26: -338845179
+      zen logo_27: -386865048
+      zen logo_28: -1449376802
+      zen logo_29: -1141818545
+      zen logo_3: -528073785
+      zen logo_30: -1027402837
+      zen logo_31: 1340204259
+      zen logo_32: -1534100575
+      zen logo_33: -1153391277
+      zen logo_34: 1890853072
+      zen logo_35: -846821031
+      zen logo_36: 587411651
+      zen logo_37: 79868096
+      zen logo_38: 2031830429
+      zen logo_39: 1682079970
+      zen logo_4: 1808816227
+      zen logo_40: 1138749574
+      zen logo_41: -901990859
+      zen logo_42: -173437448
+      zen logo_43: 984689960
+      zen logo_44: -1056511304
+      zen logo_45: -1531438839
+      zen logo_46: 121990780
+      zen logo_47: -875610239
+      zen logo_48: -1985361472
+      zen logo_49: 1803059184
+      zen logo_5: 568070311
+      zen logo_50: 767552300
+      zen logo_51: 879122442
+      zen logo_52: 2095538708
+      zen logo_6: 1847987877
+      zen logo_7: -1063722783
+      zen logo_8: 1058386182
+      zen logo_9: -2004324833
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
