@@ -67,8 +67,6 @@ public class SlotManager : MonoBehaviour
     {
         bool willCauseMatch = false;
 
-        currentSlotManagerState = SlotManagerState.Matching;
-
         pickCount++;
 
         int sameColorIndex = slots.FindLastIndex(s => s.slotProp != null && s.slotProp.gameObject.name == prop.gameObject.name);
@@ -92,6 +90,8 @@ public class SlotManager : MonoBehaviour
 
             if (willCauseMatch)
             {
+                currentSlotManagerState = SlotManagerState.Matching;
+                
                 BoosterManager.previousPickedProp = null;
                 pickCount = 0;
 
@@ -135,8 +135,6 @@ public class SlotManager : MonoBehaviour
         }
 
         OnCompleteCallback?.Invoke();
-
-        currentSlotManagerState = SlotManagerState.Done;
     }
 
     private IEnumerator ShiftSlots(int insertIndex)
@@ -326,6 +324,8 @@ public class SlotManager : MonoBehaviour
             // Star animation
             GameObject star = Instantiate(WorldManager.instance.starPrefab, middleTarget, Quaternion.identity);
             AnimateStar(star, middleIndex);
+            
+            currentSlotManagerState = SlotManagerState.Done;
         });
 
         // Clear slot references
