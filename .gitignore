@@ -74,5 +74,5 @@ crashlytics-build.properties
 # My List
 /.utmp/*
 /Assets/ThirdPartyAssets/
-/Assets/Data/Save/CurrentSaceData.asset
+/Assets/Data/Save/CurrentSaveData.asset
 log.txt

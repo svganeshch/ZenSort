@@ -18,6 +18,8 @@ public class SlotManager : MonoBehaviour
     private Sequence shiftSequence;
     private Sequence rearrangeSequence;
     private Sequence matchingSequence;
+    
+    private Tween slotsScaleTween;
 
     private Queue<Func<IEnumerator>> propQueue = new Queue<Func<IEnumerator>>();
     private bool isProcessingQueue = false;
@@ -32,6 +34,12 @@ public class SlotManager : MonoBehaviour
         currentSlotManagerState = SlotManagerState.Done;
 
         slots = GetComponentsInChildren<Slot>().ToList();
+    }
+
+    private void Start()
+    {
+        UIManager.instance.OnLevelChange.AddListener(SlotsSpawnTween);
+        SlotsSpawnTween();
     }
 
     public void EnqueueProp(Prop prop, Action OnCompleteCallback = null)
@@ -65,19 +73,24 @@ public class SlotManager : MonoBehaviour
 
     private IEnumerator SetPropSlot(Prop prop, Action OnCompleteCallback)
     {
+        int insertIndex = -1;
         bool willCauseMatch = false;
 
         pickCount++;
 
+        insertIndex = slots.FindIndex(slot => slot.slotProp == null);
+
+        if (insertIndex >= slots.Count - 3)
+        {
+            SlotsAlmostFullTween();
+        }
+        
         int sameColorIndex = slots.FindLastIndex(s => s.slotProp != null && s.slotProp.gameObject.name == prop.gameObject.name);
 
         if (sameColorIndex != -1)
         {
-            int insertIndex = sameColorIndex + 1;
-
-            if (insertIndex >= slots.Count)
-                goto SlotsCheck;
-
+            insertIndex = sameColorIndex + 1;
+            
             if (slots[insertIndex].slotProp != null)
             {
                 yield return StartCoroutine(ShiftSlots(insertIndex));
@@ -101,15 +114,27 @@ public class SlotManager : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < slots.Count; i++)
+            Tween propTween = slots[insertIndex].SetSlotPositionTween(prop);
+            yield return propTween.WaitForCompletion();
+        }
+
+        if (insertIndex + 1 >= slots.Count)
+        {
+            if (!willCauseMatch)
             {
-                if (slots[i].slotProp == null)
-                {
-                    Tween propTween = slots[i].SetSlotPositionTween(prop);
-                    yield return propTween.WaitForCompletion();
-                    break;
-                }
+                UIManager.instance.OnGameOver.Invoke();
+                Debug.Log("All slots filled");
             }
+        }
+        
+        // if the slots scale tween is playing and we just had a match then
+        // that means the slots must have been cleared
+        if ((slotsScaleTween != null && slotsScaleTween.IsPlaying()) & willCauseMatch)
+        {
+            slotsScaleTween.Kill(true);
+            slotsScaleTween = null;
+            
+            transform.localScale = Vector3.one;
         }
 
         if (pickCount == 3)
@@ -126,14 +151,7 @@ public class SlotManager : MonoBehaviour
                 UIManager.instance.bonusStarHandler.RemoveBonusStars();
             }
         }
-
-        SlotsCheck:
-        if (slots.All(s => s.slotProp != null))
-        {
-            UIManager.instance.OnGameOver.Invoke();
-            Debug.Log("All slots filled");
-        }
-
+        
         OnCompleteCallback?.Invoke();
     }
 
@@ -212,6 +230,27 @@ public class SlotManager : MonoBehaviour
         yield return rearrangeSequence.WaitForCompletion();
     }
 
+    private void SlotsSpawnTween(int level = 0)
+    {
+        foreach (var slot in slots)
+        {
+            Vector3 origSlotScale = slot.transform.localScale;
+            
+            slot.transform.localScale = Vector3.zero;
+            slot.gameObject.transform.DOScale(Vector3.one * 0.95f, 0.2f).SetEase(Ease.InOutQuad)
+                .OnComplete(() => { slot.transform.localScale = origSlotScale; });
+        }
+    }
+
+    public void SlotsAlmostFullTween()
+    {
+        if (slotsScaleTween != null && slotsScaleTween.IsPlaying()) return;
+        
+        slotsScaleTween = transform.DOPunchScale(Vector3.one * 0.05f, 1.5f, 0, 0).SetEase(Ease.InOutElastic)
+            .SetDelay(0.75f)
+            .SetLoops(-1);
+    }
+
     //private bool HandleMatchingSlotGroupsCallback()
     //{
     //    foreach (int matchingIndex in matchingSlotIndexs)
@@ -234,7 +273,6 @@ public class SlotManager : MonoBehaviour
     private void HandleMatchingSlotGroupsCallback()
     {
         matchingSequence = DOTween.Sequence();
-
 
         int middleIndex = matchingSlotIndexs[1];
         int leftIndex = matchingSlotIndexs[0];

@@ -41,10 +41,14 @@ public class Slot : MonoBehaviour
 
         Tween moveTween = setProp.transform.DOMove(targetPosition, transistionSpeed)
                         .SetEase(Ease.InQuad)
-                        .OnComplete(() => OnCompleteCallback?.Invoke());
+                        .OnComplete(() =>
+                        {
+                            setProp.transform.SetParent(transform);
+                            OnCompleteCallback?.Invoke();
+                        });
 
         this.prop = setProp;
-
+        
         return moveTween;
     }
 }
