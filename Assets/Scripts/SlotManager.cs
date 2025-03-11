@@ -398,7 +398,7 @@ public class SlotManager : MonoBehaviour
 
         Vector3[] pathPoints = { startPoint, midPoint, endPoint };
 
-        star.transform.DOPath(pathPoints, 1f, PathType.CatmullRom)
+        star.transform.DOPath(pathPoints, 0.8f, PathType.CatmullRom)
             .SetEase(Ease.InOutSine)
             .OnComplete(() =>
             {
