@@ -56,7 +56,7 @@ public class BonusStarHandler : MonoBehaviour
                 Tween starJumpTween = star.transform.DOJump(UIManager.instance.starCountHandler.starImage.transform.position, -0.25f, 1, 0.5f)
                     .OnComplete(() =>
                     {
-                        UIManager.instance.starCountHandler.AddStar();
+                        UIManager.instance.starCountHandler.PlayStarAddTween();
                         star.SetActive(false);
                     });
 
@@ -68,11 +68,21 @@ public class BonusStarHandler : MonoBehaviour
 
             bonusStarJumpSeq.OnComplete(() =>
             {
+                UIManager.instance.starCountHandler.AddStar(5);
                 RemoveBonusStars();
             });
 
             SFXManager.instance.PlayStarBonusSound();
         }
+    }
+
+    public int GetBonusStarsCount()
+    {
+        int bonusStarsCount = 0;
+
+        bonusStarsCount = bonusSlots.Count(slot => slot.star.activeSelf);
+        
+        return bonusStarsCount;
     }
 
     public void RemoveBonusStars(int level = 0)

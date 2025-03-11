@@ -15,9 +15,9 @@ public class StarCountHandler : MonoBehaviour
         UIManager.instance.OnLevelChange.AddListener(ResetStarCount);
     }
 
-    public void AddStar()
+    public void AddStar(int count = 1)
     {
-        starCountText.text = (int.Parse(starCountText.text) + 1).ToString();
+        starCountText.text = (int.Parse(starCountText.text) + count).ToString();
 
         PlayStarAddTween();
     }

@@ -26,8 +26,9 @@ public class SlotManager : MonoBehaviour
 
     private bool isComboActive = false;
     private int matchCount = 0;
-
     private int pickCount = 0;
+    
+    private int bonusStarsCount = 0;
 
     private void Awake()
     {
@@ -363,9 +364,18 @@ public class SlotManager : MonoBehaviour
             UIManager.instance.progressBar.SetProgress(100 - currentProgress);
 
             // Star animation
-            GameObject star = Instantiate(WorldManager.instance.starPrefab, middleTarget, Quaternion.identity);
-            AnimateStar(star, middleIndex);
-            
+            if (bonusStarsCount < 2)
+            {
+                GameObject star = Instantiate(WorldManager.instance.starPrefab, middleTarget, Quaternion.identity);
+                AnimateStar(star, middleIndex);
+
+                bonusStarsCount++;
+            }
+            else
+            {
+                bonusStarsCount = 0;
+            }
+
             currentSlotManagerState = SlotManagerState.Done;
         });
 
