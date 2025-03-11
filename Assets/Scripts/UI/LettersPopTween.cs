@@ -14,7 +14,7 @@ public class LettersPopTween : MonoBehaviour
         
         foreach (var letter in popLetters)
         {
-            Tween letterPopTween = letter.transform.DOPunchScale(Vector3.one * 0.5f, 0.25f, 1, 0);
+            Tween letterPopTween = letter.transform.DOPunchScale(Vector3.one * 0.5f, 0.15f, 1, 0);
             letterPopTween.OnStart(() =>
             {
                 letter.SetActive(true);
