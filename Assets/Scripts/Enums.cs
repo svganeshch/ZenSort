@@ -13,6 +13,7 @@ public enum GameState
 
 public enum SlotManagerState
 {
+    Done,
+    Shifting,
     Matching,
-    Done
 }

@@ -65,6 +65,8 @@ public class SlotManager : MonoBehaviour
         {
             var nextPropAction = propQueue.Dequeue();
             yield return StartCoroutine(nextPropAction());
+            
+            currentSlotManagerState = SlotManagerState.Done;
         }
 
         isProcessingQueue = false;
@@ -93,6 +95,7 @@ public class SlotManager : MonoBehaviour
             
             if (slots[insertIndex].slotProp != null)
             {
+                currentSlotManagerState = SlotManagerState.Shifting;
                 yield return StartCoroutine(ShiftSlots(insertIndex));
             }
 

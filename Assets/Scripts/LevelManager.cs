@@ -80,7 +80,7 @@ public class LevelManager : MonoBehaviour
         yield return StartCoroutine(ClearProps());
 
         var existingPropsList = GameManager.instance.propManager.generatedProps;
-        existingPropsList = existingPropsList.Where(item => item != null).ToList();
+        existingPropsList = existingPropsList.Where(item => item != null && !item.isPicked).ToList();
         
         shelfManager.StockShelfs(existingPropsList);
         //GenerateLevel(existingPropsList);
@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator ClearProps()
     {
-        DOTween.KillAll(complete: true);
+        //DOTween.KillAll(complete: true);
 
         bool shelfGridsCleared = shelfManager.ClearGrids(true);
         

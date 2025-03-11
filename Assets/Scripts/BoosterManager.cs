@@ -15,6 +15,7 @@ public class BoosterManager : MonoBehaviour
 
     public void HandleUndoBooster()
     {
+        if (GameManager.instance.slotManager.currentSlotManagerState != SlotManagerState.Done) return;
         if (previousPickedProp == null) return;
 
         previousPickedProp.PropUndo();
@@ -22,8 +23,8 @@ public class BoosterManager : MonoBehaviour
 
     public void HandleMagnetBooster()
     {
+        if (GameManager.instance.slotManager.currentSlotManagerState != SlotManagerState.Done) return;
         if (GameManager.instance.levelManager.shelfManager.GetPropCount() <= 0) return;
-        if (GameManager.instance.slotManager.currentSlotManagerState == SlotManagerState.Matching) return;
 
         List<ShelfGrid> shelfGrids = new List<ShelfGrid>(GameManager.instance.levelManager.shelfManager.shelfGrids);
         List<Prop> propsToPull = new List<Prop>();
@@ -131,12 +132,15 @@ public class BoosterManager : MonoBehaviour
         {
             prop.SetPropState(true);
             prop.OnPicked();
+
+            previousPickedProp = null;
         }
     }
 
     public void HandleShuffleBooster()
     {
-        if (GameManager.instance.slotManager.currentSlotManagerState == SlotManagerState.Matching) return;
+        if (GameManager.instance.slotManager.currentSlotManagerState != SlotManagerState.Done) return;
+        if (GameManager.instance.levelManager.shelfManager.GetPropCount() <= 0) return;
         StartCoroutine(GameManager.instance.levelManager.ShuffleLevel());
     }
 }
