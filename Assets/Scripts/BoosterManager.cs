@@ -141,6 +141,8 @@ public class BoosterManager : MonoBehaviour
     {
         if (GameManager.instance.slotManager.currentSlotManagerState != SlotManagerState.Done) return;
         if (GameManager.instance.levelManager.shelfManager.GetPropCount() <= 0) return;
+
+        previousPickedProp = null;
         StartCoroutine(GameManager.instance.levelManager.ShuffleLevel());
     }
 }
