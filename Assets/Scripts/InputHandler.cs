@@ -1,3 +1,5 @@
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
@@ -8,6 +10,11 @@ public class InputHandler : MonoBehaviour
 
     InputAction touchPositionAction;
     InputAction touchPressAction;
+    
+    public bool showMatch = false;
+    private float matchCheckDelay = 3f;
+    private float currentTime = 0f;
+    private float previousTouchTime = 0f;
 
     private void Awake()
     {
@@ -20,12 +27,16 @@ public class InputHandler : MonoBehaviour
     private void Start()
     {
         touchPressAction.performed += TouchPress;
+        
+        StartCoroutine(StartMatchFinderCounterCoroutine());
     }
 
     private void TouchPress(InputAction.CallbackContext ctx)
     {
         if (GameManager.currentGameState == GameState.Paused) return;
-
+        
+        ResetMatchCheck();
+        
         Vector2 touchPosition = touchPositionAction.ReadValue<Vector2>();
 
         //Debug.Log("touch tap pos : " + touchPosition);
@@ -43,6 +54,41 @@ public class InputHandler : MonoBehaviour
                     propObj.OnPicked();
                 }
             }
+        }
+    }
+
+    private void ResetMatchCheck()
+    {
+        previousTouchTime = Time.time;
+        currentTime = 0;
+        showMatch = false;
+
+        if (MatchFinder.instance.matchesPropSeq.IsPlaying())
+        {
+            MatchFinder.instance.matchesPropSeq.Kill(true);
+            MatchFinder.instance.ResetMatchProps();
+        }
+    }
+
+    private IEnumerator StartMatchFinderCounterCoroutine()
+    {
+        while (true)
+        {
+            while (showMatch) yield return null;
+            
+            currentTime = Time.time - previousTouchTime;
+
+            if (currentTime >= matchCheckDelay)
+            {
+                Debug.Log("Match check counter triggered");
+                showMatch = true;
+                MatchFinder.instance.ShowMatches();
+                
+                currentTime = 0;
+                previousTouchTime = Time.time;
+            }
+            
+            yield return null;
         }
     }
 }

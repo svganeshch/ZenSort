@@ -12,7 +12,9 @@ Material:
   m_Parent: {fileID: 2100000, guid: 9cd0c81dc933a3b489f107880c95d70e, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _EMISSION
   - _RECEIVE_SHADOWS_OFF
+  - _SPECULAR_COLOR
   m_InvalidKeywords:
   - TCP2_RAMPTEXT
   - TCP2_REFLECTIONS_FRESNEL

@@ -97,7 +97,7 @@ public class Prop : MonoBehaviour
         
         GameManager.instance.OnPropPicked.Invoke();
 
-        Debug.Log(gameObject.name + " is picked!!");
+        //Debug.Log(gameObject.name + " is picked!!");
     }
 
     private void ScalePropToSlot()
