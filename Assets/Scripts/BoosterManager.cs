@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,22 +8,47 @@ public class BoosterManager : MonoBehaviour
     public static BoosterManager instance;
 
     public static Prop previousPickedProp;
+    
+    private GameScreenUI gameScreenUI;
 
     private void Awake()
     {
         instance = this;
+        
+        gameScreenUI = FindFirstObjectByType<GameScreenUI>();
+    }
+
+    private void Start()
+    {
+        gameScreenUI.undoButton.SetEnabled(false);
+        gameScreenUI.magnetButton.SetEnabled(false);
+        gameScreenUI.shuffleButton.SetEnabled(true);
+        
+        GameManager.instance.OnPropPicked.AddListener(UpdateBoosterButtonsState);
+    }
+
+    public void UpdateBoosterButtonsState()
+    {
+        gameScreenUI.undoButton.SetEnabled(previousPickedProp != null);
+
+        gameScreenUI.magnetButton.SetEnabled(GameManager.instance.slotManager.GetSlotsFilledCount() >= 1);
     }
 
     public void HandleUndoBooster()
     {
+        if (!gameScreenUI.undoButton.enabledSelf) return;
         if (GameManager.instance.slotManager.currentSlotManagerState != SlotManagerState.Done) return;
         if (previousPickedProp == null) return;
 
         previousPickedProp.PropUndo();
+        previousPickedProp = null;
+        
+        UpdateBoosterButtonsState();
     }
 
     public void HandleMagnetBooster()
     {
+        if (!gameScreenUI.magnetButton.enabledSelf) return;
         if (GameManager.instance.slotManager.currentSlotManagerState != SlotManagerState.Done) return;
         if (GameManager.instance.levelManager.shelfManager.GetPropCount() <= 0) return;
 
@@ -132,17 +158,22 @@ public class BoosterManager : MonoBehaviour
         {
             prop.SetPropState(true);
             prop.OnPicked();
-
-            previousPickedProp = null;
         }
+        
+        previousPickedProp = null;
+        
+        UpdateBoosterButtonsState();
     }
 
     public void HandleShuffleBooster()
     {
+        if (!gameScreenUI.shuffleButton.enabledSelf) return;
         if (GameManager.instance.slotManager.currentSlotManagerState != SlotManagerState.Done) return;
         if (GameManager.instance.levelManager.shelfManager.GetPropCount() <= 0) return;
 
         previousPickedProp = null;
         StartCoroutine(GameManager.instance.levelManager.ShuffleLevel());
+        
+        UpdateBoosterButtonsState();
     }
 }

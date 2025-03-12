@@ -94,6 +94,8 @@ public class Prop : MonoBehaviour
         shelfGrid.shelfPropList[propLayer].Remove(this);
 
         SFXManager.instance.PlayPropPickedSound();
+        
+        GameManager.instance.OnPropPicked.Invoke();
 
         Debug.Log(gameObject.name + " is picked!!");
     }

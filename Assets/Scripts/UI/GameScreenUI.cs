@@ -11,9 +11,9 @@ public class GameScreenUI : MonoBehaviour
 
     private Button nextButton;
 
-    private Button undoButton;
-    private Button magnetButton;
-    private Button shuffleButton;
+    [HideInInspector] public Button undoButton;
+    [HideInInspector] public Button magnetButton;
+    [HideInInspector] public Button shuffleButton;
 
     private void Awake()
     {

@@ -234,6 +234,11 @@ public class SlotManager : MonoBehaviour
         yield return rearrangeSequence.WaitForCompletion();
     }
 
+    public int GetSlotsFilledCount()
+    {
+        return slots.Count(slot => slot.slotProp != null);
+    }
+
     private void SlotsSpawnTween(int level = 0)
     {
         foreach (var slot in slots)
@@ -384,6 +389,8 @@ public class SlotManager : MonoBehaviour
         slots[rightIndex].slotProp = null;
         slots[middleIndex].slotProp = null;
         matchingSlotIndexs.Clear();
+        
+        BoosterManager.instance.UpdateBoosterButtonsState();
     }
 
     public void AnimateStar(GameObject star, int midIndex)

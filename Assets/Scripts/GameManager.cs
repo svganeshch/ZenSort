@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public PropManager propManager;
     [HideInInspector] public SlotManager slotManager;
     [HideInInspector] public SaveManager saveManager;
+    
+    public UnityEvent OnPropPicked = new UnityEvent();
 
     private void Awake()
     {
