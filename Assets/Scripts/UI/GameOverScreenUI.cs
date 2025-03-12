@@ -26,13 +26,18 @@ public class GameOverScreenUI : MonoBehaviour
     private void PlayDropDownAnim()
     {
         dropDownBanner.gameObject.SetActive(true);
+        Vector3 bannerOrigPos = dropDownBanner.transform.position;
 
         Sequence gameOverSeq = DOTween.Sequence();
 
         gameOverSeq.Append(dropDownBanner.transform.DOLocalMoveY(5, 1f).SetEase(Ease.OutBounce))
            .AppendInterval(0.2f)
            .Append(dropDownBanner.transform.DOLocalMoveY(-1500, 0.8f).SetEase(Ease.InQuad))
-           .OnComplete(() => ShowGameOverContainer());
+           .OnComplete(() =>
+           {
+               dropDownBanner.transform.position = bannerOrigPos;
+               ShowGameOverContainer();
+           });
     }
 
     private void ShowGameOverContainer()
