@@ -122,7 +122,7 @@ public class SlotManager : MonoBehaviour
             yield return propTween.WaitForCompletion();
         }
 
-        if (insertIndex + 1 >= slots.Count)
+        if (slots.All(s => s.slotProp != null))
         {
             if (!willCauseMatch)
             {
