@@ -9,11 +9,11 @@ public class ShelfGrid : MonoBehaviour
 {
     BoxCollider shelfCollider;
 
-    private float shelfPaddingX = 0.05f;
+    private float shelfPaddingX = 0.025f;
     private float shelfPaddingZ = 0.55f;
-    private float propOverlapBoxDepth = 0.7f;
+    private float propOverlapBoxDepth = 0.55f;
 
-    private float propOverlapBoxReduction = 0.90f;
+    private float propOverlapBoxReduction = 1f - 0.025f;
 
     float shelfLeft;
     float shelfRight;

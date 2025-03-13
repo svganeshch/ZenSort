@@ -91,7 +91,6 @@ public class Prop : MonoBehaviour
         
         GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
 
-        shelfGrid.shelfPropList[propLayer].Remove(this);
 
         SFXManager.instance.PlayPropPickedSound();
         
@@ -114,6 +113,7 @@ public class Prop : MonoBehaviour
 
     private void OnPropQueueComplete()
     {
+        shelfGrid.shelfPropList[propLayer].Remove(this);
         StartCoroutine(shelfGrid.UpdateShelf(this));
     }
 
