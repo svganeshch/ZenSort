@@ -63,10 +63,13 @@ public class InputHandler : MonoBehaviour
         currentTime = 0;
         showMatch = false;
 
-        if (MatchFinder.instance.matchesPropSeq.IsPlaying())
+        if (MatchFinder.instance.matchesPropSeq != null)
         {
-            MatchFinder.instance.matchesPropSeq.Kill(true);
-            MatchFinder.instance.ResetMatchProps();
+            if (MatchFinder.instance.matchesPropSeq.IsPlaying())
+            {
+                MatchFinder.instance.matchesPropSeq.Kill(true);
+                MatchFinder.instance.ResetMatchProps();
+            }
         }
     }
 
