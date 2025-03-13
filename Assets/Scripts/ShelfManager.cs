@@ -14,12 +14,7 @@ public class ShelfManager : MonoBehaviour
         shelfGrids = GetComponentsInChildren<ShelfGrid>().ToList();
     }
 
-    public void StockShelfs(List<Prop> origPropList)
-    {
-        StartCoroutine(StockShelfsRoutine(origPropList));
-    }
-
-    private IEnumerator StockShelfsRoutine(List<Prop> origPropList)
+    public IEnumerator StockShelfs(List<Prop> origPropList)
     {
         remainingProps = new List<Prop>(origPropList);
 

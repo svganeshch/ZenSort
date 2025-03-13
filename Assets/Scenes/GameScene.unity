@@ -1730,8 +1730,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UICamera: {fileID: 1561090}
   matchVFX: {fileID: 8912149025939924149, guid: d146f2e963a28704f927c6f255f316ee, type: 3}
+  shuffleVFX: {fileID: 2433803452316245755, guid: 55b52578e57ffcb42a82e17c8cddb27a, type: 3}
   starPrefab: {fileID: 4228449038052728848, guid: 2a4559eb8b97c454f80a759d71d3a072, type: 3}
-  bonusStarPrefab: {fileID: 4228449038052728848, guid: a811ae594629e5840828f0d946e10f2c, type: 3}
 --- !u!1 &588823281
 GameObject:
   m_ObjectHideFlags: 0
