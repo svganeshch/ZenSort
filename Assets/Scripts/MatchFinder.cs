@@ -75,7 +75,7 @@ public class MatchFinder : MonoBehaviour
         foreach (Prop matchingProp in matchingProps)
         {
             Tween propGlowTween = matchingProp.materials[0]
-                .DOColor(Color.cyan * 0.5f, emissionColorProperty, 0.75f);
+                .DOColor(Color.gray * 0.5f, emissionColorProperty, 0.75f);
 
             float targetScale = 1.1f;
             Vector3 scaleDifference = matchingProp.transform.localScale * targetScale - matchingProp.transform.localScale;
