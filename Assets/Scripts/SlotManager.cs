@@ -76,6 +76,8 @@ public class SlotManager : MonoBehaviour
 
     private IEnumerator SetPropSlot(Prop prop, Action OnCompleteCallback)
     {
+        if (GameManager.currentGameState == GameState.Paused) yield break;
+        
         int insertIndex = -1;
         bool willCauseMatch = false;
 
