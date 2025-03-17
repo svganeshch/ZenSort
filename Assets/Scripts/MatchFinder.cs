@@ -29,19 +29,38 @@ public class MatchFinder : MonoBehaviour
         var allProps = shelfsFirstLayerProps.SelectMany(x => x).ToList();
         if (allProps.Count == 0) return;
 
-        var slotManager = GameManager.instance.slotManager;
-        var slotProp = slotManager.slots[0].slotProp;
-        var nextSlotProp = slotManager.slots[1].slotProp;
+        var slots = GameManager.instance.slotManager.slots;
+        var firstSlotProp = slots[0].slotProp;
+        var nextSlotProp = slots[1].slotProp;
 
         Prop propToMatch = null;
         int numberOfPropsToMatch = 0;
         
         bool slotMatchesFound = false;
 
-        if (slotProp != null)
+        if (firstSlotProp != null)
         {
-            propToMatch = slotProp;
-            numberOfPropsToMatch = (nextSlotProp != null && slotProp.name == nextSlotProp.name) ? 1 : 2;
+            for (int i = 0; i < slots.Count - 1; i++)
+            {
+                var slotProp = slots[i].slotProp;
+                var nextProp = slots[i + 1].slotProp;
+
+                if (slotProp != null && nextProp != null)
+                {
+                    if (slotProp.name == nextProp.name)
+                    {
+                        propToMatch = slots[i].slotProp;
+                        numberOfPropsToMatch = 1;
+                        break;
+                    }
+                }
+                
+                if (firstSlotProp != null)
+                {
+                    propToMatch = firstSlotProp;
+                    numberOfPropsToMatch = 2;
+                }
+            }
             
             matchingProps = GetMatchingProps(propToMatch, allProps);
             
@@ -67,7 +86,7 @@ public class MatchFinder : MonoBehaviour
 
         if (matchingProps != null && matchingProps.Count < numberOfPropsToMatch)
         {
-            Debug.Log("Not enough matching props found.");
+            //Debug.Log("Not enough matching props found.");
             return;
         }
 
@@ -87,14 +106,14 @@ public class MatchFinder : MonoBehaviour
             matchesPropSeq.SetLoops(-1, LoopType.Yoyo);
         }
 
-        Debug.Log($"Found matching props: {propToMatch.name}");
+        //Debug.Log($"Found matching props: {propToMatch.name}");
     }
 
     private List<Prop> GetMatchingProps(Prop propToMatch, List<Prop> allProps)
     {
         if (propToMatch == null)
         {
-            Debug.Log("proptomatch is null");
+            //Debug.Log("proptomatch is null");
             return null;
         }
 
