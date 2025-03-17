@@ -1117,15 +1117,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4292d1fe7711b4caf75d8f52dce0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfLevelsToProduce: 20
-  currentLevelNum: 21
+  numberOfLevelsToProduce: 40
+  currentLevelNum: 41
   compartmentPrefabs:
   - {fileID: 4230818751278912655, guid: 3862db51a4153554ea65cf51c6fa5f28, type: 3}
+  - {fileID: 7474614548925802632, guid: c1b9410c85f1af64f85bdb282d07c05a, type: 3}
+  - {fileID: 5103157718964219475, guid: 85f17a40d038d4d42b334ec67b280ca0, type: 3}
   - {fileID: 8646548589110749293, guid: 08b362f3e5530874b8c044f36919cc96, type: 3}
   - {fileID: 5310253744220461779, guid: fc8ac6241afb9474493aee617b9936ef, type: 3}
+  - {fileID: 1176339557859097316, guid: 5c9774e2b2f3e1c4db5886ff43f82465, type: 3}
+  - {fileID: 2339941284778455313, guid: 6bb3436faf508d24483c587c5d9f6c53, type: 3}
+  - {fileID: 6601801823773210693, guid: 05e8b0423fce0144ab3c306e24e37af7, type: 3}
+  - {fileID: 6167628429874650897, guid: 547a1a6e0cffbbf419f1a95e0cf38153, type: 3}
+  - {fileID: 8742449868479985643, guid: d3a2341e57051a24db2110521d892370, type: 3}
   - {fileID: 3474962023761505525, guid: 418450509164b784c8c9c6634bd99a6f, type: 3}
   - {fileID: 2192301635853526569, guid: 9f855d67da8865f4a928c4c61ed5dd79, type: 3}
+  - {fileID: 4379412350191611135, guid: 22c09d2c3cc754d4d9eb195f39734a56, type: 3}
+  - {fileID: 887419608475855550, guid: 0ca942f6d571e9748a6cb519fe415ccc, type: 3}
   - {fileID: 6454279784619625264, guid: 3acdc0e117d29a249962f73dfc08d126, type: 3}
+  - {fileID: 8550255694024326335, guid: a8f199e780ca83d4b9f2138d6a03d949, type: 3}
+  - {fileID: 1504660342023978434, guid: be22bc9cd6458f847a03a9d9190361d0, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,7 +1198,7 @@ Camera:
     height: 1
   near clip plane: 0.5
   far clip plane: 50
-  field of view: 25
+  field of view: 30
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1213,15 +1224,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9961947, z: -0.08715578, w: 0}
-  m_LocalPosition: {x: 0, y: 1.89, z: 11.99}
+  m_LocalRotation: {x: -5.750294e-17, y: 0.9982489, z: -0.05915461, w: 6.474729e-17}
+  m_LocalPosition: {x: 0.0077777784, y: 0.96000004, z: 7.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1561087}
   - {fileID: 1215507594}
   m_Father: {fileID: 761651663}
-  m_LocalEulerAnglesHint: {x: -190, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: -188.794, y: 0, z: -180}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,6 +1743,7 @@ MonoBehaviour:
   matchVFX: {fileID: 8912149025939924149, guid: d146f2e963a28704f927c6f255f316ee, type: 3}
   shuffleVFX: {fileID: 2433803452316245755, guid: 55b52578e57ffcb42a82e17c8cddb27a, type: 3}
   starPrefab: {fileID: 4228449038052728848, guid: 2a4559eb8b97c454f80a759d71d3a072, type: 3}
+  compartmentCameraPrefab: {fileID: 8776552371779021093, guid: 09b75711d7b31a84995bbc29f121a9dd, type: 3}
 --- !u!1 &588823281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,7 +2522,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
@@ -3922,7 +3934,7 @@ Transform:
   m_GameObject: {fileID: 1215507593}
   serializedVersion: 2
   m_LocalRotation: {x: -0.17364825, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0.075, y: -0.7305593, z: 5.757549}
+  m_LocalPosition: {x: 0.075, y: -0.811, z: 4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

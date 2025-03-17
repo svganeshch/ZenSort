@@ -125,7 +125,9 @@ MonoBehaviour:
   propPickedScale: 1
   previousPos: {x: 0, y: 0, z: 0}
   propCollider: {fileID: 0}
-  material: {fileID: 0}
+  materials: []
   propSize: {x: 0, y: 0, z: 0}
   propLayer: 0
   shelfGrid: {fileID: 0}
+  propState: 1
+  isPicked: 0

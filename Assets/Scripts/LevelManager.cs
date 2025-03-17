@@ -30,6 +30,10 @@ public class LevelManager : MonoBehaviour
 
         GameObject levelShelfLayoutObj = Instantiate(levelShelfLayoutPrefab, transform);
         levelShelfLayoutObj.TryGetComponent<ShelfManager>(out shelfManager);
+        var compartmentCameraHolder = levelShelfLayoutObj.GetComponentInChildren<CompartmentCameraHolder>();
+        
+        // Set compartment camera
+        Instantiate(WorldManager.instance.compartmentCameraPrefab, compartmentCameraHolder.transform);
 
         numberOfProps = GetNumberOfProps(currentLevel);
 

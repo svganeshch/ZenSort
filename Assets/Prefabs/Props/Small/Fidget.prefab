@@ -107,8 +107,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.16135255, y: 0.15356505, z: 0.100883}
-  m_Center: {x: 0.00011458397, y: 0.00024067164, z: -0.029733783}
+  m_Size: {x: 0.16135255, y: 0.15356505, z: 0.14269845}
+  m_Center: {x: 0.00011458397, y: 0.00024067164, z: -0.050641354}
 --- !u!114 &2053956266919394716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   propPickedScale: 0.75
   previousPos: {x: 0, y: 0, z: 0}
   propCollider: {fileID: 0}
-  material: {fileID: 0}
+  materials: []
   propSize: {x: 0, y: 0, z: 0}
   propLayer: 0
   shelfGrid: {fileID: 0}

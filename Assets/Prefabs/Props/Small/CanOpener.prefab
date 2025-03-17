@@ -50,10 +50,12 @@ MonoBehaviour:
   propPickedScale: 1
   previousPos: {x: 0, y: 0, z: 0}
   propCollider: {fileID: 0}
-  material: {fileID: 0}
+  materials: []
   propSize: {x: 0, y: 0, z: 0}
   propLayer: 0
   shelfGrid: {fileID: 0}
+  propState: 1
+  isPicked: 0
 --- !u!65 &3032755665984791118
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -73,8 +75,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.10856037, y: 0.2004887, z: 0.06559088}
-  m_Center: {x: -0.00026927888, y: 0.098889045, z: -0.011552591}
+  m_Size: {x: 0.108560376, y: 0.20048872, z: 0.14320135}
+  m_Center: {x: -0.00026928188, y: 0.098889045, z: -0.050357737}
 --- !u!1 &6091230137130024879
 GameObject:
   m_ObjectHideFlags: 0
