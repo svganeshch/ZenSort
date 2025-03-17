@@ -293,7 +293,7 @@ public class SlotManager : MonoBehaviour
         Transform left = slots[leftIndex].slotProp.transform;
         Transform right = slots[rightIndex].slotProp.transform;
 
-        Vector3 moveUpOffset = Vector3.up * 0.25f; // Upward movement amount
+        Vector3 moveUpOffset = Vector3.up * 0.15f; // Upward movement amount
         Vector3 middleTarget = middle.position + moveUpOffset;
         Vector3 leftTarget = left.position + moveUpOffset;
         Vector3 rightTarget = right.position + moveUpOffset;
