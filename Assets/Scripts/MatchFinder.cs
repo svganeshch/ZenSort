@@ -35,13 +35,20 @@ public class MatchFinder : MonoBehaviour
 
         Prop propToMatch = null;
         int numberOfPropsToMatch = 0;
+        
+        bool slotMatchesFound = false;
 
         if (slotProp != null)
         {
             propToMatch = slotProp;
             numberOfPropsToMatch = (nextSlotProp != null && slotProp.name == nextSlotProp.name) ? 1 : 2;
+            
+            matchingProps = GetMatchingProps(propToMatch, allProps);
+            
+            if (matchingProps != null && matchingProps.Count >= numberOfPropsToMatch) slotMatchesFound = true;
         }
-        else
+        
+        if (!slotMatchesFound)
         {
             var propGroups = allProps
                 .GroupBy(p => p.name)
@@ -54,17 +61,11 @@ public class MatchFinder : MonoBehaviour
                 propToMatch = propGroups[Random.Range(0, propGroups.Count)];
                 numberOfPropsToMatch = 3;
             }
+            
+            matchingProps = GetMatchingProps(propToMatch, allProps);
         }
 
-        if (propToMatch == null)
-        {
-            Debug.Log("Not enough matching props found.");
-            return;
-        }
-
-        matchingProps = allProps.Where(p => p.name == propToMatch.name).ToList();
-
-        if (matchingProps.Count < numberOfPropsToMatch)
+        if (matchingProps != null && matchingProps.Count < numberOfPropsToMatch)
         {
             Debug.Log("Not enough matching props found.");
             return;
@@ -87,6 +88,17 @@ public class MatchFinder : MonoBehaviour
         }
 
         Debug.Log($"Found matching props: {propToMatch.name}");
+    }
+
+    private List<Prop> GetMatchingProps(Prop propToMatch, List<Prop> allProps)
+    {
+        if (propToMatch == null)
+        {
+            Debug.Log("proptomatch is null");
+            return null;
+        }
+
+        return matchingProps = allProps.Where(p => p.name == propToMatch.name).ToList();
     }
     
     public void ResetMatchProps()
