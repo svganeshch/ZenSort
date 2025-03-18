@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WorldManager : MonoBehaviour
@@ -23,6 +24,7 @@ public class WorldManager : MonoBehaviour
 
     public void PlayShuffleVFX(List<Prop> existingPropsList)
     {
+        existingPropsList = existingPropsList.Where(prop => prop.propLayer == 0).ToList();
         foreach (var prop in existingPropsList)
         {
             var svfx = Instantiate(shuffleVFX, prop.transform.position, Quaternion.identity);

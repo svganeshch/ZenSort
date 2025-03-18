@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
 
         List<Prop> levelProps = new List<Prop>(GameManager.instance.propManager.GenerateProps(numberOfProps));
 
-        StartCoroutine(shelfManager.StockShelfs(levelProps));
+        shelfManager.StockShelfs(levelProps);
     }
 
     int GetNumberOfProps(int levelNumber)
@@ -86,7 +86,7 @@ public class LevelManager : MonoBehaviour
         var existingPropsList = GameManager.instance.propManager.generatedProps;
         existingPropsList = existingPropsList.Where(item => item != null && !item.isPicked).ToList();
         
-        yield return shelfManager.StockShelfs(existingPropsList);
+        shelfManager.StockShelfs(existingPropsList);
         
         WorldManager.instance.PlayShuffleVFX(existingPropsList);
     }
