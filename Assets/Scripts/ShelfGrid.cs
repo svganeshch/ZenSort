@@ -147,14 +147,14 @@ public class ShelfGrid : MonoBehaviour
             prop.shelfGrid = this;
             prop.propLayer = currentLayer;
 
+            prop.SetPosition(propPos);
+            
             if (currentLayer > 0)
             {
                  prop.SetPropState(false);
             }
-
-            prop.SetPosition(propPos);
-
-            setPropsSeq.Join(prop.PlaySpawnTween());
+            
+            if (currentLayer == 0) setPropsSeq.Join(prop.PlaySpawnTween());
         }
 
         yield return null;
