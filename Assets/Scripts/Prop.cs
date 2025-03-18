@@ -86,7 +86,7 @@ public class Prop : MonoBehaviour
         }
         else
         {
-            scaleTween = transform.DOScale(transform.localScale / 2f, 0.25f).SetEase(Ease.OutQuad);
+            scaleTween = transform.DOScale(transform.localScale / 1.75f, 0.25f).SetEase(Ease.OutQuad);
         }
         
         GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
