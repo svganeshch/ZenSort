@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: 13
   m_EditorClassIdentifier: 
   seed: 0
-  compartmentPrefab: {fileID: 4379412350191611135, guid: 22c09d2c3cc754d4d9eb195f39734a56, type: 3}
+  compartmentPrefab: {fileID: 887419608475855550, guid: 0ca942f6d571e9748a6cb519fe415ccc, type: 3}
