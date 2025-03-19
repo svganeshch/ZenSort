@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Slot : MonoBehaviour
 {
-    private float moveSpeed = 0.15f;
+    private float moveSpeed = 0.2f;
     private float shiftSpeed = 0.05f;
 
     public ParticleSystem slotVFX;
@@ -40,10 +40,19 @@ public class Slot : MonoBehaviour
         Vector3 targetPosition = new Vector3(transform.position.x, propY, transform.position.z);
 
         Tween moveTween = setProp.transform.DOMove(targetPosition, transistionSpeed)
-                        .SetEase(Ease.InQuad)
+                        .SetEase(Ease.OutQuart)
                         .OnComplete(() =>
                         {
                             setProp.transform.SetParent(transform);
+
+                            if (!isShift)
+                            {
+                                setProp.transform.DOShakeScale(0.15f, 
+                                        Vector3.Scale(new Vector3(-0.075f, -0.075f, 0) , setProp.transform.localScale), 
+                                        randomnessMode: ShakeRandomnessMode.Harmonic)
+                                    .SetEase(Ease.OutBounce);
+                            }
+
                             OnCompleteCallback?.Invoke();
                         });
 
