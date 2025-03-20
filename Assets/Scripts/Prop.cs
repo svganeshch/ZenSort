@@ -91,7 +91,6 @@ public class Prop : MonoBehaviour
         
         GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
 
-
         SFXManager.instance.PlayPropPickedSound();
         
         GameManager.instance.OnPropPicked.Invoke();

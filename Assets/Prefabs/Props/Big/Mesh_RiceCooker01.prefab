@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origPropScale: {x: 0, y: 0, z: 0}
-  propPickedScale: 0.35
+  propPickedScale: 0.45
   previousPos: {x: 0, y: 0, z: 0}
   propCollider: {fileID: 0}
   materials: []
