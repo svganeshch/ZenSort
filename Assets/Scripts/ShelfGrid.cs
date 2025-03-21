@@ -5,6 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[Serializable]
+public class PropNode
+{
+    public Prop prop;
+    public List<PropNode> children;
+ 
+    public PropNode(Prop prop)
+    {
+        this.prop = prop;
+        children = new List<PropNode>();
+    }
+}
+
 public class ShelfGrid : MonoBehaviour
 {
     BoxCollider shelfCollider;
@@ -28,6 +41,8 @@ public class ShelfGrid : MonoBehaviour
 
     private List<Prop> propsMovedInPreviousPick = new List<Prop>();
     public List<List<Prop>> shelfPropList = new List<List<Prop>>();
+    
+    public List<PropNode> shelfTree = new List<PropNode>();
 
     public void Awake()
     {
@@ -161,6 +176,102 @@ public class ShelfGrid : MonoBehaviour
 
         //UpdatePropsState();
     }
+    
+    private void GenerateRootNodes()
+    {
+        foreach (var prop in shelfPropList[0])
+        {
+            PropNode parentNode = new PropNode(prop);
+            shelfTree.Add(parentNode);
+        }
+    }
+    
+    public void GenerateShelfTree()
+    {
+        shelfTree.Clear();
+        GenerateRootNodes();
+        
+        // 2nd layer props are always blocked by parent nodes so just
+        // make them as child of blocked parents
+        if (shelfPropList.Count > 1)
+        {
+            foreach (var prop in shelfPropList[1])
+            {
+                var blockedProps = GetBlockedProps(prop);
+
+                foreach (var bProp in blockedProps)
+                {
+                    if (bProp.gameObject == prop.gameObject) continue;
+
+                    foreach (var parentNode in shelfTree)
+                    {
+                        if (bProp.gameObject == parentNode.prop.gameObject)
+                        {
+                            PropNode childNode = new PropNode(prop);
+                            parentNode.children.Add(childNode);
+                        }
+                    }
+                }
+            }
+
+            // From 3rd layer check each prop's blocked prop and see which parents node
+            // child it belongs to while checking through the depth of all children
+            for (int i = 2; i < shelfPropList.Count; i++)
+            {
+                var propsList = shelfPropList[i];
+
+                foreach (var prop in propsList)
+                {
+                    var blockedProps = GetBlockedProps(prop);
+
+                    foreach (var bProp in blockedProps)
+                    {
+                        if (bProp.gameObject == prop.gameObject) continue;
+
+                        foreach (var parentNode in shelfTree)
+                        {
+                            // Recursively find the node containing bProp
+                            PropNode foundNode = FindNodeRecursive(parentNode, bProp.gameObject);
+
+                            if (foundNode != null)
+                            {
+                                PropNode newChildNode = new PropNode(prop);
+                                foundNode.children.Add(newChildNode);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private PropNode FindNodeRecursive(PropNode currentNode, GameObject targetProp)
+    {
+        // If current node matches, return it
+        if (currentNode.prop.gameObject == targetProp)
+            return currentNode;
+
+        // Recursively search in child nodes
+        foreach (var child in currentNode.children)
+        {
+            PropNode found = FindNodeRecursive(child, targetProp);
+            if (found != null)
+                return found;
+        }
+
+        return null; // Not found
+    }
+
+    private Collider[] GetBlockedProps(Prop prop)
+    {
+        Vector3 overlapBoxSize = new Vector3(prop.propSize.x * propOverlapBoxReduction, prop.propSize.y * propOverlapBoxReduction, propOverlapBoxDepth);
+        Vector3 frontOffset = prop.transform.forward * (prop.propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
+        Vector3 overlapBoxPos = prop.propCollider.bounds.center + frontOffset;
+ 
+        Collider[] colliders = Physics.OverlapBox(overlapBoxPos, overlapBoxSize / 2, prop.transform.rotation, WorldLayerMaskManager.instance.propLayerMask);
+ 
+        return colliders;
+    }
 
     public void UpdatePropsState()
     {
@@ -172,11 +283,84 @@ public class ShelfGrid : MonoBehaviour
             {
                 if (prop == null) continue;
 
-                if (prop.propLayer > 0) continue;
+                //if (prop.propLayer > 0) continue;
 
                 prop.SetPropState(!IsPropBlocked(prop));
             }
         }
+    }
+
+    public void UpdateShelfTreeProps(Prop pickedProp)
+    {
+        PropNode foundNode = null;
+        List<Prop> layerPropsToMove = new List<Prop>();
+
+        foreach (var parentNode in shelfTree)
+        {
+            foundNode = FindNodeRecursive(parentNode, pickedProp.gameObject);
+
+            if (foundNode != null)
+            {
+                foreach (var childNode in foundNode.children)
+                {
+                    if (CountParents(childNode.prop) == 1) // Move only if it has a single parent
+                    {
+                        CollectValidDescendants(childNode, layerPropsToMove);
+                    }
+                }
+            }
+        }
+
+        StartCoroutine(MovePropForward(layerPropsToMove));
+    }
+
+    // Recursively collect all descendants, considering parent count
+    private void CollectValidDescendants(PropNode node, List<Prop> propsToMove)
+    {
+        if (CountParents(node.prop) == 1) // Ensure it still has a single parent
+        {
+            propsToMove.Add(node.prop);
+
+            foreach (var child in node.children)
+            {
+                CollectValidDescendants(child, propsToMove);
+            }
+        }
+    }
+
+    // Counts how many parents reference a specific prop
+    private int CountParents(Prop prop)
+    {
+        int count = 0;
+
+        foreach (var parentNode in shelfTree)
+        {
+            if (HasChildRecursive(parentNode, prop))
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    // Recursively checks if a node has the target prop as a child
+    private bool HasChildRecursive(PropNode parentNode, Prop targetProp)
+    {
+        if (parentNode.children.Any(child => child.prop == targetProp))
+        {
+            return true;
+        }
+
+        foreach (var child in parentNode.children)
+        {
+            if (HasChildRecursive(child, targetProp))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public IEnumerator UpdateShelf(Prop pickedProp)
@@ -226,12 +410,19 @@ public class ShelfGrid : MonoBehaviour
             propsMovedInPreviousPick.Add(propToMove);
 
             Tween moveFwdTween = propToMove.transform.DOMove(shiftPos, 0.15f).SetEase(Ease.InOutSine);
+            
+            shelfPropList[propToMove.propLayer].Remove(propToMove);
+            
+            var currentPropLayer = propToMove.propLayer - 1;
+            propToMove.propLayer = currentPropLayer;
+            shelfPropList[currentPropLayer].Add(propToMove);
 
             moveFwdSeq.Join(moveFwdTween);
         }
 
         yield return moveFwdSeq.WaitForCompletion();
 
+        GenerateShelfTree();
         UpdatePropsState();
     }
 
@@ -287,27 +478,53 @@ public class ShelfGrid : MonoBehaviour
     void OnDrawGizmos()
     {
         if (!Application.isPlaying) return;
+        
+        if (shelfTree == null) return;
 
-        for (int i = 0; i < shelfPropList.Count; i++)
+        foreach (var rootNode in shelfTree)
         {
-            var currentLayerPropList = shelfPropList[i];
+            DrawNodeConnections(rootNode);
+        }
 
-            foreach (var prop in currentLayerPropList)
-            {
-                Gizmos.color = Color.blue;
+        // for (int i = 0; i < shelfPropList.Count; i++)
+        // {
+        //     var currentLayerPropList = shelfPropList[i];
+        //
+        //     foreach (var prop in currentLayerPropList)
+        //     {
+        //         Gizmos.color = Color.blue;
+        //
+        //         if (prop == null) continue;
+        //
+        //         //Vector3 propSize = prop.propCollider.size;
+        //         Vector3 propCenter = prop.propCollider.bounds.center;
+        //
+        //         Vector3 overlapBoxSize = new Vector3(prop.propSize.x * propOverlapBoxReduction, prop.propSize.y * propOverlapBoxReduction, propOverlapBoxDepth);
+        //
+        //         Vector3 frontOffset = prop.transform.forward * (prop.propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
+        //         Vector3 overlapBoxPos = propCenter + frontOffset;
+        //
+        //         Gizmos.DrawWireCube(overlapBoxPos, overlapBoxSize);
+        //     }
+        // }
+    }
+    
+    private void DrawNodeConnections(PropNode node)
+    {
+        if (node == null || node.prop == null) return;
 
-                if (prop == null) continue;
+        Vector3 nodePos = node.prop.transform.position;
 
-                //Vector3 propSize = prop.propCollider.size;
-                Vector3 propCenter = prop.propCollider.bounds.center;
+        foreach (var child in node.children)
+        {
+            if (child == null || child.prop == null) continue;
 
-                Vector3 overlapBoxSize = new Vector3(prop.propSize.x * propOverlapBoxReduction, prop.propSize.y * propOverlapBoxReduction, propOverlapBoxDepth);
+            Vector3 childPos = child.prop.transform.position;
 
-                Vector3 frontOffset = prop.transform.forward * (prop.propSize.z * 0.5f + overlapBoxSize.z * 0.5f);
-                Vector3 overlapBoxPos = propCenter + frontOffset;
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(nodePos, childPos);
 
-                Gizmos.DrawWireCube(overlapBoxPos, overlapBoxSize);
-            }
+            DrawNodeConnections(child);
         }
     }
 }

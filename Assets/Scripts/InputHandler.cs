@@ -85,7 +85,7 @@ public class InputHandler : MonoBehaviour
             {
                 Debug.Log("Match check counter triggered");
                 showMatch = true;
-                MatchFinder.instance.ShowMatches();
+                //MatchFinder.instance.ShowMatches();
                 
                 currentTime = 0;
                 previousTouchTime = Time.time;

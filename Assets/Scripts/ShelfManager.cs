@@ -14,7 +14,7 @@ public class ShelfManager : MonoBehaviour
         shelfGrids = GetComponentsInChildren<ShelfGrid>().ToList();
     }
 
-    public void StockShelfs(List<Prop> origPropList)
+    public IEnumerator StockShelfs(List<Prop> origPropList)
     {
         remainingProps = new List<Prop>(origPropList);
 
@@ -36,11 +36,16 @@ public class ShelfManager : MonoBehaviour
         {
             foreach (var shelf in shelfGrids)
             {
-                StartCoroutine(shelf.SetProps(remainingProps,
+                yield return StartCoroutine(shelf.SetProps(remainingProps,
                     (receivedProps) => remainingProps = receivedProps));
                 
                 if (remainingProps.Count == 0) break;
             }
+        }
+
+        foreach (var shelf in shelfGrids)
+        {
+            shelf.GenerateShelfTree();
         }
     }
 
@@ -95,6 +100,7 @@ public class ShelfManager : MonoBehaviour
             }
 
             shelfGrid.shelfPropList.Clear();
+            shelfGrid.shelfTree.Clear();
             if (reset) shelfGrid.Awake();
         }
 

@@ -113,7 +113,8 @@ public class Prop : MonoBehaviour
     private void OnPropQueueComplete()
     {
         shelfGrid.shelfPropList[propLayer].Remove(this);
-        StartCoroutine(shelfGrid.UpdateShelf(this));
+        shelfGrid.UpdateShelfTreeProps(this);
+        //StartCoroutine(shelfGrid.UpdateShelf(this));
     }
 
     public void PropUndo()
