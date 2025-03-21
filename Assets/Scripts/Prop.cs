@@ -89,6 +89,8 @@ public class Prop : MonoBehaviour
             scaleTween = transform.DOScale(transform.localScale / 1.75f, 0.25f).SetEase(Ease.OutQuad);
         }
         
+        shelfGrid.shelfPropList[propLayer].Remove(this);
+        
         GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
 
         SFXManager.instance.PlayPropPickedSound();
@@ -112,7 +114,6 @@ public class Prop : MonoBehaviour
 
     private void OnPropQueueComplete()
     {
-        shelfGrid.shelfPropList[propLayer].Remove(this);
         StartCoroutine(shelfGrid.UpdateShelf(this));
     }
 

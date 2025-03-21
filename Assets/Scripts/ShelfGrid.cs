@@ -196,12 +196,6 @@ public class ShelfGrid : MonoBehaviour
 
                 if (!IsPropBlocked(prop))
                 {
-                    shelfPropList[i].Remove(prop);
-                    
-                    var currentPropLayer = Mathf.Max(0, i - 1);
-                    prop.propLayer = currentPropLayer;
-                    shelfPropList[currentPropLayer].Add(prop);
-
                     layerPropsToMove.Add(prop);
                 }
             }
@@ -216,7 +210,13 @@ public class ShelfGrid : MonoBehaviour
 
         foreach (var propToMove in propsToMove)
         {
-            if (propToMove.transform.position.z >= shelfZ) continue;
+            //if (propToMove.transform.position.z >= shelfZ) continue;
+            
+            shelfPropList[propToMove.propLayer].Remove(propToMove);
+            
+            var currentPropLayer = propToMove.propLayer - 1;
+            propToMove.propLayer = currentPropLayer;
+            shelfPropList[currentPropLayer].Add(propToMove);
 
             Vector3 shiftPos = propToMove.transform.position;
             shiftPos.z = Mathf.Min(shelfZ, shiftPos.z + shelfPaddingZ);
@@ -225,7 +225,7 @@ public class ShelfGrid : MonoBehaviour
 
             propsMovedInPreviousPick.Add(propToMove);
 
-            Tween moveFwdTween = propToMove.transform.DOMove(shiftPos, 0.15f).SetEase(Ease.InOutSine);
+            Tween moveFwdTween = propToMove.transform.DOMove(shiftPos, 0.1f).SetEase(Ease.InOutSine);
 
             moveFwdSeq.Join(moveFwdTween);
         }
