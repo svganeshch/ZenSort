@@ -29,7 +29,7 @@ public class BonusStarHandler : MonoBehaviour
                 GameObject star = bonusSlot.star;
 
                 star.SetActive(true);
-                star.transform.DOPunchScale(Vector3.one * 0.01f, 0.1f, 0, 0).SetEase(Ease.InQuad);
+                star.transform.DOPunchScale(Vector3.one * 0.75f, 0.25f, 0, 0).SetEase(Ease.InQuad);
 
                 break;
             }
