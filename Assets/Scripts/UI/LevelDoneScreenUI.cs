@@ -23,7 +23,8 @@ public class LevelDoneScreenUI : MonoBehaviour
         gameObject.SetActive(true);
         levelDoneCeleb.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(4);
+        //yield return new WaitForSeconds(4);
+        yield return null;
         
         levelDoneCeleb.gameObject.SetActive(false);
         
