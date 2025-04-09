@@ -179,7 +179,7 @@ public class ShelfGrid : MonoBehaviour
         }
     }
 
-    public IEnumerator UpdateShelf(Prop pickedProp)
+    public void UpdateShelf(Prop pickedProp)
     {
         int startLayer = pickedProp != null ? pickedProp.propLayer + 1 : 0;
 
@@ -187,8 +187,8 @@ public class ShelfGrid : MonoBehaviour
 
         for (int i = startLayer; i < shelfPropList.Count; i++)
         {
-            var propList = new List<Prop>(shelfPropList[i]);
             List<Prop> layerPropsToMove = new List<Prop>();
+            var propList = new List<Prop>(shelfPropList[i]);
 
             foreach (var prop in propList)
             {
@@ -199,12 +199,12 @@ public class ShelfGrid : MonoBehaviour
                     layerPropsToMove.Add(prop);
                 }
             }
-
-            yield return StartCoroutine(MovePropForward(layerPropsToMove));
+            
+            MovePropForward(layerPropsToMove);
         }
     }
 
-    public IEnumerator MovePropForward(List<Prop> propsToMove)
+    public void MovePropForward(List<Prop> propsToMove)
     {
         Sequence moveFwdSeq = DOTween.Sequence();
 
@@ -216,6 +216,7 @@ public class ShelfGrid : MonoBehaviour
             
             var currentPropLayer = propToMove.propLayer - 1;
             propToMove.propLayer = currentPropLayer;
+            propToMove.propCollider.enabled = false;
             shelfPropList[currentPropLayer].Add(propToMove);
 
             Vector3 shiftPos = propToMove.transform.position;
@@ -225,14 +226,13 @@ public class ShelfGrid : MonoBehaviour
 
             propsMovedInPreviousPick.Add(propToMove);
 
-            Tween moveFwdTween = propToMove.transform.DOMove(shiftPos, 0.1f).SetEase(Ease.InOutSine);
+            Tween moveFwdTween = propToMove.transform.DOMove(shiftPos, 0.5f).SetEase(Ease.InOutSine)
+                .OnComplete(() => propToMove.propCollider.enabled = true);
 
             moveFwdSeq.Join(moveFwdTween);
         }
-
-        yield return moveFwdSeq.WaitForCompletion();
-
-        UpdatePropsState();
+        
+        moveFwdSeq.OnComplete(UpdatePropsState);
     }
 
     private bool IsPropBlocked(Prop prop)

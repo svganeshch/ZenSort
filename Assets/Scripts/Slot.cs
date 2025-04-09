@@ -38,7 +38,7 @@ public class Slot : MonoBehaviour
             transistionSpeed = moveSpeed;
         }
 
-        //if (setProp.scaleTween != null) setProp.scaleTween.Complete();
+        if (setProp.scaleTween != null) setProp.scaleTween.Complete();
         
         float propY = slotBoxCollider.bounds.max.y + (setProp.propCollider.size.y * setProp.transform.localScale.y / 2) - (setProp.propCollider.center.y * setProp.transform.localScale.y);
         targetPosition = new Vector3(transform.position.x, propY, transform.position.z);

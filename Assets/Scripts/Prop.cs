@@ -1,9 +1,7 @@
 using DG.Tweening;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 [Serializable]
 public class Prop : MonoBehaviour
@@ -54,7 +52,7 @@ public class Prop : MonoBehaviour
 
         foreach (var material in materials)
         {
-            material.DOColor(targetColor, 0.25f);
+            material.DOColor(targetColor, 0.2f).SetEase(Ease.InSine);
         }
 
         propState = state;
@@ -89,13 +87,15 @@ public class Prop : MonoBehaviour
             scaleTween = transform.DOScale(transform.localScale / 1.75f, 0.25f).SetEase(Ease.OutQuad);
         }
         
+        propCollider.enabled = false;
         shelfGrid.shelfPropList[propLayer].Remove(this);
+        shelfGrid.UpdateShelf(this);
         
-        GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
-
         SFXManager.instance.PlayPropPickedSound();
         
         GameManager.instance.OnPropPicked.Invoke();
+        
+        GameManager.instance.slotManager.EnqueueProp(this, OnPropQueueComplete);
 
         //Debug.Log(gameObject.name + " is picked!!");
     }
@@ -114,7 +114,6 @@ public class Prop : MonoBehaviour
 
     private void OnPropQueueComplete()
     {
-        StartCoroutine(shelfGrid.UpdateShelf(this));
     }
 
     public void PropUndo()
