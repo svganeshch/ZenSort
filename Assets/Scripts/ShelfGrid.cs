@@ -226,7 +226,7 @@ public class ShelfGrid : MonoBehaviour
 
             propsMovedInPreviousPick.Add(propToMove);
 
-            Tween moveFwdTween = propToMove.transform.DOMove(shiftPos, 0.5f).SetEase(Ease.InOutSine)
+            Tween moveFwdTween = propToMove.transform.DOMove(shiftPos, 0.1f).SetEase(Ease.InOutSine)
                 .OnComplete(() => propToMove.propCollider.enabled = true);
 
             moveFwdSeq.Join(moveFwdTween);
